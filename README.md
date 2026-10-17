@@ -61,6 +61,8 @@ func main() {
 
 The same code is in `example_test.go`, so `make test` checks that it compiles. Check `StatusCode()` and the expected JSON field before using a response. HTTP errors are decoded responses, not Go errors; the Go error covers transport and decoding failures.
 
+The full API, with the spec's descriptions as doc comments, is in the [Go reference](https://pkg.go.dev/github.com/psyb0t/go-surge) and in `go doc github.com/psyb0t/go-surge` from inside your module.
+
 The client covers all 41 operations across 25 paths: accounts, audiences, blasts, campaigns, contacts, messages, phone numbers, recordings, users, tokens and verification codes. The component models include webhook payloads, but the package does not run a webhook server or verify webhook signatures.
 
 ## Auth

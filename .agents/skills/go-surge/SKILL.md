@@ -2,6 +2,7 @@
 name: go-surge
 description: Unofficial Go client for the Surge SMS API. Package surge (github.com/psyb0t/go-surge) provides typed REST methods for accounts, audiences, blasts, campaigns, contacts, messages, phone numbers, recordings, users, tokens and verifications. Use when Go code needs Surge SMS operations or already imports go-surge.
 homepage: https://github.com/psyb0t/go-surge
+license: MIT
 user-invocable: true
 metadata:
   openclaw:
@@ -9,8 +10,6 @@ metadata:
     requires:
       bins:
         - go
-      env:
-        - SURGE_API_KEY
 permissions:
   filesystem: "Guides edits to the current project's Go source. The library reads and writes no files."
   shell: "The Go toolchain to add and compile the dependency."
@@ -42,9 +41,23 @@ For install, operations, pagination and responses, read [references/setup.md](re
 - You need an official provider SDK. This module is unofficial.
 - You want to modify the generated client. Read `AGENTS.md` in the repository.
 
+## Finding endpoints and types
+
+The usage notes below cover a few calls. Every operation in the spec has a generated method, and the spec's descriptions are on them as Go doc comments. Look names and fields up instead of guessing. After `go get github.com/psyb0t/go-surge`, from inside your module:
+
+```bash
+go doc github.com/psyb0t/go-surge ClientWithResponsesInterface  # every endpoint method
+go doc github.com/psyb0t/go-surge ListAccountsParams            # one method, params type or model
+go doc -all github.com/psyb0t/go-surge                          # the whole package
+```
+
+The same documentation is at https://pkg.go.dev/github.com/psyb0t/go-surge.
+
+Method names come from the spec's operation IDs. `<OperationId>WithResponse` takes the context, then the path parameters in order, then `*<OperationId>Params` when the operation has query or header parameters, then the request body when it has one. The `JSON200` field (or `JSON201` and so on, per declared status) holds the decoded body; it is nil for any other status.
+
 ## Usage
 
-Use the compiled example in [example_test.go](../../../example_test.go), also shown in the README. It creates a client with a bearer request editor and calls `ListAccountsWithResponse(ctx, &surge.ListAccountsParams{})`.
+Use the compiled example in the repository's `example_test.go`, also shown in the README. It creates a client with a bearer request editor and calls `ListAccountsWithResponse(ctx, &surge.ListAccountsParams{})`.
 
 - `NewClientWithResponses` returns parsed response methods. `WithHTTPClient` accepts a custom HTTP client with a timeout.
 - Go errors cover transport and decoding failures. Check `StatusCode()` and `JSON200` or `JSON201` before accessing the response. Error bodies usually use `JSONDefault`.

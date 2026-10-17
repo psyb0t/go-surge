@@ -1,6 +1,6 @@
 {
   "name": "go-surge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial Go client for the Surge SMS API: accounts, messages, contacts, campaigns, phone numbers, recordings, users and verifications, generated from Surge's public OpenAPI spec.",
   "author": {
     "name": "psyb0t",
