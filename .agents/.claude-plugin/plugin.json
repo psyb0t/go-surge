@@ -1,0 +1,18 @@
+{
+  "name": "go-surge",
+  "description": "Unofficial Go client for the Surge SMS API: accounts, messages, contacts, campaigns, phone numbers, recordings, users and verifications, generated from Surge's public OpenAPI spec.",
+  "author": {
+    "name": "psyb0t",
+    "url": "https://github.com/psyb0t"
+  },
+  "homepage": "https://github.com/psyb0t/go-surge",
+  "license": "MIT",
+  "keywords": [
+    "surge",
+    "sms",
+    "messaging",
+    "api-client",
+    "go-library",
+    "openapi"
+  ]
+}

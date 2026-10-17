@@ -1,0 +1,33 @@
+title = "go-surge secret scanning"
+
+[extend]
+useDefault = true
+
+# gitleaks' `dir` mode walks the working tree and does NOT honour .gitignore, so
+# every gitignored local path is named again here. Nothing gitignored is tracked
+# by git. The committed Go vendor/ tree is intentionally NOT listed: it ships to
+# consumers, so it gets scanned. Verify with `git check-ignore <path>` before
+# adding a line; an entry for a committed source path silences real leaks.
+[[allowlists]]
+description = "Gitignored local scratch, downloaded specs, caches, and scan artifacts"
+paths = [
+  '''(^|/)\.env$''',
+  '''(^|/)\.vscode(?:/|$)''',
+  '''(^|/)\.telemetry(?:/|$)''',
+  '''(^|/)\.research_files(?:/|$)''',
+  '''(^|/)\.testing(?:/|$)''',
+  '''(^|/)api/openapi(?:\.fixed)?\.yaml$''',
+  '''(^|/)__pycache__(?:/|$)''',
+  '''(^|/)sec\.sarif$''',
+  '''(^|/)git-update\.sh(?:\.debot)?$''',
+  '''(^|/)CLAUDE\.md$''',
+]
+
+# The TokenResponse example is a public sample JWT copied by oapi-codegen.
+# Allow only that exact value, and only in the generated client.
+[[allowlists]]
+description = "Sample JWT from Surge's public TokenResponse schema"
+condition = "AND"
+paths = ['''(^|/)client\.gen\.go$''']
+regexTarget = "secret"
+regexes = ['''^eyJhbGciOiJFZERTQSIsImtpZCI6InNnbl8wMWp5bWowZ3AwZjNidmJmMmpyazRoYnd0ayIsInR5cCI6IkpXVCJ9\.eyJleHAiOjE3NTA4ODkyMDgsInN1YiI6InVzcl8wMWp5bWdkZnJwZWMyYXNjNW0wejNhNmZyOSJ9\.zKayo3EDrUm1Hw8URrofuYwajgyTu6dH2H0FEuRExprP1IV66FHa8wC3SfdzV7sR3AjDGAwkuAXztScq6rBnBw$''']
