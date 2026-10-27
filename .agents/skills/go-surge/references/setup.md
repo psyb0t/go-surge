@@ -4,7 +4,7 @@ This module is unofficial and not affiliated with Surge.
 
 ## Requirements
 
-- Go 1.26.9 or newer, per `go.mod`.
+- Go 1.26.10 or newer, per `go.mod`.
 - A Surge API token exported as `SURGE_API_KEY`.
 - An account ID for account-scoped operations.
 
