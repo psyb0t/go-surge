@@ -6,7 +6,7 @@ Unofficial Go client for the Surge SMS API, generated from Surge's public OpenAP
 
 One generated package, `surge`, at the module root, driven by `gen.go`:
 
-`scripts/fetch-spec.sh` reads `openapi_spec_url` from `https://raw.githubusercontent.com/surgeapi/python-sdk/main/.stats.yml` and downloads the Stainless JSON document to `api/openapi.yaml`. `scripts/patch-spec.sh` writes `api/openapi.fixed.yaml`, downconverting nullable type lists, constants and schema examples to OpenAPI 3.0.3. oapi-codegen reads `config.yaml` and emits `client.gen.go`.
+`scripts/fetch-spec.sh` downloads the JSON document the Surge API serves at `https://api.surge.app/openapi.json` to `api/openapi.yaml`. `scripts/patch-spec.sh` writes `api/openapi.fixed.yaml`, downconverting nullable type lists, constants and schema examples to OpenAPI 3.0.3. oapi-codegen reads `config.yaml` and emits `client.gen.go`.
 
 ## Stack
 
@@ -36,8 +36,7 @@ make sec       # gitleaks, govulncheck, semgrep
 
 ## Project-specific landmines
 
-- Stainless changes the content hash in its spec URL. Resolve it from SDK metadata on every regeneration.
-- The URL ends in `.yml`, but the downloaded document is JSON. The patch uses jq, not a YAML parser.
+- The downloaded `api/openapi.yaml` is JSON. The patch uses jq, not a YAML parser.
 - OpenAPI 3.1.1 nullable type lists, `const` and schema examples arrays need downconversion. Never hand-edit generated output.
 - `skip-prune` retains all schemas, including webhook payload models. There is no webhook server or signature verifier.
 - All unformatted number fields map to `float64`.

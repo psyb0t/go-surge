@@ -315,6 +315,213 @@ func (e CampaignApprovedEventType) Valid() bool {
 	}
 }
 
+// Defines values for CampaignRejectedEventDataFeedbackOutcome.
+const (
+	CampaignRejectedEventDataFeedbackOutcomeChangesNeeded CampaignRejectedEventDataFeedbackOutcome = "changes_needed"
+	CampaignRejectedEventDataFeedbackOutcomeWarning       CampaignRejectedEventDataFeedbackOutcome = "warning"
+)
+
+// Valid indicates whether the value is a known member of the CampaignRejectedEventDataFeedbackOutcome enum.
+func (e CampaignRejectedEventDataFeedbackOutcome) Valid() bool {
+	switch e {
+	case CampaignRejectedEventDataFeedbackOutcomeChangesNeeded:
+		return true
+	case CampaignRejectedEventDataFeedbackOutcomeWarning:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignRejectedEventDataStatus.
+const (
+	CampaignRejectedEventDataStatusRejected CampaignRejectedEventDataStatus = "rejected"
+)
+
+// Valid indicates whether the value is a known member of the CampaignRejectedEventDataStatus enum.
+func (e CampaignRejectedEventDataStatus) Valid() bool {
+	switch e {
+	case CampaignRejectedEventDataStatusRejected:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignRejectedEventType.
+const (
+	CampaignRejectedEventTypeCampaignRejected CampaignRejectedEventType = "campaign.rejected"
+)
+
+// Valid indicates whether the value is a known member of the CampaignRejectedEventType enum.
+func (e CampaignRejectedEventType) Valid() bool {
+	switch e {
+	case CampaignRejectedEventTypeCampaignRejected:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignSubmittedEventDataStatus.
+const (
+	CampaignSubmittedEventDataStatusInReview CampaignSubmittedEventDataStatus = "in_review"
+)
+
+// Valid indicates whether the value is a known member of the CampaignSubmittedEventDataStatus enum.
+func (e CampaignSubmittedEventDataStatus) Valid() bool {
+	switch e {
+	case CampaignSubmittedEventDataStatusInReview:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignSubmittedEventType.
+const (
+	CampaignSubmittedEventTypeCampaignSubmitted CampaignSubmittedEventType = "campaign.submitted"
+)
+
+// Valid indicates whether the value is a known member of the CampaignSubmittedEventType enum.
+func (e CampaignSubmittedEventType) Valid() bool {
+	switch e {
+	case CampaignSubmittedEventTypeCampaignSubmitted:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignUpdateParamsIncludes.
+const (
+	CampaignUpdateParamsIncludesAgeGated      CampaignUpdateParamsIncludes = "age_gated"
+	CampaignUpdateParamsIncludesDirectLending CampaignUpdateParamsIncludes = "direct_lending"
+	CampaignUpdateParamsIncludesLinks         CampaignUpdateParamsIncludes = "links"
+	CampaignUpdateParamsIncludesPhoneNumbers  CampaignUpdateParamsIncludes = "phone_numbers"
+)
+
+// Valid indicates whether the value is a known member of the CampaignUpdateParamsIncludes enum.
+func (e CampaignUpdateParamsIncludes) Valid() bool {
+	switch e {
+	case CampaignUpdateParamsIncludesAgeGated:
+		return true
+	case CampaignUpdateParamsIncludesDirectLending:
+		return true
+	case CampaignUpdateParamsIncludesLinks:
+		return true
+	case CampaignUpdateParamsIncludesPhoneNumbers:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignUpdateParamsUseCases.
+const (
+	CampaignUpdateParamsUseCasesAccountNotification       CampaignUpdateParamsUseCases = "account_notification"
+	CampaignUpdateParamsUseCasesCustomerCare              CampaignUpdateParamsUseCases = "customer_care"
+	CampaignUpdateParamsUseCasesDeliveryNotification      CampaignUpdateParamsUseCases = "delivery_notification"
+	CampaignUpdateParamsUseCasesFraudAlert                CampaignUpdateParamsUseCases = "fraud_alert"
+	CampaignUpdateParamsUseCasesHigherEducation           CampaignUpdateParamsUseCases = "higher_education"
+	CampaignUpdateParamsUseCasesMarketing                 CampaignUpdateParamsUseCases = "marketing"
+	CampaignUpdateParamsUseCasesPollingVoting             CampaignUpdateParamsUseCases = "polling_voting"
+	CampaignUpdateParamsUseCasesPublicServiceAnnouncement CampaignUpdateParamsUseCases = "public_service_announcement"
+	CampaignUpdateParamsUseCasesSecurityAlert             CampaignUpdateParamsUseCases = "security_alert"
+	CampaignUpdateParamsUseCasesTwoFactorAuthentication   CampaignUpdateParamsUseCases = "two_factor_authentication"
+)
+
+// Valid indicates whether the value is a known member of the CampaignUpdateParamsUseCases enum.
+func (e CampaignUpdateParamsUseCases) Valid() bool {
+	switch e {
+	case CampaignUpdateParamsUseCasesAccountNotification:
+		return true
+	case CampaignUpdateParamsUseCasesCustomerCare:
+		return true
+	case CampaignUpdateParamsUseCasesDeliveryNotification:
+		return true
+	case CampaignUpdateParamsUseCasesFraudAlert:
+		return true
+	case CampaignUpdateParamsUseCasesHigherEducation:
+		return true
+	case CampaignUpdateParamsUseCasesMarketing:
+		return true
+	case CampaignUpdateParamsUseCasesPollingVoting:
+		return true
+	case CampaignUpdateParamsUseCasesPublicServiceAnnouncement:
+		return true
+	case CampaignUpdateParamsUseCasesSecurityAlert:
+		return true
+	case CampaignUpdateParamsUseCasesTwoFactorAuthentication:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignUpdateParamsVolume.
+const (
+	CampaignUpdateParamsVolumeHigh CampaignUpdateParamsVolume = "high"
+	CampaignUpdateParamsVolumeLow  CampaignUpdateParamsVolume = "low"
+)
+
+// Valid indicates whether the value is a known member of the CampaignUpdateParamsVolume enum.
+func (e CampaignUpdateParamsVolume) Valid() bool {
+	switch e {
+	case CampaignUpdateParamsVolumeHigh:
+		return true
+	case CampaignUpdateParamsVolumeLow:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignWarningEventDataFeedbackOutcome.
+const (
+	CampaignWarningEventDataFeedbackOutcomeWarning CampaignWarningEventDataFeedbackOutcome = "warning"
+)
+
+// Valid indicates whether the value is a known member of the CampaignWarningEventDataFeedbackOutcome enum.
+func (e CampaignWarningEventDataFeedbackOutcome) Valid() bool {
+	switch e {
+	case CampaignWarningEventDataFeedbackOutcomeWarning:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignWarningEventDataStatus.
+const (
+	CampaignWarningEventDataStatusInReview CampaignWarningEventDataStatus = "in_review"
+)
+
+// Valid indicates whether the value is a known member of the CampaignWarningEventDataStatus enum.
+func (e CampaignWarningEventDataStatus) Valid() bool {
+	switch e {
+	case CampaignWarningEventDataStatusInReview:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CampaignWarningEventType.
+const (
+	CampaignWarningEventTypeCampaignWarning CampaignWarningEventType = "campaign.warning"
+)
+
+// Valid indicates whether the value is a known member of the CampaignWarningEventType enum.
+func (e CampaignWarningEventType) Valid() bool {
+	switch e {
+	case CampaignWarningEventTypeCampaignWarning:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ContactOptedInEventType.
 const (
 	ContactOptedInEventTypeContactOptedIn ContactOptedInEventType = "contact.opted_in"
@@ -1632,6 +1839,534 @@ func (e StandardCampaignParamsVolume) Valid() bool {
 	}
 }
 
+// Defines values for TollFreeCampaignIncludes.
+const (
+	TollFreeCampaignIncludesAgeGated TollFreeCampaignIncludes = "age_gated"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignIncludes enum.
+func (e TollFreeCampaignIncludes) Valid() bool {
+	switch e {
+	case TollFreeCampaignIncludesAgeGated:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignStatus.
+const (
+	TollFreeCampaignStatusActive   TollFreeCampaignStatus = "active"
+	TollFreeCampaignStatusCanceled TollFreeCampaignStatus = "canceled"
+	TollFreeCampaignStatusCreated  TollFreeCampaignStatus = "created"
+	TollFreeCampaignStatusInReview TollFreeCampaignStatus = "in_review"
+	TollFreeCampaignStatusRejected TollFreeCampaignStatus = "rejected"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignStatus enum.
+func (e TollFreeCampaignStatus) Valid() bool {
+	switch e {
+	case TollFreeCampaignStatusActive:
+		return true
+	case TollFreeCampaignStatusCanceled:
+		return true
+	case TollFreeCampaignStatusCreated:
+		return true
+	case TollFreeCampaignStatusInReview:
+		return true
+	case TollFreeCampaignStatusRejected:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUseCases.
+const (
+	TollFreeCampaignUseCasesAccountNotification       TollFreeCampaignUseCases = "account_notification"
+	TollFreeCampaignUseCasesCharity                   TollFreeCampaignUseCases = "charity"
+	TollFreeCampaignUseCasesCustomerCare              TollFreeCampaignUseCases = "customer_care"
+	TollFreeCampaignUseCasesDeliveryNotification      TollFreeCampaignUseCases = "delivery_notification"
+	TollFreeCampaignUseCasesEvent                     TollFreeCampaignUseCases = "event"
+	TollFreeCampaignUseCasesFraudAlert                TollFreeCampaignUseCases = "fraud_alert"
+	TollFreeCampaignUseCasesHigherEducation           TollFreeCampaignUseCases = "higher_education"
+	TollFreeCampaignUseCasesK12Education              TollFreeCampaignUseCases = "k12_education"
+	TollFreeCampaignUseCasesMarketing                 TollFreeCampaignUseCases = "marketing"
+	TollFreeCampaignUseCasesPolitical                 TollFreeCampaignUseCases = "political"
+	TollFreeCampaignUseCasesPollingVoting             TollFreeCampaignUseCases = "polling_voting"
+	TollFreeCampaignUseCasesPublicServiceAnnouncement TollFreeCampaignUseCases = "public_service_announcement"
+	TollFreeCampaignUseCasesSecurityAlert             TollFreeCampaignUseCases = "security_alert"
+	TollFreeCampaignUseCasesTwoFactorAuthentication   TollFreeCampaignUseCases = "two_factor_authentication"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUseCases enum.
+func (e TollFreeCampaignUseCases) Valid() bool {
+	switch e {
+	case TollFreeCampaignUseCasesAccountNotification:
+		return true
+	case TollFreeCampaignUseCasesCharity:
+		return true
+	case TollFreeCampaignUseCasesCustomerCare:
+		return true
+	case TollFreeCampaignUseCasesDeliveryNotification:
+		return true
+	case TollFreeCampaignUseCasesEvent:
+		return true
+	case TollFreeCampaignUseCasesFraudAlert:
+		return true
+	case TollFreeCampaignUseCasesHigherEducation:
+		return true
+	case TollFreeCampaignUseCasesK12Education:
+		return true
+	case TollFreeCampaignUseCasesMarketing:
+		return true
+	case TollFreeCampaignUseCasesPolitical:
+		return true
+	case TollFreeCampaignUseCasesPollingVoting:
+		return true
+	case TollFreeCampaignUseCasesPublicServiceAnnouncement:
+		return true
+	case TollFreeCampaignUseCasesSecurityAlert:
+		return true
+	case TollFreeCampaignUseCasesTwoFactorAuthentication:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignConsentFlow0Type.
+const (
+	TollFreeCampaignConsentFlow0TypeVerbal TollFreeCampaignConsentFlow0Type = "verbal"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignConsentFlow0Type enum.
+func (e TollFreeCampaignConsentFlow0Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignConsentFlow0TypeVerbal:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignConsentFlow1Type.
+const (
+	TollFreeCampaignConsentFlow1TypeWebForm TollFreeCampaignConsentFlow1Type = "web_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignConsentFlow1Type enum.
+func (e TollFreeCampaignConsentFlow1Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignConsentFlow1TypeWebForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignConsentFlow2ScreenshotReason.
+const (
+	TollFreeCampaignConsentFlow2ScreenshotReasonBehindLogin       TollFreeCampaignConsentFlow2ScreenshotReason = "behind_login"
+	TollFreeCampaignConsentFlow2ScreenshotReasonOther             TollFreeCampaignConsentFlow2ScreenshotReason = "other"
+	TollFreeCampaignConsentFlow2ScreenshotReasonUnderConstruction TollFreeCampaignConsentFlow2ScreenshotReason = "under_construction"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignConsentFlow2ScreenshotReason enum.
+func (e TollFreeCampaignConsentFlow2ScreenshotReason) Valid() bool {
+	switch e {
+	case TollFreeCampaignConsentFlow2ScreenshotReasonBehindLogin:
+		return true
+	case TollFreeCampaignConsentFlow2ScreenshotReasonOther:
+		return true
+	case TollFreeCampaignConsentFlow2ScreenshotReasonUnderConstruction:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignConsentFlow2Type.
+const (
+	TollFreeCampaignConsentFlow2TypeWebForm TollFreeCampaignConsentFlow2Type = "web_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignConsentFlow2Type enum.
+func (e TollFreeCampaignConsentFlow2Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignConsentFlow2TypeWebForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignConsentFlow3Type.
+const (
+	TollFreeCampaignConsentFlow3TypeText TollFreeCampaignConsentFlow3Type = "text"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignConsentFlow3Type enum.
+func (e TollFreeCampaignConsentFlow3Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignConsentFlow3TypeText:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignConsentFlow4Type.
+const (
+	TollFreeCampaignConsentFlow4TypePaperForm TollFreeCampaignConsentFlow4Type = "paper_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignConsentFlow4Type enum.
+func (e TollFreeCampaignConsentFlow4Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignConsentFlow4TypePaperForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsConsentFlows0Type.
+const (
+	TollFreeCampaignParamsConsentFlows0TypeVerbal TollFreeCampaignParamsConsentFlows0Type = "verbal"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsConsentFlows0Type enum.
+func (e TollFreeCampaignParamsConsentFlows0Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsConsentFlows0TypeVerbal:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsConsentFlows1Owner.
+const (
+	TollFreeCampaignParamsConsentFlows1OwnerBrand    TollFreeCampaignParamsConsentFlows1Owner = "brand"
+	TollFreeCampaignParamsConsentFlows1OwnerPlatform TollFreeCampaignParamsConsentFlows1Owner = "platform"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsConsentFlows1Owner enum.
+func (e TollFreeCampaignParamsConsentFlows1Owner) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsConsentFlows1OwnerBrand:
+		return true
+	case TollFreeCampaignParamsConsentFlows1OwnerPlatform:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsConsentFlows1ScreenshotReason.
+const (
+	TollFreeCampaignParamsConsentFlows1ScreenshotReasonBehindLogin       TollFreeCampaignParamsConsentFlows1ScreenshotReason = "behind_login"
+	TollFreeCampaignParamsConsentFlows1ScreenshotReasonOther             TollFreeCampaignParamsConsentFlows1ScreenshotReason = "other"
+	TollFreeCampaignParamsConsentFlows1ScreenshotReasonUnderConstruction TollFreeCampaignParamsConsentFlows1ScreenshotReason = "under_construction"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsConsentFlows1ScreenshotReason enum.
+func (e TollFreeCampaignParamsConsentFlows1ScreenshotReason) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsConsentFlows1ScreenshotReasonBehindLogin:
+		return true
+	case TollFreeCampaignParamsConsentFlows1ScreenshotReasonOther:
+		return true
+	case TollFreeCampaignParamsConsentFlows1ScreenshotReasonUnderConstruction:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsConsentFlows1Type.
+const (
+	TollFreeCampaignParamsConsentFlows1TypeWebForm TollFreeCampaignParamsConsentFlows1Type = "web_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsConsentFlows1Type enum.
+func (e TollFreeCampaignParamsConsentFlows1Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsConsentFlows1TypeWebForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsConsentFlows2Type.
+const (
+	TollFreeCampaignParamsConsentFlows2TypeText TollFreeCampaignParamsConsentFlows2Type = "text"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsConsentFlows2Type enum.
+func (e TollFreeCampaignParamsConsentFlows2Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsConsentFlows2TypeText:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsConsentFlows3Type.
+const (
+	TollFreeCampaignParamsConsentFlows3TypePaperForm TollFreeCampaignParamsConsentFlows3Type = "paper_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsConsentFlows3Type enum.
+func (e TollFreeCampaignParamsConsentFlows3Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsConsentFlows3TypePaperForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsIncludes.
+const (
+	TollFreeCampaignParamsIncludesAgeGated TollFreeCampaignParamsIncludes = "age_gated"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsIncludes enum.
+func (e TollFreeCampaignParamsIncludes) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsIncludesAgeGated:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignParamsUseCases.
+const (
+	TollFreeCampaignParamsUseCasesAccountNotification       TollFreeCampaignParamsUseCases = "account_notification"
+	TollFreeCampaignParamsUseCasesCharity                   TollFreeCampaignParamsUseCases = "charity"
+	TollFreeCampaignParamsUseCasesCustomerCare              TollFreeCampaignParamsUseCases = "customer_care"
+	TollFreeCampaignParamsUseCasesDeliveryNotification      TollFreeCampaignParamsUseCases = "delivery_notification"
+	TollFreeCampaignParamsUseCasesEvent                     TollFreeCampaignParamsUseCases = "event"
+	TollFreeCampaignParamsUseCasesFraudAlert                TollFreeCampaignParamsUseCases = "fraud_alert"
+	TollFreeCampaignParamsUseCasesHigherEducation           TollFreeCampaignParamsUseCases = "higher_education"
+	TollFreeCampaignParamsUseCasesK12Education              TollFreeCampaignParamsUseCases = "k12_education"
+	TollFreeCampaignParamsUseCasesMarketing                 TollFreeCampaignParamsUseCases = "marketing"
+	TollFreeCampaignParamsUseCasesPolitical                 TollFreeCampaignParamsUseCases = "political"
+	TollFreeCampaignParamsUseCasesPollingVoting             TollFreeCampaignParamsUseCases = "polling_voting"
+	TollFreeCampaignParamsUseCasesPublicServiceAnnouncement TollFreeCampaignParamsUseCases = "public_service_announcement"
+	TollFreeCampaignParamsUseCasesSecurityAlert             TollFreeCampaignParamsUseCases = "security_alert"
+	TollFreeCampaignParamsUseCasesTwoFactorAuthentication   TollFreeCampaignParamsUseCases = "two_factor_authentication"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignParamsUseCases enum.
+func (e TollFreeCampaignParamsUseCases) Valid() bool {
+	switch e {
+	case TollFreeCampaignParamsUseCasesAccountNotification:
+		return true
+	case TollFreeCampaignParamsUseCasesCharity:
+		return true
+	case TollFreeCampaignParamsUseCasesCustomerCare:
+		return true
+	case TollFreeCampaignParamsUseCasesDeliveryNotification:
+		return true
+	case TollFreeCampaignParamsUseCasesEvent:
+		return true
+	case TollFreeCampaignParamsUseCasesFraudAlert:
+		return true
+	case TollFreeCampaignParamsUseCasesHigherEducation:
+		return true
+	case TollFreeCampaignParamsUseCasesK12Education:
+		return true
+	case TollFreeCampaignParamsUseCasesMarketing:
+		return true
+	case TollFreeCampaignParamsUseCasesPolitical:
+		return true
+	case TollFreeCampaignParamsUseCasesPollingVoting:
+		return true
+	case TollFreeCampaignParamsUseCasesPublicServiceAnnouncement:
+		return true
+	case TollFreeCampaignParamsUseCasesSecurityAlert:
+		return true
+	case TollFreeCampaignParamsUseCasesTwoFactorAuthentication:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsConsentFlows0Type.
+const (
+	TollFreeCampaignUpdateParamsConsentFlows0TypeVerbal TollFreeCampaignUpdateParamsConsentFlows0Type = "verbal"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsConsentFlows0Type enum.
+func (e TollFreeCampaignUpdateParamsConsentFlows0Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsConsentFlows0TypeVerbal:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsConsentFlows1Owner.
+const (
+	TollFreeCampaignUpdateParamsConsentFlows1OwnerBrand    TollFreeCampaignUpdateParamsConsentFlows1Owner = "brand"
+	TollFreeCampaignUpdateParamsConsentFlows1OwnerPlatform TollFreeCampaignUpdateParamsConsentFlows1Owner = "platform"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsConsentFlows1Owner enum.
+func (e TollFreeCampaignUpdateParamsConsentFlows1Owner) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsConsentFlows1OwnerBrand:
+		return true
+	case TollFreeCampaignUpdateParamsConsentFlows1OwnerPlatform:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason.
+const (
+	TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReasonBehindLogin       TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason = "behind_login"
+	TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReasonOther             TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason = "other"
+	TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReasonUnderConstruction TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason = "under_construction"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason enum.
+func (e TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReasonBehindLogin:
+		return true
+	case TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReasonOther:
+		return true
+	case TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReasonUnderConstruction:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsConsentFlows1Type.
+const (
+	TollFreeCampaignUpdateParamsConsentFlows1TypeWebForm TollFreeCampaignUpdateParamsConsentFlows1Type = "web_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsConsentFlows1Type enum.
+func (e TollFreeCampaignUpdateParamsConsentFlows1Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsConsentFlows1TypeWebForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsConsentFlows2Type.
+const (
+	TollFreeCampaignUpdateParamsConsentFlows2TypeText TollFreeCampaignUpdateParamsConsentFlows2Type = "text"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsConsentFlows2Type enum.
+func (e TollFreeCampaignUpdateParamsConsentFlows2Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsConsentFlows2TypeText:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsConsentFlows3Type.
+const (
+	TollFreeCampaignUpdateParamsConsentFlows3TypePaperForm TollFreeCampaignUpdateParamsConsentFlows3Type = "paper_form"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsConsentFlows3Type enum.
+func (e TollFreeCampaignUpdateParamsConsentFlows3Type) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsConsentFlows3TypePaperForm:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsIncludes.
+const (
+	TollFreeCampaignUpdateParamsIncludesAgeGated TollFreeCampaignUpdateParamsIncludes = "age_gated"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsIncludes enum.
+func (e TollFreeCampaignUpdateParamsIncludes) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsIncludesAgeGated:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for TollFreeCampaignUpdateParamsUseCases.
+const (
+	TollFreeCampaignUpdateParamsUseCasesAccountNotification       TollFreeCampaignUpdateParamsUseCases = "account_notification"
+	TollFreeCampaignUpdateParamsUseCasesCharity                   TollFreeCampaignUpdateParamsUseCases = "charity"
+	TollFreeCampaignUpdateParamsUseCasesCustomerCare              TollFreeCampaignUpdateParamsUseCases = "customer_care"
+	TollFreeCampaignUpdateParamsUseCasesDeliveryNotification      TollFreeCampaignUpdateParamsUseCases = "delivery_notification"
+	TollFreeCampaignUpdateParamsUseCasesEvent                     TollFreeCampaignUpdateParamsUseCases = "event"
+	TollFreeCampaignUpdateParamsUseCasesFraudAlert                TollFreeCampaignUpdateParamsUseCases = "fraud_alert"
+	TollFreeCampaignUpdateParamsUseCasesHigherEducation           TollFreeCampaignUpdateParamsUseCases = "higher_education"
+	TollFreeCampaignUpdateParamsUseCasesK12Education              TollFreeCampaignUpdateParamsUseCases = "k12_education"
+	TollFreeCampaignUpdateParamsUseCasesMarketing                 TollFreeCampaignUpdateParamsUseCases = "marketing"
+	TollFreeCampaignUpdateParamsUseCasesPolitical                 TollFreeCampaignUpdateParamsUseCases = "political"
+	TollFreeCampaignUpdateParamsUseCasesPollingVoting             TollFreeCampaignUpdateParamsUseCases = "polling_voting"
+	TollFreeCampaignUpdateParamsUseCasesPublicServiceAnnouncement TollFreeCampaignUpdateParamsUseCases = "public_service_announcement"
+	TollFreeCampaignUpdateParamsUseCasesSecurityAlert             TollFreeCampaignUpdateParamsUseCases = "security_alert"
+	TollFreeCampaignUpdateParamsUseCasesTwoFactorAuthentication   TollFreeCampaignUpdateParamsUseCases = "two_factor_authentication"
+)
+
+// Valid indicates whether the value is a known member of the TollFreeCampaignUpdateParamsUseCases enum.
+func (e TollFreeCampaignUpdateParamsUseCases) Valid() bool {
+	switch e {
+	case TollFreeCampaignUpdateParamsUseCasesAccountNotification:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesCharity:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesCustomerCare:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesDeliveryNotification:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesEvent:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesFraudAlert:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesHigherEducation:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesK12Education:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesMarketing:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesPolitical:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesPollingVoting:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesPublicServiceAnnouncement:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesSecurityAlert:
+		return true
+	case TollFreeCampaignUpdateParamsUseCasesTwoFactorAuthentication:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for VerificationStatus.
 const (
 	VerificationStatusExhausted VerificationStatus = "exhausted"
@@ -2092,7 +2827,7 @@ type CallEndedEvent struct {
 		// PhoneNumberId The Surge phone number ID (e.g. pn_...)
 		PhoneNumberId *string `json:"phone_number_id,omitempty"`
 
-		// Status The status of the call
+		// Status The status of the call. For inbound embedded-phone calls, `no_answer` means no embedded user answered, even if the caller reached voicemail.
 		Status CallEndedEventDataStatus `json:"status"`
 
 		// To The E.164 phone number of the callee
@@ -2106,7 +2841,7 @@ type CallEndedEvent struct {
 	Type CallEndedEventType `json:"type"`
 }
 
-// CallEndedEventDataStatus The status of the call
+// CallEndedEventDataStatus The status of the call. For inbound embedded-phone calls, `no_answer` means no embedded user answered, even if the caller reached voicemail.
 type CallEndedEventDataStatus string
 
 // CallEndedEventType The type of the event. Always `call.ended` for this event.
@@ -2114,8 +2849,11 @@ type CallEndedEventType string
 
 // Campaign A campaign represents the context in which one or more of your phone numbers communicates with your contacts. Consent and opt-outs are tied to the campaign.
 //
-// Example: {"consent_flow":"When customers bring in their car for service, they will fill out this web form for intake: https://fastauto.shop/bp108c In it they can choose to opt in to text message notifications. If they choose to opt in, we will send them notifications to let them know if our mechanics find issues and once the car is ready to go, as well as links to invoices and to leave us feedback.","description":"This phone number will send auto maintenance notifications to end users that have opted in. It will also be used for responding to customer inquiries and sending some marketing offers.","id":"cpn_01k0qczvhbet4azgn5xm2ccfst","includes":["links","phone_numbers"],"link_sample":"https://l.fastauto.shop/s034ij","message_samples":["You are now opted in to receive repair notifications from DT Precision Auto. Frequency varies. Msg\u0026data rates apply. Reply STOP to opt out.","You're lucky that hundred shot of NOS didn't blow the welds on the intake!","Your car is ready to go. See your invoice here: https://l.fastauto.shop/s034ij"],"privacy_policy_url":"https://fastauto.shop/sms-privacy","status":"pending","terms_and_conditions_url":"https://fastauto.shop/terms-and-conditions","use_cases":["account_notification","customer_care","marketing"],"volume":"high"}
+// Example: {"account_id":"acct_01j9a43avnfqzbjfch6pygv1td","consent_flow":"When customers bring in their car for service, they will fill out this web form for intake: https://fastauto.shop/bp108c In it they can choose to opt in to text message notifications. If they choose to opt in, we will send them notifications to let them know if our mechanics find issues and once the car is ready to go, as well as links to invoices and to leave us feedback.","description":"This phone number will send auto maintenance notifications to end users that have opted in. It will also be used for responding to customer inquiries and sending some marketing offers.","id":"cpn_01k0qczvhbet4azgn5xm2ccfst","includes":["links","phone_numbers"],"link_sample":"https://l.fastauto.shop/s034ij","message_samples":["You are now opted in to receive repair notifications from DT Precision Auto. Frequency varies. Msg\u0026data rates apply. Reply STOP to opt out.","You're lucky that hundred shot of NOS didn't blow the welds on the intake!","Your car is ready to go. See your invoice here: https://l.fastauto.shop/s034ij"],"privacy_policy_url":"https://fastauto.shop/sms-privacy","status":"pending","terms_and_conditions_url":"https://fastauto.shop/terms-and-conditions","use_cases":["account_notification","customer_care","marketing"],"volume":"high"}
 type Campaign struct {
+	// AccountId The ID of the account that owns this campaign
+	AccountId string `json:"account_id"`
+
 	// ConsentFlow A string explaining the method through which end users will opt in to receive messages from the brand. Typically this should include URLs for opt-in forms or screenshots that might be helpful in explaining the flow to someone unfamiliar with the organization's purpose.
 	ConsentFlow string `json:"consent_flow"`
 
@@ -2168,8 +2906,8 @@ type Campaign struct {
 
 	// Volume This will be one of the following:
 	//
-	// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your platform will be charged for the setup fee for a low volume number upon receipt of the API request.
-	// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your platform will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
+	// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your project will be charged for the setup fee for a low volume number upon receipt of the API request.
+	// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your project will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
 	Volume CampaignVolume `json:"volume"`
 }
 
@@ -2184,17 +2922,20 @@ type CampaignUseCases string
 
 // CampaignVolume This will be one of the following:
 //
-// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your platform will be charged for the setup fee for a low volume number upon receipt of the API request.
-// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your platform will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
+// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your project will be charged for the setup fee for a low volume number upon receipt of the API request.
+// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your project will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
 type CampaignVolume string
 
-// CampaignApprovedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","status":"active"},"timestamp":"2024-10-21T23:29:41Z","type":"campaign.approved"}
+// CampaignApprovedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"account_id":"acct_01japd271aeatb7txrzr2xj8sg","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","status":"active"},"timestamp":"2024-10-21T23:29:41Z","type":"campaign.approved"}
 type CampaignApprovedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
 
 	// Data The data associated with the event
 	Data struct {
+		// AccountId The ID of the account that owns this campaign
+		AccountId string `json:"account_id"`
+
 		// Id The unique identifier for the campaign
 		Id string `json:"id"`
 
@@ -2230,6 +2971,190 @@ type CampaignList struct {
 type CampaignParams struct {
 	union json.RawMessage
 }
+
+// CampaignRejectedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"feedback":[{"field":"sample_messages","message":"Sample messages need to identify the sender.","outcome":"changes_needed","suggested_value":null}],"id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","status":"rejected"},"timestamp":"2024-10-21T23:29:41Z","type":"campaign.rejected"}
+type CampaignRejectedEvent struct {
+	// AccountId The ID of the account in which this event occurred
+	AccountId string `json:"account_id"`
+
+	// Data The data associated with the event
+	Data struct {
+		// Feedback Customer-visible field-level registration feedback. Rejection events may include non-blocking warnings alongside changes-needed items.
+		Feedback []struct {
+			// Field The stable registration field key
+			Field string `json:"field"`
+
+			// Message Actionable review feedback
+			Message string `json:"message"`
+
+			// Outcome Whether the feedback blocks registration or is a non-blocking warning
+			Outcome CampaignRejectedEventDataFeedbackOutcome `json:"outcome"`
+
+			// SuggestedValue A suggested replacement value, or null when none is suggested
+			SuggestedValue *string `json:"suggested_value"`
+		} `json:"feedback"`
+
+		// Id The unique identifier for the campaign
+		Id string `json:"id"`
+
+		// Status The public campaign status. Always `rejected` for this event.
+		Status CampaignRejectedEventDataStatus `json:"status"`
+	} `json:"data"`
+
+	// Timestamp The timestamp when this event occurred, in ISO8601 format
+	Timestamp time.Time `json:"timestamp"`
+
+	// Type The type of the event. Always `campaign.rejected` for this event.
+	Type CampaignRejectedEventType `json:"type"`
+}
+
+// CampaignRejectedEventDataFeedbackOutcome Whether the feedback blocks registration or is a non-blocking warning
+type CampaignRejectedEventDataFeedbackOutcome string
+
+// CampaignRejectedEventDataStatus The public campaign status. Always `rejected` for this event.
+type CampaignRejectedEventDataStatus string
+
+// CampaignRejectedEventType The type of the event. Always `campaign.rejected` for this event.
+type CampaignRejectedEventType string
+
+// CampaignSubmittedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","status":"in_review"},"timestamp":"2024-10-21T23:29:41Z","type":"campaign.submitted"}
+type CampaignSubmittedEvent struct {
+	// AccountId The ID of the account in which this event occurred
+	AccountId string `json:"account_id"`
+
+	// Data The data associated with the event
+	Data struct {
+		// Id The unique identifier for the campaign
+		Id string `json:"id"`
+
+		// Status The public campaign status. Always `in_review` for this event.
+		Status CampaignSubmittedEventDataStatus `json:"status"`
+	} `json:"data"`
+
+	// Timestamp The timestamp when this event occurred, in ISO8601 format
+	Timestamp time.Time `json:"timestamp"`
+
+	// Type The type of the event. Always `campaign.submitted` for this event.
+	Type CampaignSubmittedEventType `json:"type"`
+}
+
+// CampaignSubmittedEventDataStatus The public campaign status. Always `in_review` for this event.
+type CampaignSubmittedEventDataStatus string
+
+// CampaignSubmittedEventType The type of the event. Always `campaign.submitted` for this event.
+type CampaignSubmittedEventType string
+
+// CampaignUpdateParams Updates supplied campaign fields and resubmits for review. Omitted fields are preserved. An empty object resubmits the stored registration details. Supplied arrays replace their stored values. Required registration fields cannot be cleared; link_sample can be null when includes does not contain links.
+//
+// Example: {}
+type CampaignUpdateParams struct {
+	// ConsentFlow A string explaining the method through which end users will opt in to receive messages from the brand. Typically this should include URLs for opt-in forms or screenshots that might be helpful in explaining the flow to someone unfamiliar with the organization's purpose.
+	ConsentFlow *string `json:"consent_flow,omitempty"`
+
+	// Description An explanation of the organization's purpose and how it will be using text messaging to accomplish that purpose.
+	Description *string `json:"description,omitempty"`
+
+	// Includes A list of properties that this campaign should include. These properties can be any of the following values:
+	//
+	// - `links` - whether the campaign might send links in messages
+	// - `phone_numbers` - whether the campaign might send phone numbers in messages
+	// - `age_gated` - whether the campaign contains age gated content (controlled substances or adult content)
+	// - `direct_lending` - whether the campaign contains content related to direct lending or other loan arrangements
+	Includes *[]CampaignUpdateParamsIncludes `json:"includes,omitempty"`
+
+	// LinkSample A sample link that might be sent by this campaign. This is required when `includes` contains `links`. Provide the same URL or domain that the campaign will use in production. If links from other domains are sent through this campaign, they are much more likely to be filtered by the carriers.
+	LinkSample *string `json:"link_sample,omitempty"`
+
+	// MessageSamples An array of 2-5 strings with examples of the messages that will be sent from this campaign. Typically the first sample should be a compliance message like `You are now opted in to messages from {brand name}. Frequency varies. Msg&data rates apply. Reply STOP to opt out.` These samples don't necessarily need to be the only templates that will be used for the campaign, but they should reflect the purpose of the messages that will be sent. Any variable content can be reflected by wrapping it in square brackets like `[customer name]`.
+	MessageSamples *[]string `json:"message_samples,omitempty"`
+
+	// PrivacyPolicyUrl The URL of the privacy policy for the brand in question. This may be a shared privacy policy if it's the policy that is displayed to end users when they opt in to messaging.
+	PrivacyPolicyUrl *string `json:"privacy_policy_url,omitempty"`
+
+	// TermsAndConditionsUrl The URL of the terms and conditions presented to end users when they opt in to messaging. These terms and conditions may be shared among all of a platform's customers if they're the terms that are presented to end users when they opt in to messaging.
+	TermsAndConditionsUrl *string `json:"terms_and_conditions_url,omitempty"`
+
+	// UseCases A list containing 1-5 types of messages that will be sent with this campaign.
+	//
+	// The following use cases are typically available to all brands:
+	//
+	// - `account_notification` - For sending reminders, alerts, and general account-related notifications like booking confirmations or appointment reminders.
+	// - `customer_care` - For account support, troubleshooting, and general customer service communication.
+	// - `delivery_notification` - For notifying customers about the status of product or service deliveries.
+	// - `fraud_alert` - For warning customers about suspicious or potentially fraudulent activity.
+	// - `higher_education` - For messaging related to colleges, universities, and school districts outside of K–12.
+	// - `marketing` - For promotional or advertising messages intended to market products or services.
+	// - `polling_voting` - For conducting surveys, polls, or voting-related messaging.
+	// - `public_service_announcement` - For raising awareness about social issues or important public information.
+	// - `security_alert` - For alerts related to potential security breaches or compromised systems requiring user action.
+	// - `two_factor_authentication` - For sending one-time passwords or verification codes for login or password reset.
+	//
+	// For access to special use cases not shown here, reach out to support@surge.app.
+	UseCases *[]CampaignUpdateParamsUseCases `json:"use_cases,omitempty"`
+
+	// Volume This will be one of the following:
+	//
+	// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your project will be charged for the setup fee for a low volume number upon receipt of the API request.
+	// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your project will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
+	Volume *CampaignUpdateParamsVolume `json:"volume,omitempty"`
+}
+
+// CampaignUpdateParamsIncludes defines model for CampaignUpdateParams.Includes.
+type CampaignUpdateParamsIncludes string
+
+// CampaignUpdateParamsUseCases defines model for CampaignUpdateParams.UseCases.
+type CampaignUpdateParamsUseCases string
+
+// CampaignUpdateParamsVolume This will be one of the following:
+//
+// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your project will be charged for the setup fee for a low volume number upon receipt of the API request.
+// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your project will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
+type CampaignUpdateParamsVolume string
+
+// CampaignWarningEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"feedback":[{"field":"sample_messages","message":"Sample messages need to identify the sender.","outcome":"warning","suggested_value":null}],"id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","status":"in_review"},"timestamp":"2024-10-21T23:29:41Z","type":"campaign.warning"}
+type CampaignWarningEvent struct {
+	// AccountId The ID of the account in which this event occurred
+	AccountId string `json:"account_id"`
+
+	// Data The data associated with the event
+	Data struct {
+		// Feedback Customer-visible field-level registration feedback. Rejection events may include non-blocking warnings alongside changes-needed items.
+		Feedback []struct {
+			// Field The stable registration field key
+			Field string `json:"field"`
+
+			// Message Actionable review feedback
+			Message string `json:"message"`
+
+			// Outcome Whether the feedback blocks registration or is a non-blocking warning
+			Outcome CampaignWarningEventDataFeedbackOutcome `json:"outcome"`
+
+			// SuggestedValue A suggested replacement value, or null when none is suggested
+			SuggestedValue *string `json:"suggested_value"`
+		} `json:"feedback"`
+
+		// Id The unique identifier for the campaign
+		Id string `json:"id"`
+
+		// Status The public campaign status. Always `in_review` for this event.
+		Status CampaignWarningEventDataStatus `json:"status"`
+	} `json:"data"`
+
+	// Timestamp The timestamp when this event occurred, in ISO8601 format
+	Timestamp time.Time `json:"timestamp"`
+
+	// Type The type of the event. Always `campaign.warning` for this event.
+	Type CampaignWarningEventType `json:"type"`
+}
+
+// CampaignWarningEventDataFeedbackOutcome Whether the feedback blocks registration or is a non-blocking warning
+type CampaignWarningEventDataFeedbackOutcome string
+
+// CampaignWarningEventDataStatus The public campaign status. Always `in_review` for this event.
+type CampaignWarningEventDataStatus string
+
+// CampaignWarningEventType The type of the event. Always `campaign.warning` for this event.
+type CampaignWarningEventType string
 
 // Contact A contact who has consented to receive messages
 //
@@ -2341,7 +3266,7 @@ type ContactParams struct {
 
 // Conversation A conversation with a Contact
 //
-// Example: {"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-2345","number":"+18015552345","type":"local"}}
+// Example: {"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-2345","number":"+18015552345","type":"local"}}
 type Conversation struct {
 	// Contact A contact who has consented to receive messages
 	//
@@ -2353,11 +3278,11 @@ type Conversation struct {
 
 	// PhoneNumber This is the phone number tied to the Surge account.
 	//
-	// Example: {"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+	// Example: {"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 	PhoneNumber *ConversationPhoneNumber `json:"phone_number,omitempty"`
 }
 
-// ConversationCreatedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":null,"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-6789","number":"+18015556789","type":"local"}},"timestamp":"2024-10-21T23:29:41Z","type":"conversation.created"}
+// ConversationCreatedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":null,"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"timestamp":"2024-10-21T23:29:41Z","type":"conversation.created"}
 type ConversationCreatedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -2374,7 +3299,7 @@ type ConversationCreatedEvent struct {
 
 		// PhoneNumber A phone number that can be used to send and receive messages and calls
 		//
-		// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+		// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 		PhoneNumber PhoneNumber `json:"phone_number"`
 	} `json:"data"`
 
@@ -2405,10 +3330,13 @@ type ConversationParams struct {
 
 // ConversationPhoneNumber This is the phone number tied to the Surge account.
 //
-// Example: {"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+// Example: {"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 type ConversationPhoneNumber struct {
 	// Id Unique identifier for the phone number
 	Id string `json:"id"`
+
+	// Metadata Set of key-value pairs that will be stored with the object.
+	Metadata Metadata `json:"metadata"`
 
 	// Name A human-readable name for the phone number
 	Name *string `json:"name"`
@@ -2463,7 +3391,7 @@ type ExternalCampaignParams struct {
 	TcrId string `json:"tcr_id"`
 }
 
-// LinkFollowedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"id":"lnk_01kedctzhxexdbr5xf2bht5q84","message":{"attachments":[],"blast_id":null,"body":"You have a new receipt from DT Precision Auto: https://yoursite.com/something?param=true","conversation":{"contact":{"email":null,"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-6789","number":"+18015556789","type":"local"}},"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{},"status":"delivered"},"message_id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","url":"https://yoursite.com/something?param=true"},"timestamp":"2024-10-21T23:29:41Z","type":"link.followed"}
+// LinkFollowedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"id":"lnk_01kedctzhxexdbr5xf2bht5q84","message":{"attachments":[],"blast_id":null,"body":"You have a new receipt from DT Precision Auto: https://yoursite.com/something?param=true","conversation":{"contact":{"email":null,"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{},"status":"delivered"},"message_id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","url":"https://yoursite.com/something?param=true"},"timestamp":"2024-10-21T23:29:41Z","type":"link.followed"}
 type LinkFollowedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -2496,7 +3424,7 @@ type LinkFollowedEventType string
 
 // Message A Message is a communication sent to a Contact.
 //
-// Example: {"attachments":[{"id":"att_01j9e0m1m6fc38gsv2vkfqgzz2","type":"image","url":"https://api.surge.app/attachments/att_01jbwyqj7rejzat7pq03r7fgmf"}],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","number":"+18015552345","type":"local"}},"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","metadata":{"external_id":"12345"},"status":"delivered"}
+// Example: {"attachments":[{"id":"att_01j9e0m1m6fc38gsv2vkfqgzz2","type":"image","url":"https://api.surge.app/attachments/att_01jbwyqj7rejzat7pq03r7fgmf"}],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"number":"+18015552345","type":"local"}},"failure_reason":null,"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","metadata":{"external_id":"12345"},"status":"delivered"}
 type Message struct {
 	Attachments *[]Attachment `json:"attachments,omitempty"`
 
@@ -2508,8 +3436,11 @@ type Message struct {
 
 	// Conversation A conversation with a Contact
 	//
-	// Example: {"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-2345","number":"+18015552345","type":"local"}}
+	// Example: {"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-2345","number":"+18015552345","type":"local"}}
 	Conversation *Conversation `json:"conversation,omitempty"`
+
+	// FailureReason The reason the message failed, or null if no failure reason is set.
+	FailureReason *string `json:"failure_reason,omitempty"`
 
 	// Id Unique identifier for the object.
 	Id *string `json:"id,omitempty"`
@@ -2524,7 +3455,7 @@ type Message struct {
 // MessageStatus The current status of the message.
 type MessageStatus string
 
-// MessageDeliveredEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"email":"dom@toretto.family","first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{"car":"1970 Dodge Charger R/T"},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-6789","number":"+18015556789","type":"local"}},"delivered_at":"2024-10-21T23:29:42Z","id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"delivered"},"timestamp":"2024-10-21T23:29:41Z","type":"message.delivered"}
+// MessageDeliveredEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"email":"dom@toretto.family","first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{"car":"1970 Dodge Charger R/T"},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"delivered_at":"2024-10-21T23:29:42Z","failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"delivered"},"timestamp":"2024-10-21T23:29:41Z","type":"message.delivered"}
 type MessageDeliveredEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -2561,12 +3492,15 @@ type MessageDeliveredEvent struct {
 
 			// PhoneNumber A phone number that can be used to send and receive messages and calls
 			//
-			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
 
 		// DeliveredAt When the message was delivered
 		DeliveredAt time.Time `json:"delivered_at"`
+
+		// FailureReason The reason the message failed, or null if no failure reason is set
+		FailureReason *string `json:"failure_reason"`
 
 		// Id The unique identifier for the message
 		Id string `json:"id"`
@@ -2594,7 +3528,7 @@ type MessageDeliveredEventDataStatus string
 // MessageDeliveredEventType The type of the event. Always `message.delivered` for this event.
 type MessageDeliveredEventType string
 
-// MessageFailedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failed_at":"2024-10-21T23:29:42Z","failure_reason":"carrier_error","id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"failed"},"timestamp":"2024-10-21T23:29:41Z","type":"message.failed"}
+// MessageFailedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failed_at":"2024-10-21T23:29:42Z","failure_reason":"carrier_error","id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"failed"},"timestamp":"2024-10-21T23:29:41Z","type":"message.failed"}
 type MessageFailedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -2631,15 +3565,15 @@ type MessageFailedEvent struct {
 
 			// PhoneNumber A phone number that can be used to send and receive messages and calls
 			//
-			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
 
 		// FailedAt When the message failed
 		FailedAt time.Time `json:"failed_at"`
 
-		// FailureReason The reason the message failed to be delivered
-		FailureReason string `json:"failure_reason"`
+		// FailureReason The reason the message failed to be delivered, or null if no failure reason is set
+		FailureReason *string `json:"failure_reason"`
 
 		// Id The unique identifier for the message
 		Id string `json:"id"`
@@ -2669,7 +3603,7 @@ type MessageFailedEventType string
 
 // MessageList A paginated list of messages
 //
-// Example: {"data":[{"attachments":[],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","number":"+18015552345","type":"local"}},"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","status":"delivered"}],"pagination":{"next_cursor":null,"previous_cursor":null}}
+// Example: {"data":[{"attachments":[],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"number":"+18015552345","type":"local"}},"failure_reason":null,"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","status":"delivered"}],"pagination":{"next_cursor":null,"previous_cursor":null}}
 type MessageList struct {
 	// Data The list of messages
 	Data []Message `json:"data"`
@@ -2740,7 +3674,7 @@ type MessageParams1 struct {
 	To string `json:"to"`
 }
 
-// MessageReceivedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jav8z6x1j4m1b3w8v2jz7j3r","type":"image","url":"https://toretto.family/image.jpg"}],"blast_id":null,"body":"I don't have friends, I got family.","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-6789","number":"+18015556789","type":"local"}},"id":"msg_01jav96823f9x9054d6gyzpp16","metadata":{"order_id":"12345"},"received_at":"2024-10-22T23:32:49Z","status":"received"},"timestamp":"2024-10-21T23:29:41Z","type":"message.received"}
+// MessageReceivedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jav8z6x1j4m1b3w8v2jz7j3r","type":"image","url":"https://toretto.family/image.jpg"}],"blast_id":null,"body":"I don't have friends, I got family.","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failure_reason":null,"id":"msg_01jav96823f9x9054d6gyzpp16","metadata":{"order_id":"12345"},"received_at":"2024-10-22T23:32:49Z","status":"received"},"timestamp":"2024-10-21T23:29:41Z","type":"message.received"}
 type MessageReceivedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -2777,9 +3711,12 @@ type MessageReceivedEvent struct {
 
 			// PhoneNumber A phone number that can be used to send and receive messages and calls
 			//
-			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
+
+		// FailureReason The reason the message failed, or null if no failure reason is set
+		FailureReason *string `json:"failure_reason"`
 
 		// Id The unique identifier for the message
 		Id string `json:"id"`
@@ -2810,7 +3747,7 @@ type MessageReceivedEventDataStatus string
 // MessageReceivedEventType The type of the event. Always `message.received` for this event.
 type MessageReceivedEventType string
 
-// MessageSentEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-6789","number":"+18015556789","type":"local"}},"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"sent_at":"2024-10-21T23:29:41Z","status":"sent"},"timestamp":"2024-10-21T23:29:41Z","type":"message.sent"}
+// MessageSentEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"sent_at":"2024-10-21T23:29:41Z","status":"sent"},"timestamp":"2024-10-21T23:29:41Z","type":"message.sent"}
 type MessageSentEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -2847,9 +3784,12 @@ type MessageSentEvent struct {
 
 			// PhoneNumber A phone number that can be used to send and receive messages and calls
 			//
-			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
+
+		// FailureReason The reason the message failed, or null if no failure reason is set
+		FailureReason *string `json:"failure_reason"`
 
 		// Id The unique identifier for the message
 		Id string `json:"id"`
@@ -3111,7 +4051,7 @@ type Pagination struct {
 
 // PhoneNumber A phone number that can be used to send and receive messages and calls
 //
-// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}
+// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 type PhoneNumber struct {
 	// Campaign Campaign attachment details for domestic local numbers, or null for other types of numbers and local numbers without a campaign
 	Campaign PhoneNumberCampaign `json:"campaign"`
@@ -3122,6 +4062,9 @@ type PhoneNumber struct {
 
 	// Id Unique identifier for the phone number
 	Id string `json:"id"`
+
+	// Metadata Set of key-value pairs that will be stored with the object.
+	Metadata Metadata `json:"metadata"`
 
 	// Name A human-readable name for the phone number
 	Name *string `json:"name"`
@@ -3138,7 +4081,7 @@ type PhoneNumber struct {
 // PhoneNumberType Whether the phone number is local, toll-free, or short code
 type PhoneNumberType string
 
-// PhoneNumberAttachedToCampaignEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"},"timestamp":"2024-10-21T23:29:41Z","type":"phone_number.attached_to_campaign"}
+// PhoneNumberAttachedToCampaignEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"},"timestamp":"2024-10-21T23:29:41Z","type":"phone_number.attached_to_campaign"}
 type PhoneNumberAttachedToCampaignEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3154,6 +4097,9 @@ type PhoneNumberAttachedToCampaignEvent struct {
 
 		// Id The unique identifier for the phone number
 		Id string `json:"id"`
+
+		// Metadata Set of key-value pairs that will be stored with the object.
+		Metadata Metadata `json:"metadata"`
 
 		// Name A human-readable name for the phone number
 		Name *string `json:"name"`
@@ -3192,7 +4138,7 @@ type PhoneNumberCampaign struct {
 // PhoneNumberCampaignAttachmentStatus The current campaign attachment status for this phone number.
 type PhoneNumberCampaignAttachmentStatus string
 
-// PhoneNumberImportedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"campaign":{"attachment_status":"attachment_pending","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"},"timestamp":"2024-10-21T23:29:41Z","type":"phone_number.imported"}
+// PhoneNumberImportedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"campaign":{"attachment_status":"attachment_pending","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"},"timestamp":"2024-10-21T23:29:41Z","type":"phone_number.imported"}
 type PhoneNumberImportedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3208,6 +4154,9 @@ type PhoneNumberImportedEvent struct {
 
 		// Id The unique identifier for the phone number
 		Id string `json:"id"`
+
+		// Metadata Set of key-value pairs that will be stored with the object.
+		Metadata Metadata `json:"metadata"`
 
 		// Name A human-readable name for the phone number
 		Name *string `json:"name"`
@@ -3234,7 +4183,7 @@ type PhoneNumberImportedEventType string
 
 // PhoneNumberList A paginated list of phone numbers
 //
-// Example: {"data":[{"campaign":null,"campaign_id":null,"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","name":"(801) 555-1234","number":"+18015551234","type":"local"}],"pagination":{"next_cursor":null,"previous_cursor":null}}
+// Example: {"data":[{"campaign":null,"campaign_id":null,"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}],"pagination":{"next_cursor":null,"previous_cursor":null}}
 type PhoneNumberList struct {
 	// Data The list of phone numbers
 	Data []PhoneNumber `json:"data"`
@@ -3269,6 +4218,9 @@ type PhoneNumberPurchaseParams struct {
 	// Example: -74.006
 	Longitude *float64 `json:"longitude,omitempty"`
 
+	// Metadata Set of key-value pairs that will be stored with the object.
+	Metadata *Metadata `json:"metadata,omitempty"`
+
 	// Name A human-readable name for the phone number. If not provided, defaults to the formatted phone number.
 	//
 	// Example: Support Line
@@ -3292,12 +4244,15 @@ type PhoneNumberPurchaseParamsType string
 
 // PhoneNumberUpdateParams Updates a phone number's details.
 //
-// Example: {"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","name":"Letty's Main Line"}
+// Example: {"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"location":"Downtown store"},"name":"Letty's Main Line"}
 type PhoneNumberUpdateParams struct {
 	// CampaignId Campaign ID to attach this number to (`cpn_...`).
 	//
 	// Example: cpn_01jjnn7s0zfx5tdcsxjfy93et2
 	CampaignId *string `json:"campaign_id,omitempty"`
+
+	// Metadata Set of key-value pairs that will be stored with the object.
+	Metadata *Metadata `json:"metadata,omitempty"`
 
 	// Name A human-readable name for the phone number.
 	//
@@ -3456,8 +4411,8 @@ type StandardCampaignParams struct {
 
 	// Volume This will be one of the following:
 	//
-	// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your platform will be charged for the setup fee for a low volume number upon receipt of the API request.
-	// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your platform will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
+	// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your project will be charged for the setup fee for a low volume number upon receipt of the API request.
+	// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your project will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
 	Volume StandardCampaignParamsVolume `json:"volume"`
 }
 
@@ -3469,8 +4424,8 @@ type StandardCampaignParamsUseCases string
 
 // StandardCampaignParamsVolume This will be one of the following:
 //
-// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your platform will be charged for the setup fee for a low volume number upon receipt of the API request.
-// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your platform will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
+// - `low` - The campaign will be allowed to send up to 2000 SMS segments to T-Mobile customers each day. In this case your project will be charged for the setup fee for a low volume number upon receipt of the API request.
+// - `high` - The campaign will be allowed to send up to 200k SMS segments to T-Mobile customers each day, depending on the trust score assigned by The Campaign Registry. Your project will be charged for the setup fee for a high volume number upon receipt of the API request, and phone numbers will be charged as high volume numbers going forward.
 type StandardCampaignParamsVolume string
 
 // TokenParams A request to create a token
@@ -3481,15 +4436,262 @@ type TokenParams struct {
 	//
 	// Example: 900
 	DurationSeconds *int `json:"duration_seconds,omitempty"`
+
+	// ReadOnly Restrict the token to viewing embedded conversations and unread counts. Sending messages, changing read state, editing contacts, and calling are disabled. Defaults to false. Preserve this value when refreshing the token; changing access mode requires reloading the embed.
+	ReadOnly *bool `json:"read_only,omitempty"`
 }
 
 // TokenResponse Response when token has been created successfully
 //
-// Example: {"token":"eyJhbGciOiJFZERTQSIsImtpZCI6InNnbl8wMWp5bWowZ3AwZjNidmJmMmpyazRoYnd0ayIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTA4ODkyMDgsInN1YiI6InVzcl8wMWp5bWdkZnJwZWMyYXNjNW0wejNhNmZyOSJ9.zKayo3EDrUm1Hw8URrofuYwajgyTu6dH2H0FEuRExprP1IV66FHa8wC3SfdzV7sR3AjDGAwkuAXztScq6rBnBw"}
+// Example: {"token":"header.payload.signature"}
 type TokenResponse struct {
 	// Token The created token.
 	Token *string `json:"token,omitempty"`
 }
+
+// TollFreeCampaign A toll-free campaign registration for a phone number.
+type TollFreeCampaign struct {
+	ConsentFlows []TollFreeCampaignConsentFlow `json:"consent_flows"`
+	Description  *string                       `json:"description"`
+
+	// Id The toll-free campaign ID
+	Id             string                     `json:"id"`
+	Includes       []TollFreeCampaignIncludes `json:"includes"`
+	MessageSamples []string                   `json:"message_samples"`
+
+	// PhoneNumberId The toll-free phone number ID
+	PhoneNumberId    string  `json:"phone_number_id"`
+	PrivacyPolicyUrl *string `json:"privacy_policy_url"`
+
+	// Status The current status of the toll-free campaign.
+	Status                TollFreeCampaignStatus     `json:"status"`
+	TermsAndConditionsUrl *string                    `json:"terms_and_conditions_url"`
+	UseCases              []TollFreeCampaignUseCases `json:"use_cases"`
+}
+
+// TollFreeCampaignIncludes defines model for TollFreeCampaign.Includes.
+type TollFreeCampaignIncludes string
+
+// TollFreeCampaignStatus The current status of the toll-free campaign.
+type TollFreeCampaignStatus string
+
+// TollFreeCampaignUseCases defines model for TollFreeCampaign.UseCases.
+type TollFreeCampaignUseCases string
+
+// TollFreeCampaignConsentFlow A consent flow returned on toll-free campaign responses.
+type TollFreeCampaignConsentFlow struct {
+	union json.RawMessage
+}
+
+// TollFreeCampaignConsentFlow0 defines model for TollFreeCampaignConsentFlow.0.
+type TollFreeCampaignConsentFlow0 struct {
+	Script string                           `json:"script"`
+	Type   TollFreeCampaignConsentFlow0Type `json:"type"`
+}
+
+// TollFreeCampaignConsentFlow0Type defines model for TollFreeCampaignConsentFlow.0.Type.
+type TollFreeCampaignConsentFlow0Type string
+
+// TollFreeCampaignConsentFlow1 defines model for TollFreeCampaignConsentFlow.1.
+type TollFreeCampaignConsentFlow1 struct {
+	FormUrl string                           `json:"form_url"`
+	Type    TollFreeCampaignConsentFlow1Type `json:"type"`
+}
+
+// TollFreeCampaignConsentFlow1Type defines model for TollFreeCampaignConsentFlow.1.Type.
+type TollFreeCampaignConsentFlow1Type string
+
+// TollFreeCampaignConsentFlow2 defines model for TollFreeCampaignConsentFlow.2.
+type TollFreeCampaignConsentFlow2 struct {
+	Screenshot struct {
+		Reason      TollFreeCampaignConsentFlow2ScreenshotReason `json:"reason"`
+		ReasonOther *string                                      `json:"reason_other,omitempty"`
+	} `json:"screenshot"`
+	Type TollFreeCampaignConsentFlow2Type `json:"type"`
+}
+
+// TollFreeCampaignConsentFlow2ScreenshotReason defines model for TollFreeCampaignConsentFlow.2.Screenshot.Reason.
+type TollFreeCampaignConsentFlow2ScreenshotReason string
+
+// TollFreeCampaignConsentFlow2Type defines model for TollFreeCampaignConsentFlow.2.Type.
+type TollFreeCampaignConsentFlow2Type string
+
+// TollFreeCampaignConsentFlow3 defines model for TollFreeCampaignConsentFlow.3.
+type TollFreeCampaignConsentFlow3 struct {
+	Keywords *[]string                        `json:"keywords,omitempty"`
+	Type     TollFreeCampaignConsentFlow3Type `json:"type"`
+}
+
+// TollFreeCampaignConsentFlow3Type defines model for TollFreeCampaignConsentFlow.3.Type.
+type TollFreeCampaignConsentFlow3Type string
+
+// TollFreeCampaignConsentFlow4 defines model for TollFreeCampaignConsentFlow.4.
+type TollFreeCampaignConsentFlow4 struct {
+	Type TollFreeCampaignConsentFlow4Type `json:"type"`
+}
+
+// TollFreeCampaignConsentFlow4Type defines model for TollFreeCampaignConsentFlow.4.Type.
+type TollFreeCampaignConsentFlow4Type string
+
+// TollFreeCampaignList A paginated list of toll-free campaigns
+type TollFreeCampaignList struct {
+	// Data The list of toll-free campaigns
+	Data []TollFreeCampaign `json:"data"`
+
+	// Pagination Cursor-based pagination information
+	//
+	// Example: {"next_cursor":"g3QAAAABZAACaWRtAAAAGnBuXzAxamtzY2s5eDdkeW0wZnBxZjdjYmRyeQ==","previous_cursor":null}
+	Pagination Pagination `json:"pagination"`
+}
+
+// TollFreeCampaignParams Parameters for creating a toll-free campaign through Surge
+type TollFreeCampaignParams struct {
+	ConsentFlows []TollFreeCampaignParams_ConsentFlows_Item `json:"consent_flows"`
+
+	// Description An explanation of how the toll-free number will be used.
+	Description    string                            `json:"description"`
+	Includes       *[]TollFreeCampaignParamsIncludes `json:"includes,omitempty"`
+	MessageSamples []string                          `json:"message_samples"`
+
+	// PhoneNumberId The toll-free phone number to register.
+	PhoneNumberId         string                           `json:"phone_number_id"`
+	PrivacyPolicyUrl      string                           `json:"privacy_policy_url"`
+	TermsAndConditionsUrl string                           `json:"terms_and_conditions_url"`
+	UseCases              []TollFreeCampaignParamsUseCases `json:"use_cases"`
+}
+
+// TollFreeCampaignParamsConsentFlows0 defines model for TollFreeCampaignParams.ConsentFlows.0.
+type TollFreeCampaignParamsConsentFlows0 struct {
+	Script string                                  `json:"script"`
+	Type   TollFreeCampaignParamsConsentFlows0Type `json:"type"`
+}
+
+// TollFreeCampaignParamsConsentFlows0Type defines model for TollFreeCampaignParams.ConsentFlows.0.Type.
+type TollFreeCampaignParamsConsentFlows0Type string
+
+// TollFreeCampaignParamsConsentFlows1 defines model for TollFreeCampaignParams.ConsentFlows.1.
+type TollFreeCampaignParamsConsentFlows1 struct {
+	FormUrl    *string                                  `json:"form_url,omitempty"`
+	Owner      TollFreeCampaignParamsConsentFlows1Owner `json:"owner"`
+	Screenshot *struct {
+		Reason      TollFreeCampaignParamsConsentFlows1ScreenshotReason `json:"reason"`
+		ReasonOther *string                                             `json:"reason_other,omitempty"`
+		Urls        []string                                            `json:"urls"`
+	} `json:"screenshot,omitempty"`
+	Type TollFreeCampaignParamsConsentFlows1Type `json:"type"`
+}
+
+// TollFreeCampaignParamsConsentFlows1Owner defines model for TollFreeCampaignParams.ConsentFlows.1.Owner.
+type TollFreeCampaignParamsConsentFlows1Owner string
+
+// TollFreeCampaignParamsConsentFlows1ScreenshotReason defines model for TollFreeCampaignParams.ConsentFlows.1.Screenshot.Reason.
+type TollFreeCampaignParamsConsentFlows1ScreenshotReason string
+
+// TollFreeCampaignParamsConsentFlows1Type defines model for TollFreeCampaignParams.ConsentFlows.1.Type.
+type TollFreeCampaignParamsConsentFlows1Type string
+
+// TollFreeCampaignParamsConsentFlows2 defines model for TollFreeCampaignParams.ConsentFlows.2.
+type TollFreeCampaignParamsConsentFlows2 struct {
+	FileUrls []string                                `json:"file_urls"`
+	Keywords *[]string                               `json:"keywords,omitempty"`
+	Type     TollFreeCampaignParamsConsentFlows2Type `json:"type"`
+}
+
+// TollFreeCampaignParamsConsentFlows2Type defines model for TollFreeCampaignParams.ConsentFlows.2.Type.
+type TollFreeCampaignParamsConsentFlows2Type string
+
+// TollFreeCampaignParamsConsentFlows3 defines model for TollFreeCampaignParams.ConsentFlows.3.
+type TollFreeCampaignParamsConsentFlows3 struct {
+	FileUrls []string                                `json:"file_urls"`
+	Type     TollFreeCampaignParamsConsentFlows3Type `json:"type"`
+}
+
+// TollFreeCampaignParamsConsentFlows3Type defines model for TollFreeCampaignParams.ConsentFlows.3.Type.
+type TollFreeCampaignParamsConsentFlows3Type string
+
+// TollFreeCampaignParams_ConsentFlows_Item defines model for TollFreeCampaignParams.consent_flows.Item.
+type TollFreeCampaignParams_ConsentFlows_Item struct {
+	union json.RawMessage
+}
+
+// TollFreeCampaignParamsIncludes defines model for TollFreeCampaignParams.Includes.
+type TollFreeCampaignParamsIncludes string
+
+// TollFreeCampaignParamsUseCases defines model for TollFreeCampaignParams.UseCases.
+type TollFreeCampaignParamsUseCases string
+
+// TollFreeCampaignUpdateParams Parameters for updating a toll-free campaign.
+type TollFreeCampaignUpdateParams struct {
+	ConsentFlows *[]TollFreeCampaignUpdateParams_ConsentFlows_Item `json:"consent_flows,omitempty"`
+
+	// Description An explanation of how the toll-free number will be used.
+	Description           *string                                 `json:"description,omitempty"`
+	Includes              *[]TollFreeCampaignUpdateParamsIncludes `json:"includes,omitempty"`
+	MessageSamples        *[]string                               `json:"message_samples,omitempty"`
+	PrivacyPolicyUrl      *string                                 `json:"privacy_policy_url,omitempty"`
+	TermsAndConditionsUrl *string                                 `json:"terms_and_conditions_url,omitempty"`
+	UseCases              *[]TollFreeCampaignUpdateParamsUseCases `json:"use_cases,omitempty"`
+}
+
+// TollFreeCampaignUpdateParamsConsentFlows0 defines model for TollFreeCampaignUpdateParams.ConsentFlows.0.
+type TollFreeCampaignUpdateParamsConsentFlows0 struct {
+	Script string                                        `json:"script"`
+	Type   TollFreeCampaignUpdateParamsConsentFlows0Type `json:"type"`
+}
+
+// TollFreeCampaignUpdateParamsConsentFlows0Type defines model for TollFreeCampaignUpdateParams.ConsentFlows.0.Type.
+type TollFreeCampaignUpdateParamsConsentFlows0Type string
+
+// TollFreeCampaignUpdateParamsConsentFlows1 defines model for TollFreeCampaignUpdateParams.ConsentFlows.1.
+type TollFreeCampaignUpdateParamsConsentFlows1 struct {
+	FormUrl    *string                                        `json:"form_url,omitempty"`
+	Owner      TollFreeCampaignUpdateParamsConsentFlows1Owner `json:"owner"`
+	Screenshot *struct {
+		Reason      TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason `json:"reason"`
+		ReasonOther *string                                                   `json:"reason_other,omitempty"`
+		Urls        []string                                                  `json:"urls"`
+	} `json:"screenshot,omitempty"`
+	Type TollFreeCampaignUpdateParamsConsentFlows1Type `json:"type"`
+}
+
+// TollFreeCampaignUpdateParamsConsentFlows1Owner defines model for TollFreeCampaignUpdateParams.ConsentFlows.1.Owner.
+type TollFreeCampaignUpdateParamsConsentFlows1Owner string
+
+// TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason defines model for TollFreeCampaignUpdateParams.ConsentFlows.1.Screenshot.Reason.
+type TollFreeCampaignUpdateParamsConsentFlows1ScreenshotReason string
+
+// TollFreeCampaignUpdateParamsConsentFlows1Type defines model for TollFreeCampaignUpdateParams.ConsentFlows.1.Type.
+type TollFreeCampaignUpdateParamsConsentFlows1Type string
+
+// TollFreeCampaignUpdateParamsConsentFlows2 defines model for TollFreeCampaignUpdateParams.ConsentFlows.2.
+type TollFreeCampaignUpdateParamsConsentFlows2 struct {
+	FileUrls []string                                      `json:"file_urls"`
+	Keywords *[]string                                     `json:"keywords,omitempty"`
+	Type     TollFreeCampaignUpdateParamsConsentFlows2Type `json:"type"`
+}
+
+// TollFreeCampaignUpdateParamsConsentFlows2Type defines model for TollFreeCampaignUpdateParams.ConsentFlows.2.Type.
+type TollFreeCampaignUpdateParamsConsentFlows2Type string
+
+// TollFreeCampaignUpdateParamsConsentFlows3 defines model for TollFreeCampaignUpdateParams.ConsentFlows.3.
+type TollFreeCampaignUpdateParamsConsentFlows3 struct {
+	FileUrls []string                                      `json:"file_urls"`
+	Type     TollFreeCampaignUpdateParamsConsentFlows3Type `json:"type"`
+}
+
+// TollFreeCampaignUpdateParamsConsentFlows3Type defines model for TollFreeCampaignUpdateParams.ConsentFlows.3.Type.
+type TollFreeCampaignUpdateParamsConsentFlows3Type string
+
+// TollFreeCampaignUpdateParams_ConsentFlows_Item defines model for TollFreeCampaignUpdateParams.consent_flows.Item.
+type TollFreeCampaignUpdateParams_ConsentFlows_Item struct {
+	union json.RawMessage
+}
+
+// TollFreeCampaignUpdateParamsIncludes defines model for TollFreeCampaignUpdateParams.Includes.
+type TollFreeCampaignUpdateParamsIncludes string
+
+// TollFreeCampaignUpdateParamsUseCases defines model for TollFreeCampaignUpdateParams.UseCases.
+type TollFreeCampaignUpdateParamsUseCases string
 
 // User A user of the app
 //
@@ -3715,6 +4917,12 @@ type CheckAccountStatusParams struct {
 // CheckAccountStatusParamsCapabilities defines parameters for CheckAccountStatus.
 type CheckAccountStatusParamsCapabilities string
 
+// ListTollFreeCampaignsParams defines parameters for ListTollFreeCampaigns.
+type ListTollFreeCampaignsParams struct {
+	After  *string `form:"after,omitempty" json:"after,omitempty"`
+	Before *string `form:"before,omitempty" json:"before,omitempty"`
+}
+
 // ListUsersParams defines parameters for ListUsers.
 type ListUsersParams struct {
 	After  *string `form:"after,omitempty" json:"after,omitempty"`
@@ -3748,6 +4956,9 @@ type CreateMessageJSONRequestBody = MessageParams
 // PurchasePhoneNumberJSONRequestBody defines body for PurchasePhoneNumber for application/json ContentType.
 type PurchasePhoneNumberJSONRequestBody = PhoneNumberPurchaseParams
 
+// CreateTollFreeCampaignJSONRequestBody defines body for CreateTollFreeCampaign for application/json ContentType.
+type CreateTollFreeCampaignJSONRequestBody = TollFreeCampaignParams
+
 // CreateUserJSONRequestBody defines body for CreateUser for application/json ContentType.
 type CreateUserJSONRequestBody = UserParams
 
@@ -3761,13 +4972,16 @@ type UpdateAccountJSONRequestBody = AccountUpdateParams
 type AddContactToAudienceJSONRequestBody = AudienceContactParams
 
 // UpdateCampaignJSONRequestBody defines body for UpdateCampaign for application/json ContentType.
-type UpdateCampaignJSONRequestBody = CampaignParams
+type UpdateCampaignJSONRequestBody = CampaignUpdateParams
 
 // UpdateContactJSONRequestBody defines body for UpdateContact for application/json ContentType.
 type UpdateContactJSONRequestBody = ContactParams
 
 // UpdatePhoneNumberJSONRequestBody defines body for UpdatePhoneNumber for application/json ContentType.
 type UpdatePhoneNumberJSONRequestBody = PhoneNumberUpdateParams
+
+// UpdateTollFreeCampaignJSONRequestBody defines body for UpdateTollFreeCampaign for application/json ContentType.
+type UpdateTollFreeCampaignJSONRequestBody = TollFreeCampaignUpdateParams
 
 // UpdateUserJSONRequestBody defines body for UpdateUser for application/json ContentType.
 type UpdateUserJSONRequestBody = UserParams
@@ -3783,6 +4997,15 @@ type CallEndedJSONRequestBody = CallEndedEvent
 
 // CampaignApprovedJSONRequestBody defines body for CampaignApproved for application/json ContentType.
 type CampaignApprovedJSONRequestBody = CampaignApprovedEvent
+
+// CampaignRejectedJSONRequestBody defines body for CampaignRejected for application/json ContentType.
+type CampaignRejectedJSONRequestBody = CampaignRejectedEvent
+
+// CampaignSubmittedJSONRequestBody defines body for CampaignSubmitted for application/json ContentType.
+type CampaignSubmittedJSONRequestBody = CampaignSubmittedEvent
+
+// CampaignWarningJSONRequestBody defines body for CampaignWarning for application/json ContentType.
+type CampaignWarningJSONRequestBody = CampaignWarningEvent
 
 // ContactOptedInJSONRequestBody defines body for ContactOptedIn for application/json ContentType.
 type ContactOptedInJSONRequestBody = ContactOptedInEvent
@@ -4032,6 +5255,374 @@ func (t *MessageParams) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsTollFreeCampaignConsentFlow0 returns the union data inside the TollFreeCampaignConsentFlow as a TollFreeCampaignConsentFlow0
+func (t TollFreeCampaignConsentFlow) AsTollFreeCampaignConsentFlow0() (TollFreeCampaignConsentFlow0, error) {
+	var body TollFreeCampaignConsentFlow0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignConsentFlow0 overwrites any union data inside the TollFreeCampaignConsentFlow as the provided TollFreeCampaignConsentFlow0
+func (t *TollFreeCampaignConsentFlow) FromTollFreeCampaignConsentFlow0(v TollFreeCampaignConsentFlow0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignConsentFlow0 performs a merge with any union data inside the TollFreeCampaignConsentFlow, using the provided TollFreeCampaignConsentFlow0
+func (t *TollFreeCampaignConsentFlow) MergeTollFreeCampaignConsentFlow0(v TollFreeCampaignConsentFlow0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignConsentFlow1 returns the union data inside the TollFreeCampaignConsentFlow as a TollFreeCampaignConsentFlow1
+func (t TollFreeCampaignConsentFlow) AsTollFreeCampaignConsentFlow1() (TollFreeCampaignConsentFlow1, error) {
+	var body TollFreeCampaignConsentFlow1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignConsentFlow1 overwrites any union data inside the TollFreeCampaignConsentFlow as the provided TollFreeCampaignConsentFlow1
+func (t *TollFreeCampaignConsentFlow) FromTollFreeCampaignConsentFlow1(v TollFreeCampaignConsentFlow1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignConsentFlow1 performs a merge with any union data inside the TollFreeCampaignConsentFlow, using the provided TollFreeCampaignConsentFlow1
+func (t *TollFreeCampaignConsentFlow) MergeTollFreeCampaignConsentFlow1(v TollFreeCampaignConsentFlow1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignConsentFlow2 returns the union data inside the TollFreeCampaignConsentFlow as a TollFreeCampaignConsentFlow2
+func (t TollFreeCampaignConsentFlow) AsTollFreeCampaignConsentFlow2() (TollFreeCampaignConsentFlow2, error) {
+	var body TollFreeCampaignConsentFlow2
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignConsentFlow2 overwrites any union data inside the TollFreeCampaignConsentFlow as the provided TollFreeCampaignConsentFlow2
+func (t *TollFreeCampaignConsentFlow) FromTollFreeCampaignConsentFlow2(v TollFreeCampaignConsentFlow2) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignConsentFlow2 performs a merge with any union data inside the TollFreeCampaignConsentFlow, using the provided TollFreeCampaignConsentFlow2
+func (t *TollFreeCampaignConsentFlow) MergeTollFreeCampaignConsentFlow2(v TollFreeCampaignConsentFlow2) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignConsentFlow3 returns the union data inside the TollFreeCampaignConsentFlow as a TollFreeCampaignConsentFlow3
+func (t TollFreeCampaignConsentFlow) AsTollFreeCampaignConsentFlow3() (TollFreeCampaignConsentFlow3, error) {
+	var body TollFreeCampaignConsentFlow3
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignConsentFlow3 overwrites any union data inside the TollFreeCampaignConsentFlow as the provided TollFreeCampaignConsentFlow3
+func (t *TollFreeCampaignConsentFlow) FromTollFreeCampaignConsentFlow3(v TollFreeCampaignConsentFlow3) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignConsentFlow3 performs a merge with any union data inside the TollFreeCampaignConsentFlow, using the provided TollFreeCampaignConsentFlow3
+func (t *TollFreeCampaignConsentFlow) MergeTollFreeCampaignConsentFlow3(v TollFreeCampaignConsentFlow3) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignConsentFlow4 returns the union data inside the TollFreeCampaignConsentFlow as a TollFreeCampaignConsentFlow4
+func (t TollFreeCampaignConsentFlow) AsTollFreeCampaignConsentFlow4() (TollFreeCampaignConsentFlow4, error) {
+	var body TollFreeCampaignConsentFlow4
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignConsentFlow4 overwrites any union data inside the TollFreeCampaignConsentFlow as the provided TollFreeCampaignConsentFlow4
+func (t *TollFreeCampaignConsentFlow) FromTollFreeCampaignConsentFlow4(v TollFreeCampaignConsentFlow4) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignConsentFlow4 performs a merge with any union data inside the TollFreeCampaignConsentFlow, using the provided TollFreeCampaignConsentFlow4
+func (t *TollFreeCampaignConsentFlow) MergeTollFreeCampaignConsentFlow4(v TollFreeCampaignConsentFlow4) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TollFreeCampaignConsentFlow) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TollFreeCampaignConsentFlow) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTollFreeCampaignParamsConsentFlows0 returns the union data inside the TollFreeCampaignParams_ConsentFlows_Item as a TollFreeCampaignParamsConsentFlows0
+func (t TollFreeCampaignParams_ConsentFlows_Item) AsTollFreeCampaignParamsConsentFlows0() (TollFreeCampaignParamsConsentFlows0, error) {
+	var body TollFreeCampaignParamsConsentFlows0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignParamsConsentFlows0 overwrites any union data inside the TollFreeCampaignParams_ConsentFlows_Item as the provided TollFreeCampaignParamsConsentFlows0
+func (t *TollFreeCampaignParams_ConsentFlows_Item) FromTollFreeCampaignParamsConsentFlows0(v TollFreeCampaignParamsConsentFlows0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignParamsConsentFlows0 performs a merge with any union data inside the TollFreeCampaignParams_ConsentFlows_Item, using the provided TollFreeCampaignParamsConsentFlows0
+func (t *TollFreeCampaignParams_ConsentFlows_Item) MergeTollFreeCampaignParamsConsentFlows0(v TollFreeCampaignParamsConsentFlows0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignParamsConsentFlows1 returns the union data inside the TollFreeCampaignParams_ConsentFlows_Item as a TollFreeCampaignParamsConsentFlows1
+func (t TollFreeCampaignParams_ConsentFlows_Item) AsTollFreeCampaignParamsConsentFlows1() (TollFreeCampaignParamsConsentFlows1, error) {
+	var body TollFreeCampaignParamsConsentFlows1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignParamsConsentFlows1 overwrites any union data inside the TollFreeCampaignParams_ConsentFlows_Item as the provided TollFreeCampaignParamsConsentFlows1
+func (t *TollFreeCampaignParams_ConsentFlows_Item) FromTollFreeCampaignParamsConsentFlows1(v TollFreeCampaignParamsConsentFlows1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignParamsConsentFlows1 performs a merge with any union data inside the TollFreeCampaignParams_ConsentFlows_Item, using the provided TollFreeCampaignParamsConsentFlows1
+func (t *TollFreeCampaignParams_ConsentFlows_Item) MergeTollFreeCampaignParamsConsentFlows1(v TollFreeCampaignParamsConsentFlows1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignParamsConsentFlows2 returns the union data inside the TollFreeCampaignParams_ConsentFlows_Item as a TollFreeCampaignParamsConsentFlows2
+func (t TollFreeCampaignParams_ConsentFlows_Item) AsTollFreeCampaignParamsConsentFlows2() (TollFreeCampaignParamsConsentFlows2, error) {
+	var body TollFreeCampaignParamsConsentFlows2
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignParamsConsentFlows2 overwrites any union data inside the TollFreeCampaignParams_ConsentFlows_Item as the provided TollFreeCampaignParamsConsentFlows2
+func (t *TollFreeCampaignParams_ConsentFlows_Item) FromTollFreeCampaignParamsConsentFlows2(v TollFreeCampaignParamsConsentFlows2) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignParamsConsentFlows2 performs a merge with any union data inside the TollFreeCampaignParams_ConsentFlows_Item, using the provided TollFreeCampaignParamsConsentFlows2
+func (t *TollFreeCampaignParams_ConsentFlows_Item) MergeTollFreeCampaignParamsConsentFlows2(v TollFreeCampaignParamsConsentFlows2) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignParamsConsentFlows3 returns the union data inside the TollFreeCampaignParams_ConsentFlows_Item as a TollFreeCampaignParamsConsentFlows3
+func (t TollFreeCampaignParams_ConsentFlows_Item) AsTollFreeCampaignParamsConsentFlows3() (TollFreeCampaignParamsConsentFlows3, error) {
+	var body TollFreeCampaignParamsConsentFlows3
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignParamsConsentFlows3 overwrites any union data inside the TollFreeCampaignParams_ConsentFlows_Item as the provided TollFreeCampaignParamsConsentFlows3
+func (t *TollFreeCampaignParams_ConsentFlows_Item) FromTollFreeCampaignParamsConsentFlows3(v TollFreeCampaignParamsConsentFlows3) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignParamsConsentFlows3 performs a merge with any union data inside the TollFreeCampaignParams_ConsentFlows_Item, using the provided TollFreeCampaignParamsConsentFlows3
+func (t *TollFreeCampaignParams_ConsentFlows_Item) MergeTollFreeCampaignParamsConsentFlows3(v TollFreeCampaignParamsConsentFlows3) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TollFreeCampaignParams_ConsentFlows_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TollFreeCampaignParams_ConsentFlows_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsTollFreeCampaignUpdateParamsConsentFlows0 returns the union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as a TollFreeCampaignUpdateParamsConsentFlows0
+func (t TollFreeCampaignUpdateParams_ConsentFlows_Item) AsTollFreeCampaignUpdateParamsConsentFlows0() (TollFreeCampaignUpdateParamsConsentFlows0, error) {
+	var body TollFreeCampaignUpdateParamsConsentFlows0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignUpdateParamsConsentFlows0 overwrites any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as the provided TollFreeCampaignUpdateParamsConsentFlows0
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) FromTollFreeCampaignUpdateParamsConsentFlows0(v TollFreeCampaignUpdateParamsConsentFlows0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignUpdateParamsConsentFlows0 performs a merge with any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item, using the provided TollFreeCampaignUpdateParamsConsentFlows0
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) MergeTollFreeCampaignUpdateParamsConsentFlows0(v TollFreeCampaignUpdateParamsConsentFlows0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignUpdateParamsConsentFlows1 returns the union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as a TollFreeCampaignUpdateParamsConsentFlows1
+func (t TollFreeCampaignUpdateParams_ConsentFlows_Item) AsTollFreeCampaignUpdateParamsConsentFlows1() (TollFreeCampaignUpdateParamsConsentFlows1, error) {
+	var body TollFreeCampaignUpdateParamsConsentFlows1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignUpdateParamsConsentFlows1 overwrites any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as the provided TollFreeCampaignUpdateParamsConsentFlows1
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) FromTollFreeCampaignUpdateParamsConsentFlows1(v TollFreeCampaignUpdateParamsConsentFlows1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignUpdateParamsConsentFlows1 performs a merge with any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item, using the provided TollFreeCampaignUpdateParamsConsentFlows1
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) MergeTollFreeCampaignUpdateParamsConsentFlows1(v TollFreeCampaignUpdateParamsConsentFlows1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignUpdateParamsConsentFlows2 returns the union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as a TollFreeCampaignUpdateParamsConsentFlows2
+func (t TollFreeCampaignUpdateParams_ConsentFlows_Item) AsTollFreeCampaignUpdateParamsConsentFlows2() (TollFreeCampaignUpdateParamsConsentFlows2, error) {
+	var body TollFreeCampaignUpdateParamsConsentFlows2
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignUpdateParamsConsentFlows2 overwrites any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as the provided TollFreeCampaignUpdateParamsConsentFlows2
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) FromTollFreeCampaignUpdateParamsConsentFlows2(v TollFreeCampaignUpdateParamsConsentFlows2) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignUpdateParamsConsentFlows2 performs a merge with any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item, using the provided TollFreeCampaignUpdateParamsConsentFlows2
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) MergeTollFreeCampaignUpdateParamsConsentFlows2(v TollFreeCampaignUpdateParamsConsentFlows2) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTollFreeCampaignUpdateParamsConsentFlows3 returns the union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as a TollFreeCampaignUpdateParamsConsentFlows3
+func (t TollFreeCampaignUpdateParams_ConsentFlows_Item) AsTollFreeCampaignUpdateParamsConsentFlows3() (TollFreeCampaignUpdateParamsConsentFlows3, error) {
+	var body TollFreeCampaignUpdateParamsConsentFlows3
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTollFreeCampaignUpdateParamsConsentFlows3 overwrites any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item as the provided TollFreeCampaignUpdateParamsConsentFlows3
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) FromTollFreeCampaignUpdateParamsConsentFlows3(v TollFreeCampaignUpdateParamsConsentFlows3) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTollFreeCampaignUpdateParamsConsentFlows3 performs a merge with any union data inside the TollFreeCampaignUpdateParams_ConsentFlows_Item, using the provided TollFreeCampaignUpdateParamsConsentFlows3
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) MergeTollFreeCampaignUpdateParamsConsentFlows3(v TollFreeCampaignUpdateParamsConsentFlows3) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TollFreeCampaignUpdateParams_ConsentFlows_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TollFreeCampaignUpdateParams_ConsentFlows_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // RequestEditorFn is the function signature for the RequestEditor callback function
 type RequestEditorFn func(ctx context.Context, req *http.Request) error
 
@@ -4108,14 +5699,14 @@ type ClientInterface interface {
 
 	// ListAccounts List accounts
 	//
-	// List all accounts for the calling platform with cursor-based pagination.
+	// List all accounts with cursor-based pagination.
 	//
 	// Corresponds with GET /accounts (the `ListAccounts` operationId).
 	ListAccounts(ctx context.Context, params *ListAccountsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateAccountWithBody Create an account
 	//
-	// Creates a new Account within the calling Platform.
+	// Creates a new Account.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -4124,7 +5715,7 @@ type ClientInterface interface {
 
 	// CreateAccount Create an account
 	//
-	// Creates a new Account within the calling Platform.
+	// Creates a new Account.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -4321,6 +5912,31 @@ type ClientInterface interface {
 	// Corresponds with GET /accounts/{account_id}/status (the `CheckAccountStatus` operationId).
 	CheckAccountStatus(ctx context.Context, accountId string, params *CheckAccountStatusParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ListTollFreeCampaigns List toll-free campaigns
+	//
+	// List all toll-free campaigns for an account with cursor-based pagination.
+	//
+	// Corresponds with GET /accounts/{account_id}/toll_free_campaigns (the `ListTollFreeCampaigns` operationId).
+	ListTollFreeCampaigns(ctx context.Context, accountId string, params *ListTollFreeCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTollFreeCampaignWithBody Create a toll-free campaign
+	//
+	// Creates a toll-free campaign and submits it for Surge review.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+	CreateTollFreeCampaignWithBody(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateTollFreeCampaign Create a toll-free campaign
+	//
+	// Creates a toll-free campaign and submits it for Surge review.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+	CreateTollFreeCampaign(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListUsers List users
 	//
 	// List all users for an account with cursor-based pagination.
@@ -4444,7 +6060,7 @@ type ClientInterface interface {
 
 	// UpdateCampaignWithBody Update a campaign
 	//
-	// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+	// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -4453,7 +6069,7 @@ type ClientInterface interface {
 
 	// UpdateCampaign Update a campaign
 	//
-	// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+	// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -4545,6 +6161,31 @@ type ClientInterface interface {
 	// Corresponds with GET /recordings/{recording_id}/file (the `GetRecordingFile` operationId).
 	GetRecordingFile(ctx context.Context, recordingId string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetTollFreeCampaign Retrieve a toll-free campaign
+	//
+	// Retrieves a toll-free campaign object.
+	//
+	// Corresponds with GET /toll_free_campaigns/{campaign_id} (the `GetTollFreeCampaign` operationId).
+	GetTollFreeCampaign(ctx context.Context, campaignId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTollFreeCampaignWithBody Update a toll-free campaign
+	//
+	// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+	UpdateTollFreeCampaignWithBody(ctx context.Context, campaignId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateTollFreeCampaign Update a toll-free campaign
+	//
+	// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+	UpdateTollFreeCampaign(ctx context.Context, campaignId string, body UpdateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// DeleteUser Delete a user
 	//
 	// Deletes a user.
@@ -4620,7 +6261,7 @@ type ClientInterface interface {
 
 // ListAccounts List accounts
 //
-// List all accounts for the calling platform with cursor-based pagination.
+// List all accounts with cursor-based pagination.
 //
 // Corresponds with GET /accounts (the `ListAccounts` operationId).
 func (c *Client) ListAccounts(ctx context.Context, params *ListAccountsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -4637,7 +6278,7 @@ func (c *Client) ListAccounts(ctx context.Context, params *ListAccountsParams, r
 
 // CreateAccountWithBody Create an account
 //
-// Creates a new Account within the calling Platform.
+// Creates a new Account.
 //
 // Takes any type of body and a specified content type.
 //
@@ -4656,7 +6297,7 @@ func (c *Client) CreateAccountWithBody(ctx context.Context, contentType string, 
 
 // CreateAccount Create an account
 //
-// Creates a new Account within the calling Platform.
+// Creates a new Account.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -5063,6 +6704,61 @@ func (c *Client) CheckAccountStatus(ctx context.Context, accountId string, param
 	return c.Client.Do(req)
 }
 
+// ListTollFreeCampaigns List toll-free campaigns
+//
+// List all toll-free campaigns for an account with cursor-based pagination.
+//
+// Corresponds with GET /accounts/{account_id}/toll_free_campaigns (the `ListTollFreeCampaigns` operationId).
+func (c *Client) ListTollFreeCampaigns(ctx context.Context, accountId string, params *ListTollFreeCampaignsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListTollFreeCampaignsRequest(c.Server, accountId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTollFreeCampaignWithBody Create a toll-free campaign
+//
+// Creates a toll-free campaign and submits it for Surge review.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+func (c *Client) CreateTollFreeCampaignWithBody(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTollFreeCampaignRequestWithBody(c.Server, accountId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateTollFreeCampaign Create a toll-free campaign
+//
+// Creates a toll-free campaign and submits it for Surge review.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+func (c *Client) CreateTollFreeCampaign(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateTollFreeCampaignRequest(c.Server, accountId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // ListUsers List users
 //
 // List all users for an account with cursor-based pagination.
@@ -5326,7 +7022,7 @@ func (c *Client) GetCampaign(ctx context.Context, id string, reqEditors ...Reque
 
 // UpdateCampaignWithBody Update a campaign
 //
-// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 //
 // Takes any type of body and a specified content type.
 //
@@ -5345,7 +7041,7 @@ func (c *Client) UpdateCampaignWithBody(ctx context.Context, id string, contentT
 
 // UpdateCampaign Update a campaign
 //
-// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -5547,6 +7243,61 @@ func (c *Client) GetRecording(ctx context.Context, id string, reqEditors ...Requ
 // Corresponds with GET /recordings/{recording_id}/file (the `GetRecordingFile` operationId).
 func (c *Client) GetRecordingFile(ctx context.Context, recordingId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetRecordingFileRequest(c.Server, recordingId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetTollFreeCampaign Retrieve a toll-free campaign
+//
+// Retrieves a toll-free campaign object.
+//
+// Corresponds with GET /toll_free_campaigns/{campaign_id} (the `GetTollFreeCampaign` operationId).
+func (c *Client) GetTollFreeCampaign(ctx context.Context, campaignId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetTollFreeCampaignRequest(c.Server, campaignId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTollFreeCampaignWithBody Update a toll-free campaign
+//
+// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+func (c *Client) UpdateTollFreeCampaignWithBody(ctx context.Context, campaignId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTollFreeCampaignRequestWithBody(c.Server, campaignId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateTollFreeCampaign Update a toll-free campaign
+//
+// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+func (c *Client) UpdateTollFreeCampaign(ctx context.Context, campaignId string, body UpdateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTollFreeCampaignRequest(c.Server, campaignId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -6662,6 +8413,126 @@ func NewCheckAccountStatusRequest(server string, accountId string, params *Check
 	return req, nil
 }
 
+// NewListTollFreeCampaignsRequest constructs an http.Request for the ListTollFreeCampaigns method
+func NewListTollFreeCampaignsRequest(server string, accountId string, params *ListTollFreeCampaignsParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "account_id", accountId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/accounts/%s/toll_free_campaigns", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Before != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "before", *params.Before, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCreateTollFreeCampaignRequest calls the generic CreateTollFreeCampaign builder with application/json body
+func NewCreateTollFreeCampaignRequest(server string, accountId string, body CreateTollFreeCampaignJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateTollFreeCampaignRequestWithBody(server, accountId, "application/json", bodyReader)
+}
+
+// NewCreateTollFreeCampaignRequestWithBody constructs an http.Request for the CreateTollFreeCampaign method, with any body, and a specified content type
+func NewCreateTollFreeCampaignRequestWithBody(server string, accountId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "account_id", accountId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/accounts/%s/toll_free_campaigns", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewListUsersRequest constructs an http.Request for the ListUsers method
 func NewListUsersRequest(server string, accountId string, params *ListUsersParams) (*http.Request, error) {
 	var err error
@@ -7511,6 +9382,87 @@ func NewGetRecordingFileRequest(server string, recordingId string) (*http.Reques
 	return req, nil
 }
 
+// NewGetTollFreeCampaignRequest constructs an http.Request for the GetTollFreeCampaign method
+func NewGetTollFreeCampaignRequest(server string, campaignId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/toll_free_campaigns/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewUpdateTollFreeCampaignRequest calls the generic UpdateTollFreeCampaign builder with application/json body
+func NewUpdateTollFreeCampaignRequest(server string, campaignId string, body UpdateTollFreeCampaignJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateTollFreeCampaignRequestWithBody(server, campaignId, "application/json", bodyReader)
+}
+
+// NewUpdateTollFreeCampaignRequestWithBody constructs an http.Request for the UpdateTollFreeCampaign method, with any body, and a specified content type
+func NewUpdateTollFreeCampaignRequestWithBody(server string, campaignId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "campaign_id", campaignId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/toll_free_campaigns/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewDeleteUserRequest constructs an http.Request for the DeleteUser method
 func NewDeleteUserRequest(server string, id string) (*http.Request, error) {
 	var err error
@@ -7766,7 +9718,7 @@ type ClientWithResponsesInterface interface {
 
 	// ListAccountsWithResponse List accounts
 	//
-	// List all accounts for the calling platform with cursor-based pagination.
+	// List all accounts with cursor-based pagination.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -7775,7 +9727,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateAccountWithBodyWithResponse Create an account
 	//
-	// Creates a new Account within the calling Platform.
+	// Creates a new Account.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -7784,7 +9736,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateAccountWithResponse Create an account
 	//
-	// Creates a new Account within the calling Platform.
+	// Creates a new Account.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -7997,6 +9949,33 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /accounts/{account_id}/status (the `CheckAccountStatus` operationId).
 	CheckAccountStatusWithResponse(ctx context.Context, accountId string, params *CheckAccountStatusParams, reqEditors ...RequestEditorFn) (*CheckAccountStatusResponse, error)
 
+	// ListTollFreeCampaignsWithResponse List toll-free campaigns
+	//
+	// List all toll-free campaigns for an account with cursor-based pagination.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /accounts/{account_id}/toll_free_campaigns (the `ListTollFreeCampaigns` operationId).
+	ListTollFreeCampaignsWithResponse(ctx context.Context, accountId string, params *ListTollFreeCampaignsParams, reqEditors ...RequestEditorFn) (*ListTollFreeCampaignsResponse, error)
+
+	// CreateTollFreeCampaignWithBodyWithResponse Create a toll-free campaign
+	//
+	// Creates a toll-free campaign and submits it for Surge review.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+	CreateTollFreeCampaignWithBodyWithResponse(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTollFreeCampaignResponse, error)
+
+	// CreateTollFreeCampaignWithResponse Create a toll-free campaign
+	//
+	// Creates a toll-free campaign and submits it for Surge review.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+	CreateTollFreeCampaignWithResponse(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTollFreeCampaignResponse, error)
+
 	// ListUsersWithResponse List users
 	//
 	// List all users for an account with cursor-based pagination.
@@ -8132,7 +10111,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateCampaignWithBodyWithResponse Update a campaign
 	//
-	// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+	// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -8141,7 +10120,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateCampaignWithResponse Update a campaign
 	//
-	// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+	// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -8246,6 +10225,33 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /recordings/{recording_id}/file (the `GetRecordingFile` operationId).
 	GetRecordingFileWithResponse(ctx context.Context, recordingId string, reqEditors ...RequestEditorFn) (*GetRecordingFileResponse, error)
+
+	// GetTollFreeCampaignWithResponse Retrieve a toll-free campaign
+	//
+	// Retrieves a toll-free campaign object.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /toll_free_campaigns/{campaign_id} (the `GetTollFreeCampaign` operationId).
+	GetTollFreeCampaignWithResponse(ctx context.Context, campaignId string, reqEditors ...RequestEditorFn) (*GetTollFreeCampaignResponse, error)
+
+	// UpdateTollFreeCampaignWithBodyWithResponse Update a toll-free campaign
+	//
+	// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+	UpdateTollFreeCampaignWithBodyWithResponse(ctx context.Context, campaignId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTollFreeCampaignResponse, error)
+
+	// UpdateTollFreeCampaignWithResponse Update a toll-free campaign
+	//
+	// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+	UpdateTollFreeCampaignWithResponse(ctx context.Context, campaignId string, body UpdateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTollFreeCampaignResponse, error)
 
 	// DeleteUserWithResponse Delete a user
 	//
@@ -9099,6 +11105,109 @@ func (r CheckAccountStatusResponse) ContentType() string {
 	return ""
 }
 
+type ListTollFreeCampaignsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TollFreeCampaignList
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListTollFreeCampaignsResponse) GetJSON200() *TollFreeCampaignList {
+	return r.JSON200
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r ListTollFreeCampaignsResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r ListTollFreeCampaignsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListTollFreeCampaignsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListTollFreeCampaignsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListTollFreeCampaignsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateTollFreeCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *TollFreeCampaign
+	// JSON409 the response for an HTTP 409 `application/json` response
+	JSON409 *ErrorResponse
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateTollFreeCampaignResponse) GetJSON201() *TollFreeCampaign {
+	return r.JSON201
+}
+
+// GetJSON409 returns the response for an HTTP 409 `application/json` response
+func (r CreateTollFreeCampaignResponse) GetJSON409() *ErrorResponse {
+	return r.JSON409
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r CreateTollFreeCampaignResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateTollFreeCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateTollFreeCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateTollFreeCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateTollFreeCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type ListUsersResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -9195,6 +11304,11 @@ func (r CreateUserResponse) ContentType() string {
 	return ""
 }
 
+// CreateVerificationResponse429Headers the declared response headers of an HTTP 429 response for CreateVerification
+type CreateVerificationResponse429Headers struct {
+	RetryAfter *int
+}
+
 type CreateVerificationResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -9206,6 +11320,8 @@ type CreateVerificationResponse struct {
 	JSON429 *ErrorResponse
 	// JSONDefault the response for an HTTP default `application/json` response
 	JSONDefault *ErrorResponse
+	// Headers429 the parsed response headers for an HTTP 429 response
+	Headers429 *CreateVerificationResponse429Headers
 }
 
 // GetJSON201 returns the response for an HTTP 201 `application/json` response
@@ -10073,6 +12189,109 @@ func (r GetRecordingFileResponse) ContentType() string {
 	return ""
 }
 
+type GetTollFreeCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TollFreeCampaign
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetTollFreeCampaignResponse) GetJSON200() *TollFreeCampaign {
+	return r.JSON200
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r GetTollFreeCampaignResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r GetTollFreeCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetTollFreeCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetTollFreeCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetTollFreeCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateTollFreeCampaignResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *TollFreeCampaign
+	// JSON409 the response for an HTTP 409 `application/json` response
+	JSON409 *ErrorResponse
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateTollFreeCampaignResponse) GetJSON200() *TollFreeCampaign {
+	return r.JSON200
+}
+
+// GetJSON409 returns the response for an HTTP 409 `application/json` response
+func (r UpdateTollFreeCampaignResponse) GetJSON409() *ErrorResponse {
+	return r.JSON409
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r UpdateTollFreeCampaignResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateTollFreeCampaignResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateTollFreeCampaignResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateTollFreeCampaignResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateTollFreeCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type DeleteUserResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -10329,7 +12548,7 @@ func (r CheckVerificationResponse) ContentType() string {
 
 // ListAccountsWithResponse List accounts
 //
-// List all accounts for the calling platform with cursor-based pagination.
+// List all accounts with cursor-based pagination.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -10344,7 +12563,7 @@ func (c *ClientWithResponses) ListAccountsWithResponse(ctx context.Context, para
 
 // CreateAccountWithBodyWithResponse Create an account
 //
-// Creates a new Account within the calling Platform.
+// Creates a new Account.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -10359,7 +12578,7 @@ func (c *ClientWithResponses) CreateAccountWithBodyWithResponse(ctx context.Cont
 
 // CreateAccountWithResponse Create an account
 //
-// Creates a new Account within the calling Platform.
+// Creates a new Account.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -10698,6 +12917,51 @@ func (c *ClientWithResponses) CheckAccountStatusWithResponse(ctx context.Context
 	return ParseCheckAccountStatusResponse(rsp)
 }
 
+// ListTollFreeCampaignsWithResponse List toll-free campaigns
+//
+// List all toll-free campaigns for an account with cursor-based pagination.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /accounts/{account_id}/toll_free_campaigns (the `ListTollFreeCampaigns` operationId).
+func (c *ClientWithResponses) ListTollFreeCampaignsWithResponse(ctx context.Context, accountId string, params *ListTollFreeCampaignsParams, reqEditors ...RequestEditorFn) (*ListTollFreeCampaignsResponse, error) {
+	rsp, err := c.ListTollFreeCampaigns(ctx, accountId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListTollFreeCampaignsResponse(rsp)
+}
+
+// CreateTollFreeCampaignWithBodyWithResponse Create a toll-free campaign
+//
+// Creates a toll-free campaign and submits it for Surge review.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+func (c *ClientWithResponses) CreateTollFreeCampaignWithBodyWithResponse(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateTollFreeCampaignResponse, error) {
+	rsp, err := c.CreateTollFreeCampaignWithBody(ctx, accountId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTollFreeCampaignResponse(rsp)
+}
+
+// CreateTollFreeCampaignWithResponse Create a toll-free campaign
+//
+// Creates a toll-free campaign and submits it for Surge review.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
+func (c *ClientWithResponses) CreateTollFreeCampaignWithResponse(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTollFreeCampaignResponse, error) {
+	rsp, err := c.CreateTollFreeCampaign(ctx, accountId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateTollFreeCampaignResponse(rsp)
+}
+
 // ListUsersWithResponse List users
 //
 // List all users for an account with cursor-based pagination.
@@ -10917,7 +13181,7 @@ func (c *ClientWithResponses) GetCampaignWithResponse(ctx context.Context, id st
 
 // UpdateCampaignWithBodyWithResponse Update a campaign
 //
-// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -10932,7 +13196,7 @@ func (c *ClientWithResponses) UpdateCampaignWithBodyWithResponse(ctx context.Con
 
 // UpdateCampaignWithResponse Update a campaign
 //
-// Updates a campaign that has not yet been approved. This can be used to fix issues flagged during review and resubmit the campaign. Returns an error if the campaign is currently in review, has already been approved, or has been deactivated.
+// Updates supplied fields on a campaign and submits it for review. Omitted fields retain their stored values. An empty object or empty request body resubmits the existing campaign without changing its registration details. Supplied arrays replace their stored values; an empty includes array clears all inclusion flags. Returns an error if the resulting campaign is incomplete or invalid, or the campaign is not editable.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -11108,6 +13372,51 @@ func (c *ClientWithResponses) GetRecordingFileWithResponse(ctx context.Context, 
 		return nil, err
 	}
 	return ParseGetRecordingFileResponse(rsp)
+}
+
+// GetTollFreeCampaignWithResponse Retrieve a toll-free campaign
+//
+// Retrieves a toll-free campaign object.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /toll_free_campaigns/{campaign_id} (the `GetTollFreeCampaign` operationId).
+func (c *ClientWithResponses) GetTollFreeCampaignWithResponse(ctx context.Context, campaignId string, reqEditors ...RequestEditorFn) (*GetTollFreeCampaignResponse, error) {
+	rsp, err := c.GetTollFreeCampaign(ctx, campaignId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetTollFreeCampaignResponse(rsp)
+}
+
+// UpdateTollFreeCampaignWithBodyWithResponse Update a toll-free campaign
+//
+// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+func (c *ClientWithResponses) UpdateTollFreeCampaignWithBodyWithResponse(ctx context.Context, campaignId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTollFreeCampaignResponse, error) {
+	rsp, err := c.UpdateTollFreeCampaignWithBody(ctx, campaignId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTollFreeCampaignResponse(rsp)
+}
+
+// UpdateTollFreeCampaignWithResponse Update a toll-free campaign
+//
+// Updates a toll-free campaign awaiting customer fixes and re-submits it for Surge review. Returns 409 if the campaign is not in an updatable status.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /toll_free_campaigns/{campaign_id} (the `UpdateTollFreeCampaign` operationId).
+func (c *ClientWithResponses) UpdateTollFreeCampaignWithResponse(ctx context.Context, campaignId string, body UpdateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTollFreeCampaignResponse, error) {
+	rsp, err := c.UpdateTollFreeCampaign(ctx, campaignId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTollFreeCampaignResponse(rsp)
 }
 
 // DeleteUserWithResponse Delete a user
@@ -11769,6 +14078,79 @@ func ParseCheckAccountStatusResponse(rsp *http.Response) (*CheckAccountStatusRes
 	return response, nil
 }
 
+// ParseListTollFreeCampaignsResponse parses an HTTP response from a ListTollFreeCampaignsWithResponse call
+func ParseListTollFreeCampaignsResponse(rsp *http.Response) (*ListTollFreeCampaignsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListTollFreeCampaignsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TollFreeCampaignList
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateTollFreeCampaignResponse parses an HTTP response from a CreateTollFreeCampaignWithResponse call
+func ParseCreateTollFreeCampaignResponse(rsp *http.Response) (*CreateTollFreeCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateTollFreeCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest TollFreeCampaign
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseListUsersResponse parses an HTTP response from a ListUsersWithResponse call
 func ParseListUsersResponse(rsp *http.Response) (*ListUsersResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -11877,6 +14259,19 @@ func ParseCreateVerificationResponse(rsp *http.Response) (*CreateVerificationRes
 		}
 		response.JSONDefault = &dest
 
+	}
+
+	switch {
+	case rsp.StatusCode == 429:
+		var headers CreateVerificationResponse429Headers
+		if values := rsp.Header.Values("Retry-After"); len(values) > 0 {
+			var value int
+			if err := runtime.BindStyledParameterWithOptions("simple", "Retry-After", values[0], &value, runtime.BindStyledParameterOptions{ParamLocation: runtime.ParamLocationHeader, Explode: false, Required: false, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			}
+			headers.RetryAfter = &value
+		}
+		response.Headers429 = &headers
 	}
 
 	return response, nil
@@ -12461,6 +14856,79 @@ func ParseGetRecordingFileResponse(rsp *http.Response) (*GetRecordingFileRespons
 	return response, nil
 }
 
+// ParseGetTollFreeCampaignResponse parses an HTTP response from a GetTollFreeCampaignWithResponse call
+func ParseGetTollFreeCampaignResponse(rsp *http.Response) (*GetTollFreeCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetTollFreeCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TollFreeCampaign
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateTollFreeCampaignResponse parses an HTTP response from a UpdateTollFreeCampaignWithResponse call
+func ParseUpdateTollFreeCampaignResponse(rsp *http.Response) (*UpdateTollFreeCampaignResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateTollFreeCampaignResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TollFreeCampaign
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseDeleteUserResponse parses an HTTP response from a DeleteUserWithResponse call
 func ParseDeleteUserResponse(rsp *http.Response) (*DeleteUserResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -12716,6 +15184,21 @@ type WebhookInitiatorInterface interface {
 
 	CampaignApproved(ctx context.Context, targetURL string, body CampaignApprovedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CampaignRejectedWithBody fires the campaignRejected webhook with any body
+	CampaignRejectedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CampaignRejected(ctx context.Context, targetURL string, body CampaignRejectedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CampaignSubmittedWithBody fires the campaignSubmitted webhook with any body
+	CampaignSubmittedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CampaignSubmitted(ctx context.Context, targetURL string, body CampaignSubmittedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CampaignWarningWithBody fires the campaignWarning webhook with any body
+	CampaignWarningWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CampaignWarning(ctx context.Context, targetURL string, body CampaignWarningJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ContactOptedInWithBody fires the contactOptedIn webhook with any body
 	ContactOptedInWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -12815,6 +15298,78 @@ func (p *WebhookInitiator) CampaignApprovedWithBody(ctx context.Context, targetU
 
 func (p *WebhookInitiator) CampaignApproved(ctx context.Context, targetURL string, body CampaignApprovedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCampaignApprovedWebhookRequest(targetURL, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CampaignRejectedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCampaignRejectedWebhookRequestWithBody(targetURL, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CampaignRejected(ctx context.Context, targetURL string, body CampaignRejectedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCampaignRejectedWebhookRequest(targetURL, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CampaignSubmittedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCampaignSubmittedWebhookRequestWithBody(targetURL, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CampaignSubmitted(ctx context.Context, targetURL string, body CampaignSubmittedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCampaignSubmittedWebhookRequest(targetURL, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CampaignWarningWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCampaignWarningWebhookRequestWithBody(targetURL, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CampaignWarning(ctx context.Context, targetURL string, body CampaignWarningJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCampaignWarningWebhookRequest(targetURL, body)
 	if err != nil {
 		return nil, err
 	}
@@ -13157,6 +15712,99 @@ func NewCampaignApprovedWebhookRequest(targetURL string, body CampaignApprovedJS
 
 // NewCampaignApprovedWebhookRequestWithBody builds a POST request for the campaignApproved webhook with any body
 func NewCampaignApprovedWebhookRequestWithBody(targetURL string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+	_ = err
+
+	reqURL, err := url.Parse(targetURL)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, reqURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCampaignRejectedWebhookRequest builds a application/json POST request for the campaignRejected webhook
+func NewCampaignRejectedWebhookRequest(targetURL string, body CampaignRejectedJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCampaignRejectedWebhookRequestWithBody(targetURL, "application/json", bodyReader)
+}
+
+// NewCampaignRejectedWebhookRequestWithBody builds a POST request for the campaignRejected webhook with any body
+func NewCampaignRejectedWebhookRequestWithBody(targetURL string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+	_ = err
+
+	reqURL, err := url.Parse(targetURL)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, reqURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCampaignSubmittedWebhookRequest builds a application/json POST request for the campaignSubmitted webhook
+func NewCampaignSubmittedWebhookRequest(targetURL string, body CampaignSubmittedJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCampaignSubmittedWebhookRequestWithBody(targetURL, "application/json", bodyReader)
+}
+
+// NewCampaignSubmittedWebhookRequestWithBody builds a POST request for the campaignSubmitted webhook with any body
+func NewCampaignSubmittedWebhookRequestWithBody(targetURL string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+	_ = err
+
+	reqURL, err := url.Parse(targetURL)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, reqURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCampaignWarningWebhookRequest builds a application/json POST request for the campaignWarning webhook
+func NewCampaignWarningWebhookRequest(targetURL string, body CampaignWarningJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCampaignWarningWebhookRequestWithBody(targetURL, "application/json", bodyReader)
+}
+
+// NewCampaignWarningWebhookRequestWithBody builds a POST request for the campaignWarning webhook with any body
+func NewCampaignWarningWebhookRequestWithBody(targetURL string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 	_ = err
 

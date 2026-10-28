@@ -39,6 +39,8 @@ Attach a request editor through `surge.WithRequestEditorFn` and set `req.Header.
 | `ResendBrandVerificationMessage` | `POST /accounts/{account_id}/brand_verification_messages` |
 | `ListCampaigns`, `CreateCampaign` | `GET`, `POST /accounts/{account_id}/campaigns` |
 | `GetCampaign`, `UpdateCampaign` | `GET`, `PATCH /campaigns/{id}` |
+| `ListTollFreeCampaigns`, `CreateTollFreeCampaign` | `GET`, `POST /accounts/{account_id}/toll_free_campaigns` |
+| `GetTollFreeCampaign`, `UpdateTollFreeCampaign` | `GET`, `PATCH /toll_free_campaigns/{campaign_id}` |
 | `ListContacts`, `CreateContact` | `GET`, `POST /accounts/{account_id}/contacts` |
 | `GetContact`, `UpdateContact` | `GET`, `PATCH /contacts/{id}` |
 | `ListMessages`, `CreateMessage` | `GET`, `POST /accounts/{account_id}/messages` |
