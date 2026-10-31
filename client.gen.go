@@ -3391,7 +3391,7 @@ type ExternalCampaignParams struct {
 	TcrId string `json:"tcr_id"`
 }
 
-// LinkFollowedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"id":"lnk_01kedctzhxexdbr5xf2bht5q84","message":{"attachments":[],"blast_id":null,"body":"You have a new receipt from DT Precision Auto: https://yoursite.com/something?param=true","conversation":{"contact":{"email":null,"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{},"status":"delivered"},"message_id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","url":"https://yoursite.com/something?param=true"},"timestamp":"2024-10-21T23:29:41Z","type":"link.followed"}
+// LinkFollowedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"id":"lnk_01kedctzhxexdbr5xf2bht5q84","message":{"attachments":[],"blast_id":null,"body":"You have a new receipt from DT Precision Auto: https://yoursite.com/something?param=true","conversation":{"contact":{"email":null,"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"created_at":"2024-10-21T23:29:40Z","failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{},"status":"delivered"},"message_id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","url":"https://yoursite.com/something?param=true"},"timestamp":"2024-10-21T23:29:41Z","type":"link.followed"}
 type LinkFollowedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3424,7 +3424,7 @@ type LinkFollowedEventType string
 
 // Message A Message is a communication sent to a Contact.
 //
-// Example: {"attachments":[{"id":"att_01j9e0m1m6fc38gsv2vkfqgzz2","type":"image","url":"https://api.surge.app/attachments/att_01jbwyqj7rejzat7pq03r7fgmf"}],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"number":"+18015552345","type":"local"}},"failure_reason":null,"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","metadata":{"external_id":"12345"},"status":"delivered"}
+// Example: {"attachments":[{"id":"att_01j9e0m1m6fc38gsv2vkfqgzz2","type":"image","url":"https://api.surge.app/attachments/att_01jbwyqj7rejzat7pq03r7fgmf"}],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"number":"+18015552345","type":"local"}},"created_at":"2024-10-21T23:29:40Z","failure_reason":null,"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","metadata":{"external_id":"12345"},"status":"delivered"}
 type Message struct {
 	Attachments *[]Attachment `json:"attachments,omitempty"`
 
@@ -3438,6 +3438,9 @@ type Message struct {
 	//
 	// Example: {"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-2345","number":"+18015552345","type":"local"}}
 	Conversation *Conversation `json:"conversation,omitempty"`
+
+	// CreatedAt When the message was added to the conversation, in ISO8601 UTC format. Null for scheduled messages until they are created. For imported messages, this is the original creation time.
+	CreatedAt *time.Time `json:"created_at"`
 
 	// FailureReason The reason the message failed, or null if no failure reason is set.
 	FailureReason *string `json:"failure_reason,omitempty"`
@@ -3455,7 +3458,7 @@ type Message struct {
 // MessageStatus The current status of the message.
 type MessageStatus string
 
-// MessageDeliveredEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"email":"dom@toretto.family","first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{"car":"1970 Dodge Charger R/T"},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"delivered_at":"2024-10-21T23:29:42Z","failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"delivered"},"timestamp":"2024-10-21T23:29:41Z","type":"message.delivered"}
+// MessageDeliveredEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"email":"dom@toretto.family","first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","metadata":{"car":"1970 Dodge Charger R/T"},"phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"created_at":"2024-10-21T23:29:40Z","delivered_at":"2024-10-21T23:29:42Z","failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"delivered"},"timestamp":"2024-10-21T23:29:41Z","type":"message.delivered"}
 type MessageDeliveredEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3496,6 +3499,9 @@ type MessageDeliveredEvent struct {
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
 
+		// CreatedAt When the message was added to the conversation, in ISO8601 UTC format. For scheduled messages, this is the actual creation time, which may be later than the requested send_at. For imported messages, this is the original creation time.
+		CreatedAt time.Time `json:"created_at"`
+
 		// DeliveredAt When the message was delivered
 		DeliveredAt time.Time `json:"delivered_at"`
 
@@ -3528,7 +3534,7 @@ type MessageDeliveredEventDataStatus string
 // MessageDeliveredEventType The type of the event. Always `message.delivered` for this event.
 type MessageDeliveredEventType string
 
-// MessageFailedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failed_at":"2024-10-21T23:29:42Z","failure_reason":"carrier_error","id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"failed"},"timestamp":"2024-10-21T23:29:41Z","type":"message.failed"}
+// MessageFailedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"created_at":"2024-10-21T23:29:40Z","failed_at":"2024-10-21T23:29:42Z","failure_reason":"carrier_error","id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"status":"failed"},"timestamp":"2024-10-21T23:29:41Z","type":"message.failed"}
 type MessageFailedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3569,6 +3575,9 @@ type MessageFailedEvent struct {
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
 
+		// CreatedAt When the message was added to the conversation, in ISO8601 UTC format. For scheduled messages, this is the actual creation time, which may be later than the requested send_at. For imported messages, this is the original creation time.
+		CreatedAt time.Time `json:"created_at"`
+
 		// FailedAt When the message failed
 		FailedAt time.Time `json:"failed_at"`
 
@@ -3603,7 +3612,7 @@ type MessageFailedEventType string
 
 // MessageList A paginated list of messages
 //
-// Example: {"data":[{"attachments":[],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"number":"+18015552345","type":"local"}},"failure_reason":null,"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","status":"delivered"}],"pagination":{"next_cursor":null,"previous_cursor":null}}
+// Example: {"data":[{"attachments":[],"blast_id":null,"body":"Thought you could leave without saying goodbye?","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01j9dy8mdzfn3r0e8x1tbdrdrf","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01j9e0dgmdfkj86c877ws0znae","phone_number":{"id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"number":"+18015552345","type":"local"}},"created_at":"2024-10-21T23:29:40Z","failure_reason":null,"id":"msg_01j9e0m1m6fc38gsv2vkfqgzz2","status":"delivered"}],"pagination":{"next_cursor":null,"previous_cursor":null}}
 type MessageList struct {
 	// Data The list of messages
 	Data []Message `json:"data"`
@@ -3674,7 +3683,7 @@ type MessageParams1 struct {
 	To string `json:"to"`
 }
 
-// MessageReceivedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jav8z6x1j4m1b3w8v2jz7j3r","type":"image","url":"https://toretto.family/image.jpg"}],"blast_id":null,"body":"I don't have friends, I got family.","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failure_reason":null,"id":"msg_01jav96823f9x9054d6gyzpp16","metadata":{"order_id":"12345"},"received_at":"2024-10-22T23:32:49Z","status":"received"},"timestamp":"2024-10-21T23:29:41Z","type":"message.received"}
+// MessageReceivedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jav8z6x1j4m1b3w8v2jz7j3r","type":"image","url":"https://toretto.family/image.jpg"}],"blast_id":null,"body":"I don't have friends, I got family.","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"created_at":"2024-10-22T23:32:49Z","failure_reason":null,"id":"msg_01jav96823f9x9054d6gyzpp16","metadata":{"order_id":"12345"},"received_at":"2024-10-22T23:32:49Z","status":"received"},"timestamp":"2024-10-21T23:29:41Z","type":"message.received"}
 type MessageReceivedEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3715,6 +3724,9 @@ type MessageReceivedEvent struct {
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
 
+		// CreatedAt When the message was added to the conversation, in ISO8601 UTC format. For scheduled messages, this is the actual creation time, which may be later than the requested send_at. For imported messages, this is the original creation time.
+		CreatedAt time.Time `json:"created_at"`
+
 		// FailureReason The reason the message failed, or null if no failure reason is set
 		FailureReason *string `json:"failure_reason"`
 
@@ -3747,7 +3759,7 @@ type MessageReceivedEventDataStatus string
 // MessageReceivedEventType The type of the event. Always `message.received` for this event.
 type MessageReceivedEventType string
 
-// MessageSentEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"sent_at":"2024-10-21T23:29:41Z","status":"sent"},"timestamp":"2024-10-21T23:29:41Z","type":"message.sent"}
+// MessageSentEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"attachments":[{"id":"att_01jjnn75vgepj8bnnttfw1st5s","type":"image","url":"https://toretto.family/skyline.jpg"}],"blast_id":null,"body":"Dude, I almost had you!","conversation":{"contact":{"first_name":"Dominic","id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":"Toretto","phone_number":"+18015551234"},"id":"cnv_01jav8xy7fe4nsay3c9deqxge9","phone_number":{"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-6789","number":"+18015556789","type":"local"}},"created_at":"2024-10-21T23:29:40Z","failure_reason":null,"id":"msg_01jjnn7s0zfx5tdcsxjfy93et2","metadata":{"order_id":"12345"},"sent_at":"2024-10-21T23:29:41Z","status":"sent"},"timestamp":"2024-10-21T23:29:41Z","type":"message.sent"}
 type MessageSentEvent struct {
 	// AccountId The ID of the account in which this event occurred
 	AccountId string `json:"account_id"`
@@ -3787,6 +3799,9 @@ type MessageSentEvent struct {
 			// Example: {"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"}
 			PhoneNumber PhoneNumber `json:"phone_number"`
 		} `json:"conversation"`
+
+		// CreatedAt When the message was added to the conversation, in ISO8601 UTC format. For scheduled messages, this is the actual creation time, which may be later than the requested send_at. For imported messages, this is the original creation time.
+		CreatedAt time.Time `json:"created_at"`
 
 		// FailureReason The reason the message failed, or null if no failure reason is set
 		FailureReason *string `json:"failure_reason"`

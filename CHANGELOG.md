@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.2.1, 2026-10-31
+
+- Added `Message.CreatedAt` (`*time.Time`), the time the message was added to the conversation. It is null for scheduled messages until they are created. For imported messages it is the original creation time.
+- Added a `CreatedAt` field (`time.Time`) to the `Data` payload of `MessageDeliveredEvent`, `MessageFailedEvent`, `MessageReceivedEvent` and `MessageSentEvent`.
+- Updated the example payloads in the doc comments of `Message`, `MessageList`, `LinkFollowedEvent` and the four message events to include `created_at`.
+
 ## v0.2.0, 2026-10-28
 
 - The client is generated from the spec Surge's API publishes at `https://api.surge.app/openapi.json`. The Stainless-hosted copy of the spec it used before is no longer publicly readable, so scheduled regeneration had stopped.
