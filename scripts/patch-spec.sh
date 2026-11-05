@@ -1,6 +1,6 @@
 #!/bin/bash
 # Downconverts Surge's JSON OpenAPI 3.1 document for oapi-codegen:
-# 1. Nullable type lists become a single type plus nullable: true.
+# 1. Type lists become a single type or anyOf, with nullable for null members.
 # 2. const becomes a single-value enum so event type constants survive.
 # 3. Schema examples arrays become example; response examples maps stay intact.
 # The version marker becomes 3.0.3 after these conversions.
@@ -45,9 +45,27 @@ main() {
 	jq '
 	  walk(if type == "object" then
 	    (if (.type | type) == "array" then
-	      if (.type | length) == 2 and (.type | index("null")) != null then
-	        .type = (.type | map(select(. != "null"))[0]) | .nullable = true
-	      else error("unsupported type union") end
+	      .type as $types
+	      | if ($types | length) == 0 or
+	          any($types[]; . != "string" and . != "number" and
+	            . != "integer" and . != "boolean" and . != "array" and
+	            . != "object" and . != "null") then
+	          error("invalid schema type union")
+	        else . end
+	      | ($types | map(select(. != "null")) | unique) as $values
+	      | if ($values | length) == 0 then
+	          error("null-only schema cannot be downconverted")
+	        else . end
+	      | if ($types | index("null")) != null then .nullable = true
+	        else . end
+	      | if ($values | length) == 1 then .type = $values[0]
+	        else
+	          del(.type)
+	          | ($values | map({type: .})) as $branches
+	          | if has("anyOf") then
+	              .allOf = ((.allOf // []) + [{anyOf: $branches}])
+	            else .anyOf = $branches end
+	        end
 	    else . end)
 	    | (if has("const") then .enum = [.const] | del(.const) else . end)
 	    | (if (.examples | type) == "array" then

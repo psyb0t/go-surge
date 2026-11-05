@@ -171,6 +171,21 @@ func (e CallEndedEventType) Valid() bool {
 	}
 }
 
+// Defines values for CallFlowEventCreatedEventType.
+const (
+	CallFlowEventCreatedEventTypeCallFlowEventCreated CallFlowEventCreatedEventType = "call_flow_event.created"
+)
+
+// Valid indicates whether the value is a known member of the CallFlowEventCreatedEventType enum.
+func (e CallFlowEventCreatedEventType) Valid() bool {
+	switch e {
+	case CallFlowEventCreatedEventTypeCallFlowEventCreated:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CampaignIncludes.
 const (
 	CampaignIncludesAgeGated      CampaignIncludes = "age_gated"
@@ -2847,6 +2862,88 @@ type CallEndedEventDataStatus string
 // CallEndedEventType The type of the event. Always `call.ended` for this event.
 type CallEndedEventType string
 
+// CallFlowEventCreatedEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"call":{"contact":{"email":null,"first_name":null,"id":"ctc_01ja88cboqffhswjx8zbak3ykk","last_name":null,"metadata":{},"phone_number":"+15555550199"},"from":"+15555550199","id":"call_01jjnn7s0zfx5tdcsxjfy93et2","initiated_at":"2026-09-26T17:03:41Z","phone_number_id":"pn_01jsjwe4d9fx3tpymgtg958d9w","to":"+15555550100"},"call_flow":{"id":"cf_01jjnn7s0zfx5tdcsxjfy93et2","version":3},"inputs":{"menu":{"digits":"1","option":"callback","speech":null}},"metadata":{"priority":1,"queue":"sales"},"name":"callback_requested"},"timestamp":"2024-10-21T23:29:41Z","type":"call_flow_event.created"}
+type CallFlowEventCreatedEvent struct {
+	// AccountId The ID of the account in which this event occurred
+	AccountId string `json:"account_id"`
+
+	// Data The data associated with the event
+	Data struct {
+		// Call The inbound call that reached the node
+		Call struct {
+			Contact struct {
+				Email       *string                `json:"email"`
+				FirstName   *string                `json:"first_name"`
+				Id          string                 `json:"id"`
+				LastName    *string                `json:"last_name"`
+				Metadata    map[string]interface{} `json:"metadata"`
+				PhoneNumber string                 `json:"phone_number"`
+			} `json:"contact"`
+
+			// From The caller's E.164 number
+			From *string `json:"from"`
+
+			// Id The unique identifier for the call
+			Id          string    `json:"id"`
+			InitiatedAt time.Time `json:"initiated_at"`
+
+			// PhoneNumberId The Surge phone number ID
+			PhoneNumberId *string `json:"phone_number_id"`
+
+			// To The Surge number called
+			To *string `json:"to"`
+		} `json:"call"`
+
+		// CallFlow The published call flow version used for this call
+		CallFlow struct {
+			// Id The call flow ID
+			Id      string `json:"id"`
+			Version int    `json:"version"`
+		} `json:"call_flow"`
+
+		// Inputs The latest matched gather result for each IVR node, keyed by node ID
+		Inputs map[string]struct {
+			// Digits Digits entered by the caller
+			Digits *string `json:"digits"`
+
+			// Option Matched option key
+			Option *string `json:"option"`
+
+			// Speech Recognized speech
+			Speech *string `json:"speech"`
+		} `json:"inputs"`
+
+		// Metadata Metadata configured on the node, or an empty object
+		Metadata map[string]*CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties `json:"metadata"`
+
+		// Name The event name configured on the node
+		Name string `json:"name"`
+	} `json:"data"`
+
+	// Timestamp The timestamp when this event occurred, in ISO8601 format
+	Timestamp time.Time `json:"timestamp"`
+
+	// Type The type of the event. Always `call_flow_event.created` for this event.
+	Type CallFlowEventCreatedEventType `json:"type"`
+}
+
+// CallFlowEventCreatedEventDataMetadata0 defines model for CallFlowEventCreatedEvent.Data.Metadata.0.
+type CallFlowEventCreatedEventDataMetadata0 = bool
+
+// CallFlowEventCreatedEventDataMetadata1 defines model for CallFlowEventCreatedEvent.Data.Metadata.1.
+type CallFlowEventCreatedEventDataMetadata1 = float64
+
+// CallFlowEventCreatedEventDataMetadata2 defines model for CallFlowEventCreatedEvent.Data.Metadata.2.
+type CallFlowEventCreatedEventDataMetadata2 = string
+
+// CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties defines model for CallFlowEventCreatedEvent.Data.Metadata.AdditionalProperties.
+type CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties struct {
+	union json.RawMessage
+}
+
+// CallFlowEventCreatedEventType The type of the event. Always `call_flow_event.created` for this event.
+type CallFlowEventCreatedEventType string
+
 // Campaign A campaign represents the context in which one or more of your phone numbers communicates with your contacts. Consent and opt-outs are tied to the campaign.
 //
 // Example: {"account_id":"acct_01j9a43avnfqzbjfch6pygv1td","consent_flow":"When customers bring in their car for service, they will fill out this web form for intake: https://fastauto.shop/bp108c In it they can choose to opt in to text message notifications. If they choose to opt in, we will send them notifications to let them know if our mechanics find issues and once the car is ready to go, as well as links to invoices and to leave us feedback.","description":"This phone number will send auto maintenance notifications to end users that have opted in. It will also be used for responding to customer inquiries and sending some marketing offers.","id":"cpn_01k0qczvhbet4azgn5xm2ccfst","includes":["links","phone_numbers"],"link_sample":"https://l.fastauto.shop/s034ij","message_samples":["You are now opted in to receive repair notifications from DT Precision Auto. Frequency varies. Msg\u0026data rates apply. Reply STOP to opt out.","You're lucky that hundred shot of NOS didn't blow the welds on the intake!","Your car is ready to go. See your invoice here: https://l.fastauto.shop/s034ij"],"privacy_policy_url":"https://fastauto.shop/sms-privacy","status":"pending","terms_and_conditions_url":"https://fastauto.shop/terms-and-conditions","use_cases":["account_notification","customer_care","marketing"],"volume":"high"}
@@ -5010,6 +5107,9 @@ type CheckVerificationJSONRequestBody = VerificationCheckParams
 // CallEndedJSONRequestBody defines body for CallEnded for application/json ContentType.
 type CallEndedJSONRequestBody = CallEndedEvent
 
+// CallFlowEventCreatedJSONRequestBody defines body for CallFlowEventCreated for application/json ContentType.
+type CallFlowEventCreatedJSONRequestBody = CallFlowEventCreatedEvent
+
 // CampaignApprovedJSONRequestBody defines body for CampaignApproved for application/json ContentType.
 type CampaignApprovedJSONRequestBody = CampaignApprovedEvent
 
@@ -5142,6 +5242,94 @@ func (t BlastParams_To_Item) MarshalJSON() ([]byte, error) {
 }
 
 func (t *BlastParams_To_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsCallFlowEventCreatedEventDataMetadata0 returns the union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties as a CallFlowEventCreatedEventDataMetadata0
+func (t CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) AsCallFlowEventCreatedEventDataMetadata0() (CallFlowEventCreatedEventDataMetadata0, error) {
+	var body CallFlowEventCreatedEventDataMetadata0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCallFlowEventCreatedEventDataMetadata0 overwrites any union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties as the provided CallFlowEventCreatedEventDataMetadata0
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) FromCallFlowEventCreatedEventDataMetadata0(v CallFlowEventCreatedEventDataMetadata0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeCallFlowEventCreatedEventDataMetadata0 performs a merge with any union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties, using the provided CallFlowEventCreatedEventDataMetadata0
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) MergeCallFlowEventCreatedEventDataMetadata0(v CallFlowEventCreatedEventDataMetadata0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsCallFlowEventCreatedEventDataMetadata1 returns the union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties as a CallFlowEventCreatedEventDataMetadata1
+func (t CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) AsCallFlowEventCreatedEventDataMetadata1() (CallFlowEventCreatedEventDataMetadata1, error) {
+	var body CallFlowEventCreatedEventDataMetadata1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCallFlowEventCreatedEventDataMetadata1 overwrites any union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties as the provided CallFlowEventCreatedEventDataMetadata1
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) FromCallFlowEventCreatedEventDataMetadata1(v CallFlowEventCreatedEventDataMetadata1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeCallFlowEventCreatedEventDataMetadata1 performs a merge with any union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties, using the provided CallFlowEventCreatedEventDataMetadata1
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) MergeCallFlowEventCreatedEventDataMetadata1(v CallFlowEventCreatedEventDataMetadata1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsCallFlowEventCreatedEventDataMetadata2 returns the union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties as a CallFlowEventCreatedEventDataMetadata2
+func (t CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) AsCallFlowEventCreatedEventDataMetadata2() (CallFlowEventCreatedEventDataMetadata2, error) {
+	var body CallFlowEventCreatedEventDataMetadata2
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromCallFlowEventCreatedEventDataMetadata2 overwrites any union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties as the provided CallFlowEventCreatedEventDataMetadata2
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) FromCallFlowEventCreatedEventDataMetadata2(v CallFlowEventCreatedEventDataMetadata2) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeCallFlowEventCreatedEventDataMetadata2 performs a merge with any union data inside the CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties, using the provided CallFlowEventCreatedEventDataMetadata2
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) MergeCallFlowEventCreatedEventDataMetadata2(v CallFlowEventCreatedEventDataMetadata2) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CallFlowEventCreatedEvent_Data_Metadata_AdditionalProperties) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -15194,6 +15382,11 @@ type WebhookInitiatorInterface interface {
 
 	CallEnded(ctx context.Context, targetURL string, body CallEndedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CallFlowEventCreatedWithBody fires the callFlowEventCreated webhook with any body
+	CallFlowEventCreatedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CallFlowEventCreated(ctx context.Context, targetURL string, body CallFlowEventCreatedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// CampaignApprovedWithBody fires the campaignApproved webhook with any body
 	CampaignApprovedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -15289,6 +15482,30 @@ func (p *WebhookInitiator) CallEndedWithBody(ctx context.Context, targetURL stri
 
 func (p *WebhookInitiator) CallEnded(ctx context.Context, targetURL string, body CallEndedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCallEndedWebhookRequest(targetURL, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CallFlowEventCreatedWithBody(ctx context.Context, targetURL string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCallFlowEventCreatedWebhookRequestWithBody(targetURL, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := p.applyWebhookEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return p.Client.Do(req)
+}
+
+func (p *WebhookInitiator) CallFlowEventCreated(ctx context.Context, targetURL string, body CallFlowEventCreatedJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCallFlowEventCreatedWebhookRequest(targetURL, body)
 	if err != nil {
 		return nil, err
 	}
@@ -15696,6 +15913,37 @@ func NewCallEndedWebhookRequest(targetURL string, body CallEndedJSONRequestBody)
 
 // NewCallEndedWebhookRequestWithBody builds a POST request for the callEnded webhook with any body
 func NewCallEndedWebhookRequestWithBody(targetURL string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+	_ = err
+
+	reqURL, err := url.Parse(targetURL)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, reqURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCallFlowEventCreatedWebhookRequest builds a application/json POST request for the callFlowEventCreated webhook
+func NewCallFlowEventCreatedWebhookRequest(targetURL string, body CallFlowEventCreatedJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCallFlowEventCreatedWebhookRequestWithBody(targetURL, "application/json", bodyReader)
+}
+
+// NewCallFlowEventCreatedWebhookRequestWithBody builds a POST request for the callFlowEventCreated webhook with any body
+func NewCallFlowEventCreatedWebhookRequestWithBody(targetURL string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 	_ = err
 

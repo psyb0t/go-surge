@@ -2,6 +2,11 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.2.2, 2026-11-05
+
+- Fixed generation for schema type lists containing several non-null primitives, including nullable call-flow metadata. The patch preserves each branch as an anyOf union instead of rejecting the specification.
+- Regenerated the client with call-flow-created webhook models and union helpers.
+
 ## v0.2.1, 2026-10-31
 
 - Added `Message.CreatedAt` (`*time.Time`), the time the message was added to the conversation. It is null for scheduled messages until they are created. For imported messages it is the original creation time.

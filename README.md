@@ -84,7 +84,7 @@ make generate
 `gen.go` declares the steps, so `make generate` is just `go generate ./...`:
 
 - `scripts/fetch-spec.sh` downloads the spec the Surge API serves at `https://api.surge.app/openapi.json` to `api/openapi.yaml`. The content is JSON despite the `.yaml` file name.
-- `scripts/patch-spec.sh` writes `api/openapi.fixed.yaml`: nullable type lists become `nullable: true`, `const` becomes a single-value enum, schema examples arrays become `example`, and the OpenAPI version becomes 3.0.3 for oapi-codegen. Response examples maps remain intact.
+- `scripts/patch-spec.sh` writes `api/openapi.fixed.yaml`: type lists become `anyOf` unions when they contain multiple non-null types, with `nullable: true` when null is accepted. Single non-null types stay ordinary types. Empty, null-only and unknown type lists fail generation. `const` becomes a single-value enum, schema examples arrays become `example`, and the OpenAPI version becomes 3.0.3 for oapi-codegen. Response examples maps remain intact.
 - oapi-codegen runs with `config.yaml`. The config maps `number` to `float64` and retains all component schemas, including webhook models.
 
 `.github/workflows/regen.yml` does the same every day in CI. When the new spec changes the client, it runs `make lint`, `make test` and `make sec`. If a check fails, Claude edits the code and the checks run again, up to three times, and a review step reads the result. A passing change is committed with a CHANGELOG entry and tagged as the next release: a patch version for fixes and additions, a minor version for breaking changes.
