@@ -2,6 +2,13 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.3.0, 2026-11-08
+
+- Added the account usage operation, `GET /accounts/{account_id}/usage`: `Client.RetrieveAccountUsage`, `ClientWithResponses.RetrieveAccountUsageWithResponse`, `NewRetrieveAccountUsageRequest`, `ParseRetrieveAccountUsageResponse` and `RetrieveAccountUsageResponse`. It returns priced usage for an account between `start_time` (inclusive) and `end_time` (exclusive).
+- Added `RetrieveAccountUsageParams` with the required `StartTime` and `EndTime` fields (`time.Time`).
+- Added the `AccountUsage` model (`StartTime`, `EndTime`, `LineItems`, `Total`) and the `AccountUsageLineItemsCategory` and `AccountUsageLineItemsUnit` string types with their constants.
+- Breaking for custom implementations: `ClientInterface` gained `RetrieveAccountUsage` and `ClientWithResponsesInterface` gained `RetrieveAccountUsageWithResponse`. Mocks or wrappers that implement either interface must add the new method. Code that only uses `Client` and `ClientWithResponses` needs no change.
+
 ## v0.2.2, 2026-11-05
 
 - Fixed generation for schema type lists containing several non-null primitives, including nullable call-flow metadata. The patch preserves each branch as an anyOf union instead of rejecting the specification.

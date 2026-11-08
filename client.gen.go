@@ -39,6 +39,87 @@ func (e AccountStatusCapabilitiesStatus) Valid() bool {
 	}
 }
 
+// Defines values for AccountUsageLineItemsCategory.
+const (
+	AccountUsageLineItemsCategoryCampaigns      AccountUsageLineItemsCategory = "campaigns"
+	AccountUsageLineItemsCategoryMms            AccountUsageLineItemsCategory = "mms"
+	AccountUsageLineItemsCategoryNumberLookups  AccountUsageLineItemsCategory = "number_lookups"
+	AccountUsageLineItemsCategoryPhoneNumbers   AccountUsageLineItemsCategory = "phone_numbers"
+	AccountUsageLineItemsCategoryRecording      AccountUsageLineItemsCategory = "recording"
+	AccountUsageLineItemsCategoryRegistrations  AccountUsageLineItemsCategory = "registrations"
+	AccountUsageLineItemsCategorySecureMessages AccountUsageLineItemsCategory = "secure_messages"
+	AccountUsageLineItemsCategorySms            AccountUsageLineItemsCategory = "sms"
+	AccountUsageLineItemsCategoryVerifications  AccountUsageLineItemsCategory = "verifications"
+	AccountUsageLineItemsCategoryVoice          AccountUsageLineItemsCategory = "voice"
+)
+
+// Valid indicates whether the value is a known member of the AccountUsageLineItemsCategory enum.
+func (e AccountUsageLineItemsCategory) Valid() bool {
+	switch e {
+	case AccountUsageLineItemsCategoryCampaigns:
+		return true
+	case AccountUsageLineItemsCategoryMms:
+		return true
+	case AccountUsageLineItemsCategoryNumberLookups:
+		return true
+	case AccountUsageLineItemsCategoryPhoneNumbers:
+		return true
+	case AccountUsageLineItemsCategoryRecording:
+		return true
+	case AccountUsageLineItemsCategoryRegistrations:
+		return true
+	case AccountUsageLineItemsCategorySecureMessages:
+		return true
+	case AccountUsageLineItemsCategorySms:
+		return true
+	case AccountUsageLineItemsCategoryVerifications:
+		return true
+	case AccountUsageLineItemsCategoryVoice:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AccountUsageLineItemsUnit.
+const (
+	AccountUsageLineItemsUnitBrand        AccountUsageLineItemsUnit = "brand"
+	AccountUsageLineItemsUnitCampaign     AccountUsageLineItemsUnit = "campaign"
+	AccountUsageLineItemsUnitFee          AccountUsageLineItemsUnit = "fee"
+	AccountUsageLineItemsUnitLookup       AccountUsageLineItemsUnit = "lookup"
+	AccountUsageLineItemsUnitMessage      AccountUsageLineItemsUnit = "message"
+	AccountUsageLineItemsUnitMinute       AccountUsageLineItemsUnit = "minute"
+	AccountUsageLineItemsUnitPhoneNumber  AccountUsageLineItemsUnit = "phone_number"
+	AccountUsageLineItemsUnitSegment      AccountUsageLineItemsUnit = "segment"
+	AccountUsageLineItemsUnitVerification AccountUsageLineItemsUnit = "verification"
+)
+
+// Valid indicates whether the value is a known member of the AccountUsageLineItemsUnit enum.
+func (e AccountUsageLineItemsUnit) Valid() bool {
+	switch e {
+	case AccountUsageLineItemsUnitBrand:
+		return true
+	case AccountUsageLineItemsUnitCampaign:
+		return true
+	case AccountUsageLineItemsUnitFee:
+		return true
+	case AccountUsageLineItemsUnitLookup:
+		return true
+	case AccountUsageLineItemsUnitMessage:
+		return true
+	case AccountUsageLineItemsUnitMinute:
+		return true
+	case AccountUsageLineItemsUnitPhoneNumber:
+		return true
+	case AccountUsageLineItemsUnitSegment:
+		return true
+	case AccountUsageLineItemsUnitVerification:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AttachmentType.
 const (
 	AttachmentTypeContact AttachmentType = "contact"
@@ -2641,6 +2722,45 @@ type AccountUpdateParams struct {
 	TimeZone *string `json:"time_zone,omitempty"`
 }
 
+// AccountUsage Priced usage for an account over a requested window.
+//
+// Example: {"end_time":"2026-04-09T16:03:00Z","line_items":[{"category":"sms","count":2,"item":"Inbound SMS Segments","total_price":"$2.00","unit":"segment","unit_price":"$1.00"}],"start_time":"2026-04-09T15:03:00Z","total":"$2.00"}
+type AccountUsage struct {
+	// EndTime Exclusive end of the window, in UTC.
+	EndTime   time.Time `json:"end_time"`
+	LineItems []struct {
+		// Category Billing category for the line.
+		Category AccountUsageLineItemsCategory `json:"category"`
+
+		// Count Number of units in the window.
+		Count int `json:"count"`
+
+		// Item Description of the line.
+		Item string `json:"item"`
+
+		// TotalPrice Formatted USD total for the line, such as "$1.25".
+		TotalPrice string `json:"total_price"`
+
+		// Unit Unit represented by count.
+		Unit AccountUsageLineItemsUnit `json:"unit"`
+
+		// UnitPrice Formatted USD price for one unit, such as "$0.0079".
+		UnitPrice string `json:"unit_price"`
+	} `json:"line_items"`
+
+	// StartTime Inclusive start of the window, in UTC.
+	StartTime time.Time `json:"start_time"`
+
+	// Total Formatted USD total, such as "$1.25".
+	Total string `json:"total"`
+}
+
+// AccountUsageLineItemsCategory Billing category for the line.
+type AccountUsageLineItemsCategory string
+
+// AccountUsageLineItemsUnit Unit represented by count.
+type AccountUsageLineItemsUnit string
+
 // Attachment An Attachment is a file that can be sent with a message.
 //
 // Example: {"id":"att_01j9e0m1m6fc38gsv2vkfqgzz2","type":"image","url":"https://api.surge.app/attachments/att_01jbwyqj7rejzat7pq03r7fgmf"}
@@ -5035,6 +5155,12 @@ type ListTollFreeCampaignsParams struct {
 	Before *string `form:"before,omitempty" json:"before,omitempty"`
 }
 
+// RetrieveAccountUsageParams defines parameters for RetrieveAccountUsage.
+type RetrieveAccountUsageParams struct {
+	StartTime time.Time `form:"start_time" json:"start_time"`
+	EndTime   time.Time `form:"end_time" json:"end_time"`
+}
+
 // ListUsersParams defines parameters for ListUsers.
 type ListUsersParams struct {
 	After  *string `form:"after,omitempty" json:"after,omitempty"`
@@ -6140,6 +6266,18 @@ type ClientInterface interface {
 	// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
 	CreateTollFreeCampaign(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// RetrieveAccountUsage Retrieve account usage
+	//
+	// Returns priced usage for an account between `start_time` (inclusive) and `end_time` (exclusive).
+	//
+	// Both times must be whole UTC minutes and must fall within the last year.
+	// The window may span at most 90 days. Prices use the project's current plan rates.
+	// Phone number, campaign, and recording storage charges are included when their
+	// billing time falls in the window.
+	//
+	// Corresponds with GET /accounts/{account_id}/usage (the `RetrieveAccountUsage` operationId).
+	RetrieveAccountUsage(ctx context.Context, accountId string, params *RetrieveAccountUsageParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListUsers List users
 	//
 	// List all users for an account with cursor-based pagination.
@@ -6952,6 +7090,28 @@ func (c *Client) CreateTollFreeCampaignWithBody(ctx context.Context, accountId s
 // Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
 func (c *Client) CreateTollFreeCampaign(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreateTollFreeCampaignRequest(c.Server, accountId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// RetrieveAccountUsage Retrieve account usage
+//
+// Returns priced usage for an account between `start_time` (inclusive) and `end_time` (exclusive).
+//
+// Both times must be whole UTC minutes and must fall within the last year.
+// The window may span at most 90 days. Prices use the project's current plan rates.
+// Phone number, campaign, and recording storage charges are included when their
+// billing time falls in the window.
+//
+// Corresponds with GET /accounts/{account_id}/usage (the `RetrieveAccountUsage` operationId).
+func (c *Client) RetrieveAccountUsage(ctx context.Context, accountId string, params *RetrieveAccountUsageParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRetrieveAccountUsageRequest(c.Server, accountId, params)
 	if err != nil {
 		return nil, err
 	}
@@ -8736,6 +8896,71 @@ func NewCreateTollFreeCampaignRequestWithBody(server string, accountId string, c
 	return req, nil
 }
 
+// NewRetrieveAccountUsageRequest constructs an http.Request for the RetrieveAccountUsage method
+func NewRetrieveAccountUsageRequest(server string, accountId string, params *RetrieveAccountUsageParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "account_id", accountId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/accounts/%s/usage", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "start_time", params.StartTime, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+			return nil, err
+		} else {
+			for _, qp := range strings.Split(queryFrag, "&") {
+				rawQueryFragments = append(rawQueryFragments, qp)
+			}
+		}
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "end_time", params.EndTime, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+			return nil, err
+		} else {
+			for _, qp := range strings.Split(queryFrag, "&") {
+				rawQueryFragments = append(rawQueryFragments, qp)
+			}
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewListUsersRequest constructs an http.Request for the ListUsers method
 func NewListUsersRequest(server string, accountId string, params *ListUsersParams) (*http.Request, error) {
 	var err error
@@ -10179,6 +10404,20 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /accounts/{account_id}/toll_free_campaigns (the `CreateTollFreeCampaign` operationId).
 	CreateTollFreeCampaignWithResponse(ctx context.Context, accountId string, body CreateTollFreeCampaignJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateTollFreeCampaignResponse, error)
 
+	// RetrieveAccountUsageWithResponse Retrieve account usage
+	//
+	// Returns priced usage for an account between `start_time` (inclusive) and `end_time` (exclusive).
+	//
+	// Both times must be whole UTC minutes and must fall within the last year.
+	// The window may span at most 90 days. Prices use the project's current plan rates.
+	// Phone number, campaign, and recording storage charges are included when their
+	// billing time falls in the window.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /accounts/{account_id}/usage (the `RetrieveAccountUsage` operationId).
+	RetrieveAccountUsageWithResponse(ctx context.Context, accountId string, params *RetrieveAccountUsageParams, reqEditors ...RequestEditorFn) (*RetrieveAccountUsageResponse, error)
+
 	// ListUsersWithResponse List users
 	//
 	// List all users for an account with cursor-based pagination.
@@ -11405,6 +11644,54 @@ func (r CreateTollFreeCampaignResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r CreateTollFreeCampaignResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type RetrieveAccountUsageResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *AccountUsage
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r RetrieveAccountUsageResponse) GetJSON200() *AccountUsage {
+	return r.JSON200
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r RetrieveAccountUsageResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r RetrieveAccountUsageResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r RetrieveAccountUsageResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r RetrieveAccountUsageResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r RetrieveAccountUsageResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -13165,6 +13452,26 @@ func (c *ClientWithResponses) CreateTollFreeCampaignWithResponse(ctx context.Con
 	return ParseCreateTollFreeCampaignResponse(rsp)
 }
 
+// RetrieveAccountUsageWithResponse Retrieve account usage
+//
+// Returns priced usage for an account between `start_time` (inclusive) and `end_time` (exclusive).
+//
+// Both times must be whole UTC minutes and must fall within the last year.
+// The window may span at most 90 days. Prices use the project's current plan rates.
+// Phone number, campaign, and recording storage charges are included when their
+// billing time falls in the window.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /accounts/{account_id}/usage (the `RetrieveAccountUsage` operationId).
+func (c *ClientWithResponses) RetrieveAccountUsageWithResponse(ctx context.Context, accountId string, params *RetrieveAccountUsageParams, reqEditors ...RequestEditorFn) (*RetrieveAccountUsageResponse, error) {
+	rsp, err := c.RetrieveAccountUsage(ctx, accountId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseRetrieveAccountUsageResponse(rsp)
+}
+
 // ListUsersWithResponse List users
 //
 // List all users for an account with cursor-based pagination.
@@ -14341,6 +14648,39 @@ func ParseCreateTollFreeCampaignResponse(rsp *http.Response) (*CreateTollFreeCam
 			return nil, err
 		}
 		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseRetrieveAccountUsageResponse parses an HTTP response from a RetrieveAccountUsageWithResponse call
+func ParseRetrieveAccountUsageResponse(rsp *http.Response) (*RetrieveAccountUsageResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &RetrieveAccountUsageResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AccountUsage
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
 		var dest ErrorResponse
