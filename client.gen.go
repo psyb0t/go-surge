@@ -200,6 +200,7 @@ func (e BrandVerificationMessageResponseStatus) Valid() bool {
 
 // Defines values for CallEndedEventDataStatus.
 const (
+	CallEndedEventDataStatusBlocked    CallEndedEventDataStatus = "blocked"
 	CallEndedEventDataStatusBusy       CallEndedEventDataStatus = "busy"
 	CallEndedEventDataStatusCanceled   CallEndedEventDataStatus = "canceled"
 	CallEndedEventDataStatusCompleted  CallEndedEventDataStatus = "completed"
@@ -214,6 +215,8 @@ const (
 // Valid indicates whether the value is a known member of the CallEndedEventDataStatus enum.
 func (e CallEndedEventDataStatus) Valid() bool {
 	switch e {
+	case CallEndedEventDataStatusBlocked:
+		return true
 	case CallEndedEventDataStatusBusy:
 		return true
 	case CallEndedEventDataStatusCanceled:
@@ -1010,14 +1013,17 @@ func (e OrganizationContactTitle) Valid() bool {
 
 // Defines values for OrganizationIdentifierType.
 const (
-	OrganizationIdentifierTypeCbn OrganizationIdentifierType = "cbn"
-	OrganizationIdentifierTypeEin OrganizationIdentifierType = "ein"
-	OrganizationIdentifierTypeVat OrganizationIdentifierType = "vat"
+	OrganizationIdentifierTypeCanadianRegistryId OrganizationIdentifierType = "canadian_registry_id"
+	OrganizationIdentifierTypeCbn                OrganizationIdentifierType = "cbn"
+	OrganizationIdentifierTypeEin                OrganizationIdentifierType = "ein"
+	OrganizationIdentifierTypeVat                OrganizationIdentifierType = "vat"
 )
 
 // Valid indicates whether the value is a known member of the OrganizationIdentifierType enum.
 func (e OrganizationIdentifierType) Valid() bool {
 	switch e {
+	case OrganizationIdentifierTypeCanadianRegistryId:
+		return true
 	case OrganizationIdentifierTypeCbn:
 		return true
 	case OrganizationIdentifierTypeEin:
@@ -1334,14 +1340,17 @@ func (e OrganizationParamsContactTitle) Valid() bool {
 
 // Defines values for OrganizationParamsIdentifierType.
 const (
-	OrganizationParamsIdentifierTypeCbn OrganizationParamsIdentifierType = "cbn"
-	OrganizationParamsIdentifierTypeEin OrganizationParamsIdentifierType = "ein"
-	OrganizationParamsIdentifierTypeVat OrganizationParamsIdentifierType = "vat"
+	OrganizationParamsIdentifierTypeCanadianRegistryId OrganizationParamsIdentifierType = "canadian_registry_id"
+	OrganizationParamsIdentifierTypeCbn                OrganizationParamsIdentifierType = "cbn"
+	OrganizationParamsIdentifierTypeEin                OrganizationParamsIdentifierType = "ein"
+	OrganizationParamsIdentifierTypeVat                OrganizationParamsIdentifierType = "vat"
 )
 
 // Valid indicates whether the value is a known member of the OrganizationParamsIdentifierType enum.
 func (e OrganizationParamsIdentifierType) Valid() bool {
 	switch e {
+	case OrganizationParamsIdentifierTypeCanadianRegistryId:
+		return true
 	case OrganizationParamsIdentifierTypeCbn:
 		return true
 	case OrganizationParamsIdentifierTypeEin:
@@ -1760,6 +1769,7 @@ func (e PhoneNumberPurchaseParamsType) Valid() bool {
 
 // Defines values for RecordingCallStatus.
 const (
+	RecordingCallStatusBlocked    RecordingCallStatus = "blocked"
 	RecordingCallStatusBusy       RecordingCallStatus = "busy"
 	RecordingCallStatusCanceled   RecordingCallStatus = "canceled"
 	RecordingCallStatusCompleted  RecordingCallStatus = "completed"
@@ -1774,6 +1784,8 @@ const (
 // Valid indicates whether the value is a known member of the RecordingCallStatus enum.
 func (e RecordingCallStatus) Valid() bool {
 	switch e {
+	case RecordingCallStatusBlocked:
+		return true
 	case RecordingCallStatusBusy:
 		return true
 	case RecordingCallStatusCanceled:
@@ -1799,6 +1811,7 @@ func (e RecordingCallStatus) Valid() bool {
 
 // Defines values for RecordingCompletedEventDataCallStatus.
 const (
+	RecordingCompletedEventDataCallStatusBlocked    RecordingCompletedEventDataCallStatus = "blocked"
 	RecordingCompletedEventDataCallStatusBusy       RecordingCompletedEventDataCallStatus = "busy"
 	RecordingCompletedEventDataCallStatusCanceled   RecordingCompletedEventDataCallStatus = "canceled"
 	RecordingCompletedEventDataCallStatusCompleted  RecordingCompletedEventDataCallStatus = "completed"
@@ -1813,6 +1826,8 @@ const (
 // Valid indicates whether the value is a known member of the RecordingCompletedEventDataCallStatus enum.
 func (e RecordingCompletedEventDataCallStatus) Valid() bool {
 	switch e {
+	case RecordingCompletedEventDataCallStatusBlocked:
+		return true
 	case RecordingCompletedEventDataCallStatusBusy:
 		return true
 	case RecordingCompletedEventDataCallStatusCanceled:
@@ -2516,6 +2531,7 @@ func (e VerificationCheckResult) Valid() bool {
 
 // Defines values for VoicemailReceivedEventDataCallStatus.
 const (
+	VoicemailReceivedEventDataCallStatusBlocked    VoicemailReceivedEventDataCallStatus = "blocked"
 	VoicemailReceivedEventDataCallStatusBusy       VoicemailReceivedEventDataCallStatus = "busy"
 	VoicemailReceivedEventDataCallStatusCanceled   VoicemailReceivedEventDataCallStatus = "canceled"
 	VoicemailReceivedEventDataCallStatusCompleted  VoicemailReceivedEventDataCallStatus = "completed"
@@ -2530,6 +2546,8 @@ const (
 // Valid indicates whether the value is a known member of the VoicemailReceivedEventDataCallStatus enum.
 func (e VoicemailReceivedEventDataCallStatus) Valid() bool {
 	switch e {
+	case VoicemailReceivedEventDataCallStatusBlocked:
+		return true
 	case VoicemailReceivedEventDataCallStatusBusy:
 		return true
 	case VoicemailReceivedEventDataCallStatusCanceled:
@@ -2924,6 +2942,44 @@ type BlastParams_To_Item struct {
 	union json.RawMessage
 }
 
+// BlockedContact An account-level block on incoming communication from a phone number.
+type BlockedContact struct {
+	// CreatedAt When the block was created.
+	CreatedAt time.Time `json:"created_at"`
+
+	// Id Unique identifier for the block.
+	Id string `json:"id"`
+
+	// PhoneNumber The blocked phone number in E.164 format.
+	//
+	// Example: +18015551234
+	PhoneNumber string `json:"phone_number"`
+
+	// Reason An optional explanation for the block.
+	Reason *string `json:"reason"`
+}
+
+// BlockedContactList A paginated list of blocked contacts, newest first.
+type BlockedContactList struct {
+	Data []BlockedContact `json:"data"`
+
+	// Pagination Cursor-based pagination information
+	//
+	// Example: {"next_cursor":"g3QAAAABZAACaWRtAAAAGnBuXzAxamtzY2s5eDdkeW0wZnBxZjdjYmRyeQ==","previous_cursor":null}
+	Pagination Pagination `json:"pagination"`
+}
+
+// BlockedContactParams A phone number to block and an optional reason.
+type BlockedContactParams struct {
+	// PhoneNumber The phone number to block. Stored in normalized E.164 format.
+	//
+	// Example: +18015551234
+	PhoneNumber string `json:"phone_number"`
+
+	// Reason An optional explanation for the block.
+	Reason *string `json:"reason,omitempty"`
+}
+
 // BrandVerificationMessageResponse Response when a brand verification OTP send has been enqueued
 //
 // Example: {"status":"enqueued"}
@@ -2962,7 +3018,7 @@ type CallEndedEvent struct {
 		// PhoneNumberId The Surge phone number ID (e.g. pn_...)
 		PhoneNumberId *string `json:"phone_number_id,omitempty"`
 
-		// Status The status of the call. For inbound embedded-phone calls, `no_answer` means no embedded user answered, even if the caller reached voicemail.
+		// Status The status of the call. `blocked` means the account's blocked contacts list rejected the caller before answering, with zero duration and zero billable minutes. For inbound embedded-phone calls, `no_answer` means no embedded user answered, even if the caller reached voicemail.
 		Status CallEndedEventDataStatus `json:"status"`
 
 		// To The E.164 phone number of the callee
@@ -2976,7 +3032,7 @@ type CallEndedEvent struct {
 	Type CallEndedEventType `json:"type"`
 }
 
-// CallEndedEventDataStatus The status of the call. For inbound embedded-phone calls, `no_answer` means no embedded user answered, even if the caller reached voicemail.
+// CallEndedEventDataStatus The status of the call. `blocked` means the account's blocked contacts list rejected the caller before answering, with zero duration and zero billable minutes. For inbound embedded-phone calls, `no_answer` means no embedded user answered, even if the caller reached voicemail.
 type CallEndedEventDataStatus string
 
 // CallEndedEventType The type of the event. Always `call.ended` for this event.
@@ -4119,10 +4175,10 @@ type Organization struct {
 	// Email For publicly traded companies, an email for a representative of the company to whom a verification email will be sent. This must be an email on the same domain as the company's website (e.g. with a website domain of `https://dtprecisionauto.com`, the email must use the same `@dtprecisionauto.com`)
 	Email *openapi_types.Email `json:"email"`
 
-	// Identifier The value of the identifier whose type is specified in the identifier_type field. For EIN, can be formatted with or without the hyphen. For CBN, must be exactly 9 digits. For VAT, provide only the numeric portion, between 2 and 20 digits.
+	// Identifier The value of the identifier whose type is specified in the identifier_type field. For EIN, can be formatted with or without the hyphen. For CBN, provide 9 digits; spaces and hyphens are removed. For canadian_registry_id, provide 2 to 21 characters including any letters, leading zeros, spaces, or hyphens (e.g. BC1234567). For VAT, provide only the numeric portion, between 2 and 20 digits.
 	Identifier *string `json:"identifier"`
 
-	// IdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for Canadian organizations, or "vat" for supported international organizations.
+	// IdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for a Canadian Business Number or "canadian_registry_id" for a Canadian corporation number or Registry ID, or "vat" for supported international organizations. For Canadian organizations, prefer the BN if it appears in [Corporations Canada](https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html) or [Canada's Business Registries](https://ised-isde.canada.ca/cbr-rec/). If neither site shows the BN, use the corporation number or Registry ID from the business listing. If the business is not listed in either registry, email registration documentation to support@surge.app; an additional $11 appeal fee is required to register.
 	IdentifierType *OrganizationIdentifierType `json:"identifier_type"`
 
 	// Industry The industry in which the organization operates.
@@ -4153,7 +4209,7 @@ type Organization struct {
 // OrganizationContactTitle The job title of the individual.
 type OrganizationContactTitle string
 
-// OrganizationIdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for Canadian organizations, or "vat" for supported international organizations.
+// OrganizationIdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for a Canadian Business Number or "canadian_registry_id" for a Canadian corporation number or Registry ID, or "vat" for supported international organizations. For Canadian organizations, prefer the BN if it appears in [Corporations Canada](https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html) or [Canada's Business Registries](https://ised-isde.canada.ca/cbr-rec/). If neither site shows the BN, use the corporation number or Registry ID from the business listing. If the business is not listed in either registry, email registration documentation to support@surge.app; an additional $11 appeal fee is required to register.
 type OrganizationIdentifierType string
 
 // OrganizationIndustry The industry in which the organization operates.
@@ -4221,10 +4277,10 @@ type OrganizationParams struct {
 	// Email For publicly traded companies, an email for a representative of the company to whom a verification email will be sent. This must be an email on the same domain as the company's website (e.g. with a website domain of `https://dtprecisionauto.com`, the email must use the same `@dtprecisionauto.com`)
 	Email *openapi_types.Email `json:"email,omitempty"`
 
-	// Identifier The value of the identifier whose type is specified in the identifier_type field. For EIN, can be formatted with or without the hyphen. For CBN, must be exactly 9 digits. For VAT, provide only the numeric portion, between 2 and 20 digits.
+	// Identifier The value of the identifier whose type is specified in the identifier_type field. For EIN, can be formatted with or without the hyphen. For CBN, provide 9 digits; spaces and hyphens are removed. For canadian_registry_id, provide 2 to 21 characters including any letters, leading zeros, spaces, or hyphens (e.g. BC1234567). For VAT, provide only the numeric portion, between 2 and 20 digits.
 	Identifier *string `json:"identifier,omitempty"`
 
-	// IdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for Canadian organizations, or "vat" for supported international organizations.
+	// IdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for a Canadian Business Number or "canadian_registry_id" for a Canadian corporation number or Registry ID, or "vat" for supported international organizations. For Canadian organizations, prefer the BN if it appears in [Corporations Canada](https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html) or [Canada's Business Registries](https://ised-isde.canada.ca/cbr-rec/). If neither site shows the BN, use the corporation number or Registry ID from the business listing. If the business is not listed in either registry, email registration documentation to support@surge.app; an additional $11 appeal fee is required to register.
 	IdentifierType *OrganizationParamsIdentifierType `json:"identifier_type,omitempty"`
 
 	// Industry The industry in which the organization operates.
@@ -4255,7 +4311,7 @@ type OrganizationParams struct {
 // OrganizationParamsContactTitle The job title of the individual.
 type OrganizationParamsContactTitle string
 
-// OrganizationParamsIdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for Canadian organizations, or "vat" for supported international organizations.
+// OrganizationParamsIdentifierType The type of identifier being provided for the organization. Use "ein" for US organizations, "cbn" for a Canadian Business Number or "canadian_registry_id" for a Canadian corporation number or Registry ID, or "vat" for supported international organizations. For Canadian organizations, prefer the BN if it appears in [Corporations Canada](https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html) or [Canada's Business Registries](https://ised-isde.canada.ca/cbr-rec/). If neither site shows the BN, use the corporation number or Registry ID from the business listing. If the business is not listed in either registry, email registration documentation to support@surge.app; an additional $11 appeal fee is required to register.
 type OrganizationParamsIdentifierType string
 
 // OrganizationParamsIndustry The industry in which the organization operates.
@@ -5111,6 +5167,12 @@ type ListAvailablePhoneNumbersParamsCountry string
 // ListAvailablePhoneNumbersParamsType defines parameters for ListAvailablePhoneNumbers.
 type ListAvailablePhoneNumbersParamsType string
 
+// ListBlockedContactsParams defines parameters for ListBlockedContacts.
+type ListBlockedContactsParams struct {
+	After  *string `form:"after,omitempty" json:"after,omitempty"`
+	Before *string `form:"before,omitempty" json:"before,omitempty"`
+}
+
 // ListCampaignsParams defines parameters for ListCampaigns.
 type ListCampaignsParams struct {
 	After  *string `form:"after,omitempty" json:"after,omitempty"`
@@ -5181,6 +5243,9 @@ type CreateAudienceJSONRequestBody = AudienceCreateParams
 
 // SendBlastJSONRequestBody defines body for SendBlast for application/json ContentType.
 type SendBlastJSONRequestBody = BlastParams
+
+// CreateBlockedContactJSONRequestBody defines body for CreateBlockedContact for application/json ContentType.
+type CreateBlockedContactJSONRequestBody = BlockedContactParams
 
 // CreateCampaignJSONRequestBody defines body for CreateCampaign for application/json ContentType.
 type CreateCampaignJSONRequestBody = CampaignParams
@@ -6096,6 +6161,57 @@ type ClientInterface interface {
 	// Corresponds with POST /accounts/{account_id}/blasts (the `SendBlast` operationId).
 	SendBlast(ctx context.Context, accountId string, body SendBlastJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ListBlockedContacts List blocked contacts
+	//
+	// Lists the account's blocked contacts, newest first, with cursor-based pagination.
+	//
+	// Corresponds with GET /accounts/{account_id}/blocked_contacts (the `ListBlockedContacts` operationId).
+	ListBlockedContacts(ctx context.Context, accountId string, params *ListBlockedContactsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateBlockedContactWithBody Block a contact
+	//
+	// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+	// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+	// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+	//
+	// Blocks are independent of regular contacts and outbound messaging consent.
+	// Repeated requests return the existing block without changing its reason or creation time.
+	//
+	// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+	// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+	// Consent keywords such as STOP and START still update messaging consent and retain
+	// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+	//
+	// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+	// These calls contribute zero billable minutes.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+	CreateBlockedContactWithBody(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateBlockedContact Block a contact
+	//
+	// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+	// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+	// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+	//
+	// Blocks are independent of regular contacts and outbound messaging consent.
+	// Repeated requests return the existing block without changing its reason or creation time.
+	//
+	// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+	// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+	// Consent keywords such as STOP and START still update messaging consent and retain
+	// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+	//
+	// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+	// These calls contribute zero billable minutes.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+	CreateBlockedContact(ctx context.Context, accountId string, body CreateBlockedContactJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ResendBrandVerificationMessage Resend brand verification OTP
 	//
 	// Enqueues an SMS OTP for a sole proprietor brand awaiting identity verification.
@@ -6391,6 +6507,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with POST /audiences/{audience_id}/contacts (the `AddContactToAudience` operationId).
 	AddContactToAudience(ctx context.Context, audienceId string, body AddContactToAudienceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteBlockedContact Unblock a contact
+	//
+	// Removes the block without changing contacts, message history, or messaging consent.
+	//
+	// Corresponds with DELETE /blocked_contacts/{id} (the `DeleteBlockedContact` operationId).
+	DeleteBlockedContact(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetCampaign Retrieve a campaign
 	//
@@ -6740,6 +6863,87 @@ func (c *Client) SendBlastWithBody(ctx context.Context, accountId string, conten
 // Corresponds with POST /accounts/{account_id}/blasts (the `SendBlast` operationId).
 func (c *Client) SendBlast(ctx context.Context, accountId string, body SendBlastJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewSendBlastRequest(c.Server, accountId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListBlockedContacts List blocked contacts
+//
+// Lists the account's blocked contacts, newest first, with cursor-based pagination.
+//
+// Corresponds with GET /accounts/{account_id}/blocked_contacts (the `ListBlockedContacts` operationId).
+func (c *Client) ListBlockedContacts(ctx context.Context, accountId string, params *ListBlockedContactsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListBlockedContactsRequest(c.Server, accountId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateBlockedContactWithBody Block a contact
+//
+// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+//
+// Blocks are independent of regular contacts and outbound messaging consent.
+// Repeated requests return the existing block without changing its reason or creation time.
+//
+// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+// Consent keywords such as STOP and START still update messaging consent and retain
+// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+//
+// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+// These calls contribute zero billable minutes.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+func (c *Client) CreateBlockedContactWithBody(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateBlockedContactRequestWithBody(c.Server, accountId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateBlockedContact Block a contact
+//
+// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+//
+// Blocks are independent of regular contacts and outbound messaging consent.
+// Repeated requests return the existing block without changing its reason or creation time.
+//
+// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+// Consent keywords such as STOP and START still update messaging consent and retain
+// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+//
+// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+// These calls contribute zero billable minutes.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+func (c *Client) CreateBlockedContact(ctx context.Context, accountId string, body CreateBlockedContactJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateBlockedContactRequest(c.Server, accountId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -7356,6 +7560,23 @@ func (c *Client) AddContactToAudienceWithBody(ctx context.Context, audienceId st
 // Corresponds with POST /audiences/{audience_id}/contacts (the `AddContactToAudience` operationId).
 func (c *Client) AddContactToAudience(ctx context.Context, audienceId string, body AddContactToAudienceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewAddContactToAudienceRequest(c.Server, audienceId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DeleteBlockedContact Unblock a contact
+//
+// Removes the block without changing contacts, message history, or messaging consent.
+//
+// Corresponds with DELETE /blocked_contacts/{id} (the `DeleteBlockedContact` operationId).
+func (c *Client) DeleteBlockedContact(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteBlockedContactRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -8109,6 +8330,126 @@ func NewSendBlastRequestWithBody(server string, accountId string, contentType st
 	}
 
 	operationPath := fmt.Sprintf("/accounts/%s/blasts", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewListBlockedContactsRequest constructs an http.Request for the ListBlockedContacts method
+func NewListBlockedContactsRequest(server string, accountId string, params *ListBlockedContactsParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "account_id", accountId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/accounts/%s/blocked_contacts", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Before != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "before", *params.Before, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCreateBlockedContactRequest calls the generic CreateBlockedContact builder with application/json body
+func NewCreateBlockedContactRequest(server string, accountId string, body CreateBlockedContactJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateBlockedContactRequestWithBody(server, accountId, "application/json", bodyReader)
+}
+
+// NewCreateBlockedContactRequestWithBody constructs an http.Request for the CreateBlockedContact method, with any body, and a specified content type
+func NewCreateBlockedContactRequestWithBody(server string, accountId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "account_id", accountId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/accounts/%s/blocked_contacts", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -9397,6 +9738,40 @@ func NewAddContactToAudienceRequestWithBody(server string, audienceId string, co
 	return req, nil
 }
 
+// NewDeleteBlockedContactRequest constructs an http.Request for the DeleteBlockedContact method
+func NewDeleteBlockedContactRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/blocked_contacts/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetCampaignRequest constructs an http.Request for the GetCampaign method
 func NewGetCampaignRequest(server string, id string) (*http.Request, error) {
 	var err error
@@ -10218,6 +10593,59 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /accounts/{account_id}/blasts (the `SendBlast` operationId).
 	SendBlastWithResponse(ctx context.Context, accountId string, body SendBlastJSONRequestBody, reqEditors ...RequestEditorFn) (*SendBlastResponse, error)
 
+	// ListBlockedContactsWithResponse List blocked contacts
+	//
+	// Lists the account's blocked contacts, newest first, with cursor-based pagination.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /accounts/{account_id}/blocked_contacts (the `ListBlockedContacts` operationId).
+	ListBlockedContactsWithResponse(ctx context.Context, accountId string, params *ListBlockedContactsParams, reqEditors ...RequestEditorFn) (*ListBlockedContactsResponse, error)
+
+	// CreateBlockedContactWithBodyWithResponse Block a contact
+	//
+	// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+	// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+	// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+	//
+	// Blocks are independent of regular contacts and outbound messaging consent.
+	// Repeated requests return the existing block without changing its reason or creation time.
+	//
+	// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+	// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+	// Consent keywords such as STOP and START still update messaging consent and retain
+	// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+	//
+	// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+	// These calls contribute zero billable minutes.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+	CreateBlockedContactWithBodyWithResponse(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateBlockedContactResponse, error)
+
+	// CreateBlockedContactWithResponse Block a contact
+	//
+	// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+	// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+	// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+	//
+	// Blocks are independent of regular contacts and outbound messaging consent.
+	// Repeated requests return the existing block without changing its reason or creation time.
+	//
+	// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+	// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+	// Consent keywords such as STOP and START still update messaging consent and retain
+	// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+	//
+	// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+	// These calls contribute zero billable minutes.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+	CreateBlockedContactWithResponse(ctx context.Context, accountId string, body CreateBlockedContactJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateBlockedContactResponse, error)
+
 	// ResendBrandVerificationMessageWithResponse Resend brand verification OTP
 	//
 	// Enqueues an SMS OTP for a sole proprietor brand awaiting identity verification.
@@ -10541,6 +10969,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with POST /audiences/{audience_id}/contacts (the `AddContactToAudience` operationId).
 	AddContactToAudienceWithResponse(ctx context.Context, audienceId string, body AddContactToAudienceJSONRequestBody, reqEditors ...RequestEditorFn) (*AddContactToAudienceResponse, error)
+
+	// DeleteBlockedContactWithResponse Unblock a contact
+	//
+	// Removes the block without changing contacts, message history, or messaging consent.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /blocked_contacts/{id} (the `DeleteBlockedContact` operationId).
+	DeleteBlockedContactWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*DeleteBlockedContactResponse, error)
 
 	// GetCampaignWithResponse Retrieve a campaign
 	//
@@ -11006,6 +11443,109 @@ func (r SendBlastResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r SendBlastResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListBlockedContactsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *BlockedContactList
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListBlockedContactsResponse) GetJSON200() *BlockedContactList {
+	return r.JSON200
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r ListBlockedContactsResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r ListBlockedContactsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListBlockedContactsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListBlockedContactsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListBlockedContactsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateBlockedContactResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *BlockedContact
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *BlockedContact
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r CreateBlockedContactResponse) GetJSON200() *BlockedContact {
+	return r.JSON200
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateBlockedContactResponse) GetJSON201() *BlockedContact {
+	return r.JSON201
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r CreateBlockedContactResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateBlockedContactResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateBlockedContactResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateBlockedContactResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateBlockedContactResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -12151,6 +12691,54 @@ func (r AddContactToAudienceResponse) ContentType() string {
 	return ""
 }
 
+type DeleteBlockedContactResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *BlockedContact
+	// JSONDefault the response for an HTTP default `application/json` response
+	JSONDefault *ErrorResponse
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r DeleteBlockedContactResponse) GetJSON200() *BlockedContact {
+	return r.JSON200
+}
+
+// GetJSONDefault returns the response for an HTTP default `application/json` response
+func (r DeleteBlockedContactResponse) GetJSONDefault() *ErrorResponse {
+	return r.JSONDefault
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteBlockedContactResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteBlockedContactResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteBlockedContactResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteBlockedContactResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetCampaignResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -13158,6 +13746,77 @@ func (c *ClientWithResponses) SendBlastWithResponse(ctx context.Context, account
 	return ParseSendBlastResponse(rsp)
 }
 
+// ListBlockedContactsWithResponse List blocked contacts
+//
+// Lists the account's blocked contacts, newest first, with cursor-based pagination.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /accounts/{account_id}/blocked_contacts (the `ListBlockedContacts` operationId).
+func (c *ClientWithResponses) ListBlockedContactsWithResponse(ctx context.Context, accountId string, params *ListBlockedContactsParams, reqEditors ...RequestEditorFn) (*ListBlockedContactsResponse, error) {
+	rsp, err := c.ListBlockedContacts(ctx, accountId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListBlockedContactsResponse(rsp)
+}
+
+// CreateBlockedContactWithBodyWithResponse Block a contact
+//
+// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+//
+// Blocks are independent of regular contacts and outbound messaging consent.
+// Repeated requests return the existing block without changing its reason or creation time.
+//
+// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+// Consent keywords such as STOP and START still update messaging consent and retain
+// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+//
+// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+// These calls contribute zero billable minutes.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+func (c *ClientWithResponses) CreateBlockedContactWithBodyWithResponse(ctx context.Context, accountId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateBlockedContactResponse, error) {
+	rsp, err := c.CreateBlockedContactWithBody(ctx, accountId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateBlockedContactResponse(rsp)
+}
+
+// CreateBlockedContactWithResponse Block a contact
+//
+// Blocks incoming calls handled by Surge and incoming SMS/MMS from a phone number
+// across the account. Direct SIP-trunk and AI-agent SIP calls are not currently filtered.
+// Phone numbers are normalized to E.164. Short codes and alphanumeric sender IDs are not supported.
+//
+// Blocks are independent of regular contacts and outbound messaging consent.
+// Repeated requests return the existing block without changing its reason or creation time.
+//
+// Blocked messages do not trigger ordinary inbox activity or message.received webhooks.
+// They retain a metadata-only receipt and count toward normal inbound messaging usage.
+// Consent keywords such as STOP and START still update messaging consent and retain
+// their keyword replies and contact.opted_in/contact.opted_out webhooks.
+//
+// Blocked calls remain in call history and emit call.ended with status blocked and duration zero.
+// These calls contribute zero billable minutes.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /accounts/{account_id}/blocked_contacts (the `CreateBlockedContact` operationId).
+func (c *ClientWithResponses) CreateBlockedContactWithResponse(ctx context.Context, accountId string, body CreateBlockedContactJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateBlockedContactResponse, error) {
+	rsp, err := c.CreateBlockedContact(ctx, accountId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateBlockedContactResponse(rsp)
+}
+
 // ResendBrandVerificationMessageWithResponse Resend brand verification OTP
 //
 // Enqueues an SMS OTP for a sole proprietor brand awaiting identity verification.
@@ -13672,6 +14331,21 @@ func (c *ClientWithResponses) AddContactToAudienceWithResponse(ctx context.Conte
 		return nil, err
 	}
 	return ParseAddContactToAudienceResponse(rsp)
+}
+
+// DeleteBlockedContactWithResponse Unblock a contact
+//
+// Removes the block without changing contacts, message history, or messaging consent.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /blocked_contacts/{id} (the `DeleteBlockedContact` operationId).
+func (c *ClientWithResponses) DeleteBlockedContactWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*DeleteBlockedContactResponse, error) {
+	rsp, err := c.DeleteBlockedContact(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteBlockedContactResponse(rsp)
 }
 
 // GetCampaignWithResponse Retrieve a campaign
@@ -14201,6 +14875,79 @@ func ParseSendBlastResponse(rsp *http.Response) (*SendBlastResponse, error) {
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
 		var dest Blast
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListBlockedContactsResponse parses an HTTP response from a ListBlockedContactsWithResponse call
+func ParseListBlockedContactsResponse(rsp *http.Response) (*ListBlockedContactsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListBlockedContactsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest BlockedContactList
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateBlockedContactResponse parses an HTTP response from a CreateBlockedContactWithResponse call
+func ParseCreateBlockedContactResponse(rsp *http.Response) (*CreateBlockedContactResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateBlockedContactResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest BlockedContact
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest BlockedContact
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -15014,6 +15761,39 @@ func ParseAddContactToAudienceResponse(rsp *http.Response) (*AddContactToAudienc
 			return nil, err
 		}
 		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSONDefault = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteBlockedContactResponse parses an HTTP response from a DeleteBlockedContactWithResponse call
+func ParseDeleteBlockedContactResponse(rsp *http.Response) (*DeleteBlockedContactResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteBlockedContactResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest BlockedContact
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && true:
 		var dest ErrorResponse

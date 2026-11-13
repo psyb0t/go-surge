@@ -2,6 +2,16 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.4.0, 2026-11-13
+
+- Added the blocked contact operations: `GET /accounts/{account_id}/blocked_contacts` (`Client.ListBlockedContacts`), `POST /accounts/{account_id}/blocked_contacts` (`Client.CreateBlockedContact`, `Client.CreateBlockedContactWithBody`) and `DELETE /blocked_contacts/{id}` (`Client.DeleteBlockedContact`).
+- Added the matching `ClientWithResponses` methods `ListBlockedContactsWithResponse`, `CreateBlockedContactWithResponse`, `CreateBlockedContactWithBodyWithResponse` and `DeleteBlockedContactWithResponse`, the request builders `NewListBlockedContactsRequest`, `NewCreateBlockedContactRequest`, `NewCreateBlockedContactRequestWithBody` and `NewDeleteBlockedContactRequest`, and the parsers `ParseListBlockedContactsResponse`, `ParseCreateBlockedContactResponse` and `ParseDeleteBlockedContactResponse`.
+- Added the models `BlockedContact` (`Id`, `PhoneNumber`, `Reason`, `CreatedAt`), `BlockedContactList`, `BlockedContactParams`, `ListBlockedContactsParams` and `CreateBlockedContactJSONRequestBody`, plus the response types `ListBlockedContactsResponse`, `CreateBlockedContactResponse` and `DeleteBlockedContactResponse`.
+- Added the `blocked` call status: `CallEndedEventDataStatusBlocked`, `RecordingCallStatusBlocked`, `RecordingCompletedEventDataCallStatusBlocked` and `VoicemailReceivedEventDataCallStatusBlocked`.
+- Added the `canadian_registry_id` identifier type: `OrganizationIdentifierTypeCanadianRegistryId` and `OrganizationParamsIdentifierTypeCanadianRegistryId`.
+- Breaking for custom implementations: `ClientInterface` gained `ListBlockedContacts`, `CreateBlockedContact`, `CreateBlockedContactWithBody` and `DeleteBlockedContact`, and `ClientWithResponsesInterface` gained the four matching `WithResponse` methods. Mocks or wrappers that implement either interface must add them. Code that only uses `Client` and `ClientWithResponses` needs no change.
+- Raised the minimum Go version in `go.mod` from 1.26.10 to 1.26.11 and moved the development image to `golang:1.26.11-trixie`. The new toolchain fixes the `net/http` vulnerability GO-2026-6859 found by govulncheck.
+
 ## v0.3.0, 2026-11-08
 
 - Added the account usage operation, `GET /accounts/{account_id}/usage`: `Client.RetrieveAccountUsage`, `ClientWithResponses.RetrieveAccountUsageWithResponse`, `NewRetrieveAccountUsageRequest`, `ParseRetrieveAccountUsageResponse` and `RetrieveAccountUsageResponse`. It returns priced usage for an account between `start_time` (inclusive) and `end_time` (exclusive).
