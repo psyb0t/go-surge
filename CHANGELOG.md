@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.0, 2026-11-18
+
+- Breaking: `ListAvailablePhoneNumbersParams.Type` is now `*ListAvailablePhoneNumbersParamsType` and optional. Callers that set it must pass a pointer. `NewListAvailablePhoneNumbersRequest` sends the `type` query parameter only when it is set.
+- Added Australia support: `AvailablePhoneNumberCountryAU` and `ListAvailablePhoneNumbersParamsCountryAU`.
+- Added the `mobile` number type: `AvailablePhoneNumberTypeMobile`, `ListAvailablePhoneNumbersParamsTypeMobile` and `PhoneNumberPurchaseParamsTypeMobile`.
+- Added `PhoneNumberPurchaseParams.Country` with the new type `PhoneNumberPurchaseParamsCountry` and the values `PhoneNumberPurchaseParamsCountryAU`, `PhoneNumberPurchaseParamsCountryCA` and `PhoneNumberPurchaseParamsCountryUS`. Each has a `Valid` method.
+- Updated the docs for `PhoneNumberPurchaseParams`, `AvailablePhoneNumber.Type` and `ListAvailablePhoneNumbers`: AU needs an approved Australia registration, and the purchase type defaults to mobile for AU.
+
 ## v0.4.0, 2026-11-13
 
 - Added the blocked contact operations: `GET /accounts/{account_id}/blocked_contacts` (`Client.ListBlockedContacts`), `POST /accounts/{account_id}/blocked_contacts` (`Client.CreateBlockedContact`, `Client.CreateBlockedContactWithBody`) and `DELETE /blocked_contacts/{id}` (`Client.DeleteBlockedContact`).

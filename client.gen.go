@@ -149,6 +149,7 @@ func (e AttachmentType) Valid() bool {
 
 // Defines values for AvailablePhoneNumberCountry.
 const (
+	AvailablePhoneNumberCountryAU AvailablePhoneNumberCountry = "AU"
 	AvailablePhoneNumberCountryCA AvailablePhoneNumberCountry = "CA"
 	AvailablePhoneNumberCountryUS AvailablePhoneNumberCountry = "US"
 )
@@ -156,6 +157,8 @@ const (
 // Valid indicates whether the value is a known member of the AvailablePhoneNumberCountry enum.
 func (e AvailablePhoneNumberCountry) Valid() bool {
 	switch e {
+	case AvailablePhoneNumberCountryAU:
+		return true
 	case AvailablePhoneNumberCountryCA:
 		return true
 	case AvailablePhoneNumberCountryUS:
@@ -168,6 +171,7 @@ func (e AvailablePhoneNumberCountry) Valid() bool {
 // Defines values for AvailablePhoneNumberType.
 const (
 	AvailablePhoneNumberTypeLocal    AvailablePhoneNumberType = "local"
+	AvailablePhoneNumberTypeMobile   AvailablePhoneNumberType = "mobile"
 	AvailablePhoneNumberTypeTollFree AvailablePhoneNumberType = "toll_free"
 )
 
@@ -175,6 +179,8 @@ const (
 func (e AvailablePhoneNumberType) Valid() bool {
 	switch e {
 	case AvailablePhoneNumberTypeLocal:
+		return true
+	case AvailablePhoneNumberTypeMobile:
 		return true
 	case AvailablePhoneNumberTypeTollFree:
 		return true
@@ -1749,9 +1755,31 @@ func (e PhoneNumberImportedEventType) Valid() bool {
 	}
 }
 
+// Defines values for PhoneNumberPurchaseParamsCountry.
+const (
+	PhoneNumberPurchaseParamsCountryAU PhoneNumberPurchaseParamsCountry = "AU"
+	PhoneNumberPurchaseParamsCountryCA PhoneNumberPurchaseParamsCountry = "CA"
+	PhoneNumberPurchaseParamsCountryUS PhoneNumberPurchaseParamsCountry = "US"
+)
+
+// Valid indicates whether the value is a known member of the PhoneNumberPurchaseParamsCountry enum.
+func (e PhoneNumberPurchaseParamsCountry) Valid() bool {
+	switch e {
+	case PhoneNumberPurchaseParamsCountryAU:
+		return true
+	case PhoneNumberPurchaseParamsCountryCA:
+		return true
+	case PhoneNumberPurchaseParamsCountryUS:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PhoneNumberPurchaseParamsType.
 const (
 	PhoneNumberPurchaseParamsTypeLocal    PhoneNumberPurchaseParamsType = "local"
+	PhoneNumberPurchaseParamsTypeMobile   PhoneNumberPurchaseParamsType = "mobile"
 	PhoneNumberPurchaseParamsTypeTollFree PhoneNumberPurchaseParamsType = "toll_free"
 )
 
@@ -1759,6 +1787,8 @@ const (
 func (e PhoneNumberPurchaseParamsType) Valid() bool {
 	switch e {
 	case PhoneNumberPurchaseParamsTypeLocal:
+		return true
+	case PhoneNumberPurchaseParamsTypeMobile:
 		return true
 	case PhoneNumberPurchaseParamsTypeTollFree:
 		return true
@@ -2588,6 +2618,7 @@ func (e VoicemailReceivedEventType) Valid() bool {
 
 // Defines values for ListAvailablePhoneNumbersParamsCountry.
 const (
+	ListAvailablePhoneNumbersParamsCountryAU ListAvailablePhoneNumbersParamsCountry = "AU"
 	ListAvailablePhoneNumbersParamsCountryCA ListAvailablePhoneNumbersParamsCountry = "CA"
 	ListAvailablePhoneNumbersParamsCountryUS ListAvailablePhoneNumbersParamsCountry = "US"
 )
@@ -2595,6 +2626,8 @@ const (
 // Valid indicates whether the value is a known member of the ListAvailablePhoneNumbersParamsCountry enum.
 func (e ListAvailablePhoneNumbersParamsCountry) Valid() bool {
 	switch e {
+	case ListAvailablePhoneNumbersParamsCountryAU:
+		return true
 	case ListAvailablePhoneNumbersParamsCountryCA:
 		return true
 	case ListAvailablePhoneNumbersParamsCountryUS:
@@ -2607,6 +2640,7 @@ func (e ListAvailablePhoneNumbersParamsCountry) Valid() bool {
 // Defines values for ListAvailablePhoneNumbersParamsType.
 const (
 	ListAvailablePhoneNumbersParamsTypeLocal    ListAvailablePhoneNumbersParamsType = "local"
+	ListAvailablePhoneNumbersParamsTypeMobile   ListAvailablePhoneNumbersParamsType = "mobile"
 	ListAvailablePhoneNumbersParamsTypeTollFree ListAvailablePhoneNumbersParamsType = "toll_free"
 )
 
@@ -2614,6 +2648,8 @@ const (
 func (e ListAvailablePhoneNumbersParamsType) Valid() bool {
 	switch e {
 	case ListAvailablePhoneNumbersParamsTypeLocal:
+		return true
+	case ListAvailablePhoneNumbersParamsTypeMobile:
 		return true
 	case ListAvailablePhoneNumbersParamsTypeTollFree:
 		return true
@@ -2845,7 +2881,7 @@ type AvailablePhoneNumber struct {
 	// Example: +18015551234
 	Number string `json:"number"`
 
-	// Type Whether the phone number is local or toll-free
+	// Type The inventory type of the available phone number. Purchased Australian mobile numbers use the local type.
 	//
 	// Example: local
 	Type AvailablePhoneNumberType `json:"type"`
@@ -2856,7 +2892,7 @@ type AvailablePhoneNumber struct {
 // Example: US
 type AvailablePhoneNumberCountry string
 
-// AvailablePhoneNumberType Whether the phone number is local or toll-free
+// AvailablePhoneNumberType The inventory type of the available phone number. Purchased Australian mobile numbers use the local type.
 //
 // Example: local
 type AvailablePhoneNumberType string
@@ -4483,11 +4519,13 @@ type PhoneNumberList struct {
 }
 
 // PhoneNumberPurchaseParams Parameters for purchasing a new phone number. The system will automatically infer the type in certain cases:
+// - If country is AU, type defaults to mobile
 // - If only area_code is provided, type is inferred from the area code
 // - If only latitude/longitude are provided, type is inferred as 'local'
 // - Otherwise, type must be explicitly specified
 //
 // If phone_number is provided, all other search parameters are ignored.
+// For Australian mobile inventory, use country AU without area code or coordinate filters.
 //
 // Example: {"type":"local"}
 type PhoneNumberPurchaseParams struct {
@@ -4495,6 +4533,11 @@ type PhoneNumberPurchaseParams struct {
 	//
 	// Example: 801
 	AreaCode *string `json:"area_code,omitempty"`
+
+	// Country ISO country code for inventory. AU requires an approved Australia registration and searches mobile numbers only.
+	//
+	// Example: US
+	Country *PhoneNumberPurchaseParamsCountry `json:"country,omitempty"`
 
 	// Latitude Latitude to search for nearby phone numbers. Must be used with longitude. If provided without type, type will be inferred as 'local'.
 	//
@@ -4519,13 +4562,18 @@ type PhoneNumberPurchaseParams struct {
 	// Example: +18015551234
 	PhoneNumber *string `json:"phone_number,omitempty"`
 
-	// Type Whether the phone number is local or toll-free. Can be omitted if area_code or latitude/longitude are provided.
+	// Type Number type to search for. Defaults to mobile for AU. For US and Canada, the type can be inferred from area_code or latitude and longitude.
 	//
 	// Example: local
 	Type *PhoneNumberPurchaseParamsType `json:"type,omitempty"`
 }
 
-// PhoneNumberPurchaseParamsType Whether the phone number is local or toll-free. Can be omitted if area_code or latitude/longitude are provided.
+// PhoneNumberPurchaseParamsCountry ISO country code for inventory. AU requires an approved Australia registration and searches mobile numbers only.
+//
+// Example: US
+type PhoneNumberPurchaseParamsCountry string
+
+// PhoneNumberPurchaseParamsType Number type to search for. Defaults to mobile for AU. For US and Canada, the type can be inferred from area_code or latitude and longitude.
 //
 // Example: local
 type PhoneNumberPurchaseParamsType string
@@ -5156,7 +5204,7 @@ type ListAccountsParams struct {
 type ListAvailablePhoneNumbersParams struct {
 	AreaCode *string                                 `form:"area_code,omitempty" json:"area_code,omitempty"`
 	Country  *ListAvailablePhoneNumbersParamsCountry `form:"country,omitempty" json:"country,omitempty"`
-	Type     ListAvailablePhoneNumbersParamsType     `form:"type" json:"type"`
+	Type     *ListAvailablePhoneNumbersParamsType    `form:"type,omitempty" json:"type,omitempty"`
 	After    *string                                 `form:"after,omitempty" json:"after,omitempty"`
 	Before   *string                                 `form:"before,omitempty" json:"before,omitempty"`
 }
@@ -6138,6 +6186,8 @@ type ClientInterface interface {
 	//
 	// Browse purchasable phone numbers from Surge inventory before buying.
 	//
+	// Use country=AU to browse Australian mobile numbers with an approved Australia registration.
+	//
 	// Pagination cursors are always null for now.
 	//
 	// Corresponds with GET /accounts/{account_id}/available_phone_numbers (the `ListAvailablePhoneNumbers` operationId).
@@ -6819,6 +6869,8 @@ func (c *Client) CreateAudience(ctx context.Context, accountId string, body Crea
 // ListAvailablePhoneNumbers List available phone numbers
 //
 // Browse purchasable phone numbers from Surge inventory before buying.
+//
+// Use country=AU to browse Australian mobile numbers with an approved Australia registration.
 //
 // Pagination cursors are always null for now.
 //
@@ -8256,12 +8308,16 @@ func NewListAvailablePhoneNumbersRequest(server string, accountId string, params
 
 		}
 
-		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "type", params.Type, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
-			return nil, err
-		} else {
-			for _, qp := range strings.Split(queryFrag, "&") {
-				rawQueryFragments = append(rawQueryFragments, qp)
+		if params.Type != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "type", *params.Type, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
 			}
+
 		}
 
 		if params.After != nil {
@@ -10567,6 +10623,8 @@ type ClientWithResponsesInterface interface {
 	// ListAvailablePhoneNumbersWithResponse List available phone numbers
 	//
 	// Browse purchasable phone numbers from Surge inventory before buying.
+	//
+	// Use country=AU to browse Australian mobile numbers with an approved Australia registration.
 	//
 	// Pagination cursors are always null for now.
 	//
@@ -13702,6 +13760,8 @@ func (c *ClientWithResponses) CreateAudienceWithResponse(ctx context.Context, ac
 // ListAvailablePhoneNumbersWithResponse List available phone numbers
 //
 // Browse purchasable phone numbers from Surge inventory before buying.
+//
+// Use country=AU to browse Australian mobile numbers with an approved Australia registration.
 //
 // Pagination cursors are always null for now.
 //
