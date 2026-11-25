@@ -2,6 +2,11 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.1, 2026-11-25
+
+- Added the `alphanumeric` sender type: `ConversationPhoneNumberTypeAlphanumeric`, `PhoneNumberTypeAlphanumeric`, `PhoneNumberAttachedToCampaignEventDataTypeAlphanumeric` and `PhoneNumberImportedEventDataTypeAlphanumeric`. Each type's `Valid` method now accepts `alphanumeric`.
+- Updated the docs for `BlastParams.From`, the `Number` and `Type` fields on `ConversationPhoneNumber`, `PhoneNumber` and the phone number event data types: a number can now be an E.164 number, a short code or an alphanumeric sender ID.
+
 ## v0.5.0, 2026-11-18
 
 - Breaking: `ListAvailablePhoneNumbersParams.Type` is now `*ListAvailablePhoneNumbersParamsType` and optional. Callers that set it must pass a pointer. `NewListAvailablePhoneNumbersRequest` sends the `type` query parameter only when it is set.

@@ -674,15 +674,18 @@ func (e ConversationCreatedEventType) Valid() bool {
 
 // Defines values for ConversationPhoneNumberType.
 const (
-	ConversationPhoneNumberTypeDemo      ConversationPhoneNumberType = "demo"
-	ConversationPhoneNumberTypeLocal     ConversationPhoneNumberType = "local"
-	ConversationPhoneNumberTypeShortCode ConversationPhoneNumberType = "short_code"
-	ConversationPhoneNumberTypeTollFree  ConversationPhoneNumberType = "toll_free"
+	ConversationPhoneNumberTypeAlphanumeric ConversationPhoneNumberType = "alphanumeric"
+	ConversationPhoneNumberTypeDemo         ConversationPhoneNumberType = "demo"
+	ConversationPhoneNumberTypeLocal        ConversationPhoneNumberType = "local"
+	ConversationPhoneNumberTypeShortCode    ConversationPhoneNumberType = "short_code"
+	ConversationPhoneNumberTypeTollFree     ConversationPhoneNumberType = "toll_free"
 )
 
 // Valid indicates whether the value is a known member of the ConversationPhoneNumberType enum.
 func (e ConversationPhoneNumberType) Valid() bool {
 	switch e {
+	case ConversationPhoneNumberTypeAlphanumeric:
+		return true
 	case ConversationPhoneNumberTypeDemo:
 		return true
 	case ConversationPhoneNumberTypeLocal:
@@ -1640,14 +1643,17 @@ func (e OrganizationParamsType) Valid() bool {
 
 // Defines values for PhoneNumberType.
 const (
-	PhoneNumberTypeLocal     PhoneNumberType = "local"
-	PhoneNumberTypeShortCode PhoneNumberType = "short_code"
-	PhoneNumberTypeTollFree  PhoneNumberType = "toll_free"
+	PhoneNumberTypeAlphanumeric PhoneNumberType = "alphanumeric"
+	PhoneNumberTypeLocal        PhoneNumberType = "local"
+	PhoneNumberTypeShortCode    PhoneNumberType = "short_code"
+	PhoneNumberTypeTollFree     PhoneNumberType = "toll_free"
 )
 
 // Valid indicates whether the value is a known member of the PhoneNumberType enum.
 func (e PhoneNumberType) Valid() bool {
 	switch e {
+	case PhoneNumberTypeAlphanumeric:
+		return true
 	case PhoneNumberTypeLocal:
 		return true
 	case PhoneNumberTypeShortCode:
@@ -1661,14 +1667,17 @@ func (e PhoneNumberType) Valid() bool {
 
 // Defines values for PhoneNumberAttachedToCampaignEventDataType.
 const (
-	PhoneNumberAttachedToCampaignEventDataTypeLocal     PhoneNumberAttachedToCampaignEventDataType = "local"
-	PhoneNumberAttachedToCampaignEventDataTypeShortCode PhoneNumberAttachedToCampaignEventDataType = "short_code"
-	PhoneNumberAttachedToCampaignEventDataTypeTollFree  PhoneNumberAttachedToCampaignEventDataType = "toll_free"
+	PhoneNumberAttachedToCampaignEventDataTypeAlphanumeric PhoneNumberAttachedToCampaignEventDataType = "alphanumeric"
+	PhoneNumberAttachedToCampaignEventDataTypeLocal        PhoneNumberAttachedToCampaignEventDataType = "local"
+	PhoneNumberAttachedToCampaignEventDataTypeShortCode    PhoneNumberAttachedToCampaignEventDataType = "short_code"
+	PhoneNumberAttachedToCampaignEventDataTypeTollFree     PhoneNumberAttachedToCampaignEventDataType = "toll_free"
 )
 
 // Valid indicates whether the value is a known member of the PhoneNumberAttachedToCampaignEventDataType enum.
 func (e PhoneNumberAttachedToCampaignEventDataType) Valid() bool {
 	switch e {
+	case PhoneNumberAttachedToCampaignEventDataTypeAlphanumeric:
+		return true
 	case PhoneNumberAttachedToCampaignEventDataTypeLocal:
 		return true
 	case PhoneNumberAttachedToCampaignEventDataTypeShortCode:
@@ -1721,14 +1730,17 @@ func (e PhoneNumberCampaignAttachmentStatus) Valid() bool {
 
 // Defines values for PhoneNumberImportedEventDataType.
 const (
-	PhoneNumberImportedEventDataTypeLocal     PhoneNumberImportedEventDataType = "local"
-	PhoneNumberImportedEventDataTypeShortCode PhoneNumberImportedEventDataType = "short_code"
-	PhoneNumberImportedEventDataTypeTollFree  PhoneNumberImportedEventDataType = "toll_free"
+	PhoneNumberImportedEventDataTypeAlphanumeric PhoneNumberImportedEventDataType = "alphanumeric"
+	PhoneNumberImportedEventDataTypeLocal        PhoneNumberImportedEventDataType = "local"
+	PhoneNumberImportedEventDataTypeShortCode    PhoneNumberImportedEventDataType = "short_code"
+	PhoneNumberImportedEventDataTypeTollFree     PhoneNumberImportedEventDataType = "toll_free"
 )
 
 // Valid indicates whether the value is a known member of the PhoneNumberImportedEventDataType enum.
 func (e PhoneNumberImportedEventDataType) Valid() bool {
 	switch e {
+	case PhoneNumberImportedEventDataTypeAlphanumeric:
+		return true
 	case PhoneNumberImportedEventDataTypeLocal:
 		return true
 	case PhoneNumberImportedEventDataTypeShortCode:
@@ -2945,7 +2957,7 @@ type BlastParams struct {
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	Contacts *[]string `json:"contacts,omitempty"`
 
-	// From The phone number from which to send the blast. This can be either the phone number in E.164 format or a Surge phone number id. If not provided, the account's default phone number is used.
+	// From The sender for the blast. This can be either the phone number in E.164 format or a Surge phone number id. If not provided, the account's default phone number is used.
 	//
 	// Example: +18015552345
 	From *string `json:"from,omitempty"`
@@ -3650,16 +3662,16 @@ type ConversationPhoneNumber struct {
 	// Name A human-readable name for the phone number
 	Name *string `json:"name"`
 
-	// Number The canonical format of the phone number.
+	// Number The sender address: an E.164 phone number, a short code, or an alphanumeric sender ID.
 	//
 	// Example: +18015551234
 	Number string `json:"number"`
 
-	// Type Whether the phone number is local, toll-free, or short code
+	// Type Whether the phone number is alphanumeric, demo, local, short code, or toll-free
 	Type ConversationPhoneNumberType `json:"type"`
 }
 
-// ConversationPhoneNumberType Whether the phone number is local, toll-free, or short code
+// ConversationPhoneNumberType Whether the phone number is alphanumeric, demo, local, short code, or toll-free
 type ConversationPhoneNumberType string
 
 // Error An error response
@@ -4393,16 +4405,16 @@ type PhoneNumber struct {
 	// Name A human-readable name for the phone number
 	Name *string `json:"name"`
 
-	// Number The phone number in E.164 format
+	// Number The sender address: an E.164 phone number, a short code, or an alphanumeric sender ID.
 	//
 	// Example: +18015551234
 	Number string `json:"number"`
 
-	// Type Whether the phone number is local, toll-free, or short code
+	// Type Whether the phone number is alphanumeric, local, short code, or toll-free
 	Type PhoneNumberType `json:"type"`
 }
 
-// PhoneNumberType Whether the phone number is local, toll-free, or short code
+// PhoneNumberType Whether the phone number is alphanumeric, local, short code, or toll-free
 type PhoneNumberType string
 
 // PhoneNumberAttachedToCampaignEvent Example: {"account_id":"acct_01japd271aeatb7txrzr2xj8sg","data":{"campaign":{"attachment_status":"attached","id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2"},"campaign_id":"cpn_01jjnn7s0zfx5tdcsxjfy93et2","id":"pn_01jsjwe4d9fx3tpymgtg958d9w","metadata":{"location":"Downtown store"},"name":"(801) 555-1234","number":"+18015551234","type":"local"},"timestamp":"2024-10-21T23:29:41Z","type":"phone_number.attached_to_campaign"}
@@ -4428,10 +4440,10 @@ type PhoneNumberAttachedToCampaignEvent struct {
 		// Name A human-readable name for the phone number
 		Name *string `json:"name"`
 
-		// Number The phone number in E.164 format
+		// Number The sender address: an E.164 phone number, a short code, or an alphanumeric sender ID.
 		Number string `json:"number"`
 
-		// Type Whether the phone number is local, toll-free, or short code
+		// Type Whether the phone number is alphanumeric, local, short code, or toll-free
 		Type PhoneNumberAttachedToCampaignEventDataType `json:"type"`
 	} `json:"data"`
 
@@ -4442,7 +4454,7 @@ type PhoneNumberAttachedToCampaignEvent struct {
 	Type PhoneNumberAttachedToCampaignEventType `json:"type"`
 }
 
-// PhoneNumberAttachedToCampaignEventDataType Whether the phone number is local, toll-free, or short code
+// PhoneNumberAttachedToCampaignEventDataType Whether the phone number is alphanumeric, local, short code, or toll-free
 type PhoneNumberAttachedToCampaignEventDataType string
 
 // PhoneNumberAttachedToCampaignEventType The type of the event. Always `phone_number.attached_to_campaign` for this event.
@@ -4485,10 +4497,10 @@ type PhoneNumberImportedEvent struct {
 		// Name A human-readable name for the phone number
 		Name *string `json:"name"`
 
-		// Number The phone number in E.164 format
+		// Number The sender address: an E.164 phone number, a short code, or an alphanumeric sender ID.
 		Number string `json:"number"`
 
-		// Type Whether the phone number is local, toll-free, or short code
+		// Type Whether the phone number is alphanumeric, local, short code, or toll-free
 		Type PhoneNumberImportedEventDataType `json:"type"`
 	} `json:"data"`
 
@@ -4499,7 +4511,7 @@ type PhoneNumberImportedEvent struct {
 	Type PhoneNumberImportedEventType `json:"type"`
 }
 
-// PhoneNumberImportedEventDataType Whether the phone number is local, toll-free, or short code
+// PhoneNumberImportedEventDataType Whether the phone number is alphanumeric, local, short code, or toll-free
 type PhoneNumberImportedEventDataType string
 
 // PhoneNumberImportedEventType The type of the event. Always `phone_number.imported` for this event.
